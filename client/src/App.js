@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import Header from "./comps/header";
+
 function App() {
   return (
     <div className="App">
@@ -50,6 +52,7 @@ function App() {
           ></path>
         </svg>
       </header>
+      <Header />
     </div>
   );
 }

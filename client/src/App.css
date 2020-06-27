@@ -24,3 +24,94 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+/* GLOBALS----------------------------------------------------------- */
+/* fonts */
+@font-face {
+  font-family: "Gilroy-SemiBold";
+  font-style: normal;
+  src: local("Gilroy-SemiBold"),
+    url("./media/fonts/Gilroy-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  src: local("Gilroy-Light"),
+    url("./media/fonts/Gilroy-Light.woff") format("woff");
+}
+
+h1,
+.title {
+  font-family: "Gilroy-SemiBold";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 29px;
+  color: #fff;
+}
+
+h2,
+p,
+body,
+.txt {
+  font-family: "Gilroy";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.sec-txt {
+  font-family: "Gilroy-SemiBold";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.4375rem;
+  color: #fff;
+}
+.nav-txt {
+  font-family: "Gilroy";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: #fff;
+}
+.nav-txt-hlght,
+.txt-hlght {
+  font-family: "Gilroy-SemiBold";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: #fff;
+}
+.sub-txt {
+  font-family: "Gilroy";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* comps */
+body {
+  background: #212121;
+}
+
+section {
+}
+
+/* buttons */
+button {
+  font-family: "Gilroy-SemiBold";
+}
+.but-line {
+}
+.but-fill {
+}
+
+/* animations */
+
+/* classes */
