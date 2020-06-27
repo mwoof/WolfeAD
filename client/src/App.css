@@ -95,6 +95,14 @@ body,
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* spacing */
+.spacing {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+}
+
 /* comps */
 body {
   background: #212121;
@@ -115,3 +123,35 @@ button {
 /* animations */
 
 /* classes */
+
+.flex-cent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-out {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .spacing {
+    margin: auto;
+    width: 720px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .spacing {
+    margin: auto;
+    width: 940px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .spacing {
+    margin: auto;
+    width: 1140px;
+  }
+}
