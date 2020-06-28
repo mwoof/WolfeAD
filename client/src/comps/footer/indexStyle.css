@@ -1,0 +1,65 @@
+.footer-cont {
+  position: bottom;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  background: rgba(33, 33, 33, 0.85);
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "links"
+    "email"
+    "number"
+    "legal";
+  grid-row-gap: 4px;
+}
+
+.footer-cont > * {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.foot-links {
+  grid-area: links;
+}
+.foot-legal {
+  grid-area: legal;
+}
+.foot-email {
+  grid-area: email;
+}
+.foot-number {
+  grid-area: number;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-cont {
+    padding: 16px 24px;
+
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "links email"
+      "legal number";
+  }
+  .footer-cont > * {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .foot-links {
+    margin-left: -16px;
+  }
+
+  .foot-email,
+  .foot-number {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}

@@ -3,10 +3,16 @@ import React, { Component } from "react";
 //Styling
 // import "./BannerStyle.css";
 
-class Banner extends Component {
+import Landing from "../comps/Home/Landing";
+
+class Home extends Component {
   render() {
-    return <div>Hello</div>;
+    return (
+      <div>
+        <Landing />
+      </div>
+    );
   }
 }
 
-export default Banner;
+export default Home;

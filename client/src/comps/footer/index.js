@@ -1,20 +1,36 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./indexStyle.css";
 
 function App() {
-  const greeting = "Hello Function Component!";
-
   return (
-    <div className="header-cont flex-cent nav-txt flex-out">
-      <div className="">logo</div>
-      <nav>
-        <NavLink to="/" activeClassName="nav-txt-hlght">
-          Home
+    <div className="footer-cont nav-txt ">
+      <nav className="flex-cent foot-links">
+        <NavLink to="/projects" activeClassName="nav-txt">
+          Commercial
+        </NavLink>
+        <NavLink to="/projects" activeClassName="nav-txt">
+          Institutional
+        </NavLink>
+        <NavLink to="/projects" activeClassName="nav-txt">
+          Residential
+        </NavLink>
+        <NavLink to="/projects" activeClassName="nav-txt">
+          On The Boards
         </NavLink>
       </nav>
-      <div className="">nav</div>
+      <div className="sub-txt foot-legal">
+        © Wolfe Architecture & Design, LLC All rights reserved
+      </div>
+
+      <a
+        className="nav-txt-hlght foot-email"
+        href="mailto:matthew.wolfe5@gmail.com"
+      >
+        matthew.wolfe5@gmail.com
+      </a>
+      <div className="txt foot-number">314-258-0118</div>
     </div>
   );
 }

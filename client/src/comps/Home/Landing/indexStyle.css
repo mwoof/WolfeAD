@@ -1,0 +1,10 @@
+.Landing-cont {
+  width: 100%;
+  overflow: hidden;
+}
+.Landing-cont img {
+  height: 100vmin;
+  object-fit: fill;
+  box-sizing: border-box;
+  display: block;
+}
