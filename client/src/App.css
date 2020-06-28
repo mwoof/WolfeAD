@@ -120,16 +120,18 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-
 .flex-col {
   display: flex;
   flex-direction: column;
 }
+.flex-col-out {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .flex-col-rit {
   display: flex;
-
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: flex-end;
 }
 
@@ -143,12 +145,17 @@ button {
 /* LOCALS-------------------------------------------------------------------- */
 .content-cont {
   width: 100%;
+  min-height: 100vw;
   overflow-x: hidden;
 }
 .content-wrap {
   display: grid;
   grid-template-columns: 100% 200px;
 }
+.content-wrap {
+  background: red;
+}
+
 .cont-act-sidNav {
   transform: translateX(-200px);
 }

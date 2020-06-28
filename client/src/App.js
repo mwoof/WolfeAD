@@ -61,7 +61,7 @@ class App extends Component {
                 <Route path="/admin" component={Admin} />
               </Switch>
             </div>
-            <SideNav />
+            <SideNav sideNav={sideNav} />
           </div>
         </div>
         <Footer />

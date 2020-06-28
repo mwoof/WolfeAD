@@ -1,14 +1,11 @@
-.sidNav-cont {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-}
 .sidNav-wrap {
-  position: absolute;
+  position: fixed;
   top: 64px;
-  right: 0;
-  width: 100%;
+  right: -200px;
   height: Calc(100% - 64px);
+}
+.siNav-foot > * {
+  height: 24px;
 }
 
 .sidNav-div {
