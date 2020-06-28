@@ -12,12 +12,36 @@ import Rendering from "./pages/Rendering";
 import Admin from "./pages/Admin";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      sideNav: false
+      sideNav: false,
+      headHeight: 56
     };
+    // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.setHead, false);
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.setHead, false);
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+  updateWindowDimensions = () => {
+    window.innerWidth > 768 && this.setState({ sideNav: false });
+  };
+  setHead = () => {
+    const { headHeight } = this.state;
+    headHeight !== 48 &&
+      window.pageYOffset > 3 &&
+      this.setState({ headHeight: 48 });
+    headHeight !== 56 &&
+      window.pageYOffset <= 3 &&
+      this.setState({ headHeight: 56 });
+  };
 
   openSideNav = () => {
     this.setState({
@@ -26,25 +50,24 @@ class App extends Component {
   };
 
   render() {
+    const { sideNav, headHeight } = this.state;
+
     return (
       <Router>
-        <Header openSideNav={this.openSideNav} />
-        <div
-          className="content-cont"
-          style={{
-            gridTemplateColumns: `100% ${this.state.sideNav ? "200px" : 0}`,
-            marginLeft: `${this.state.sideNav ? "-200px" : 0}`
-          }}
-        >
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/projects" component={Projects} />
-            <Route path="/rendering" component={Rendering} />
-            <Route path="/admin" component={Admin} />
-          </Switch>
-          <SideNav />
+        <Header openSideNav={this.openSideNav} height={headHeight} />
+        <div className="content-cont">
+          <div className={`content-wrap ${sideNav ? "cont-act-sidNav" : ""}`}>
+            <div className={`${sideNav ? "body-act-sidNav" : ""}`}>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/projects" component={Projects} />
+                <Route path="/rendering" component={Rendering} />
+                <Route path="/admin" component={Admin} />
+              </Switch>
+            </div>
+            <SideNav />
+          </div>
         </div>
-
         <Footer />
       </Router>
     );

@@ -7,7 +7,10 @@ import Logo from "../../media/svgs/Logo";
 
 const Header = props => {
   return (
-    <div className="header-cont flex-cent nav-txt flex-out">
+    <div
+      className="header-cont flex-cent nav-txt flex-out"
+      style={{ height: `${props.height}px` }}
+    >
       <NavLink exact to="/" className="flex-cent">
         <Logo height="24px" />
       </NavLink>

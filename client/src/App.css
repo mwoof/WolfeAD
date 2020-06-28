@@ -79,6 +79,7 @@ body,
 body {
   background: #212121;
   margin: 0;
+  /* overflow-x: hidden; */
 }
 
 section {
@@ -119,9 +120,17 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+.flex-col-rit {
+  display: flex;
+
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
 }
 
 .moile-only {
@@ -133,14 +142,24 @@ button {
 
 /* LOCALS-------------------------------------------------------------------- */
 .content-cont {
-  display: grid;
-  /* grid-template-columns: 1fr 200px; */
   width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  border: 1px solid red;
+}
+.content-wrap {
+  display: grid;
+  grid-template-columns: 100% 200px;
+  width: 100%;
+  border: 1px solid blue;
+}
+.cont-act-sidNav {
+  transform: translateX(-200px);
+}
+.body-act-sidNav {
+  opacity: 0.5;
 }
 .content-cont > * {
   min-height: Calc(100vh - 97px);
-  border: 1px solid blue;
   overflow-x: hidden;
 }
 
