@@ -143,24 +143,17 @@ button {
 /* LOCALS-------------------------------------------------------------------- */
 .content-cont {
   width: 100%;
-  /* overflow-x: hidden; */
-  border: 1px solid red;
+  overflow-x: hidden;
 }
 .content-wrap {
   display: grid;
   grid-template-columns: 100% 200px;
-  width: 100%;
-  border: 1px solid blue;
 }
 .cont-act-sidNav {
   transform: translateX(-200px);
 }
 .body-act-sidNav {
   opacity: 0.5;
-}
-.content-cont > * {
-  min-height: Calc(100vh - 97px);
-  overflow-x: hidden;
 }
 
 @media only screen and (min-width: 768px) {
@@ -174,10 +167,10 @@ button {
   .desktop-only {
     display: flex;
   }
-  .content-cont {
+  .content-wrap {
     grid-template-columns: 1fr;
   }
-  .content-cont > *:last-child {
+  .content-wrap > *:last-child {
     display: none;
   }
 }

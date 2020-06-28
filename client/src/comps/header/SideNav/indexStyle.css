@@ -1,4 +1,16 @@
 .sidNav-cont {
-  padding: 56px 16px;
-  background: red;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.sidNav-wrap {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  width: 100%;
+  height: Calc(100% - 64px);
+}
+
+.sidNav-div {
+  margin: 16px 16px 16px 0;
 }

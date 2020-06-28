@@ -16,16 +16,13 @@ class App extends Component {
     super(props);
     this.state = {
       sideNav: false,
-      headHeight: 56
+      headHeight: 56,
     };
-    // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-
   componentDidMount() {
     window.addEventListener("scroll", this.setHead, false);
     window.addEventListener("resize", this.updateWindowDimensions);
   }
-
   componentWillUnmount() {
     window.removeEventListener("scroll", this.setHead, false);
     window.removeEventListener("resize", this.updateWindowDimensions);
@@ -42,10 +39,9 @@ class App extends Component {
       window.pageYOffset <= 3 &&
       this.setState({ headHeight: 56 });
   };
-
   openSideNav = () => {
     this.setState({
-      sideNav: !this.state.sideNav
+      sideNav: !this.state.sideNav,
     });
   };
 
