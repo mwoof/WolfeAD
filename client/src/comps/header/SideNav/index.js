@@ -17,7 +17,7 @@ const SideNav = (props) => {
         <NavLink to="/rendering" activeClassName="nav-txt-hlght">
           Rendering
         </NavLink>
-        <Line width="32px" calsses="sidNav-div" />
+        <Line width="32px" className="sidNav-div" />
         <NavLink to="/projects" activeClassName="nav-txt-hlght">
           Login
         </NavLink>

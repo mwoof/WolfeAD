@@ -5,7 +5,7 @@ import "./indexStyle.css";
 const Landing = (props) => {
   return (
     <div
-      className={`gen-lin ${props.calsses}`}
+      className={`gen-lin ${props.className}`}
       style={{ width: props.width, height: 0 }}
     ></div>
   );
