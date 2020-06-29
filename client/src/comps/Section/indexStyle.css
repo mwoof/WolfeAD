@@ -1,9 +1,10 @@
 section {
   box-sizing: border-box;
-  margin: 40px auto;
+  margin: auto;
   padding: 0 16px;
   display: grid;
   grid-template-columns: 1fr;
+  grid-row-gap: 24px;
   grid-template-areas:
     "lbl"
     "mida"
@@ -25,7 +26,6 @@ section > * {
 
 .sect-lbl > * {
   padding-bottom: 14px;
-  margin-bottom: 24px;
 }
 .sect-lbl-lin {
   position: absolute;
@@ -49,16 +49,14 @@ section > * {
   z-index: -1;
   width: 100%;
   height: 100%;
-  top: -8px;
-  left: -8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
 }
 .med-shad-top {
   top: -8px;
   left: -8px;
 }
 .med-shad-bot {
-  top: -8px;
+  right: -8px;
   bottom: -8px;
 }
 
@@ -71,6 +69,7 @@ section > * {
     padding: 0;
     width: 720px;
     grid-column-gap: 32px;
+    grid-row-gap: 24px;
     grid-template-columns: 300px 1fr;
     grid-template-areas:
       "lbl lbl"
@@ -93,7 +92,7 @@ section > * {
     left: -20px;
   }
   .med-shad-bot {
-    top: -20px;
+    right: -20px;
     bottom: -20px;
   }
 }
@@ -102,6 +101,7 @@ section > * {
   section {
     width: 940px;
     grid-column-gap: 32px;
+    grid-row-gap: 0;
     grid-template-columns: 100px 300px 1fr;
     grid-template-areas: "lbl txt mida";
   }
@@ -117,7 +117,7 @@ section > * {
     left: -30px;
   }
   .med-shad-bot {
-    top: -30px;
+    right: -30px;
     bottom: -30px;
   }
 }
@@ -144,7 +144,7 @@ section > * {
     left: -40px;
   }
   .med-shad-bot {
-    top: -40px;
+    right: -40px;
     bottom: -40px;
   }
 }

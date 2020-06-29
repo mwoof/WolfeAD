@@ -144,6 +144,12 @@ button {
   display: none;
 }
 
+.sec-wrap {
+  margin-top: 32px;
+}
+.sec-wrap > * {
+  margin-bottom: 120px;
+}
 /* LOCALS-------------------------------------------------------------------- */
 .content-cont {
   width: 100%;
@@ -155,7 +161,6 @@ button {
   display: grid;
   grid-template-columns: 100% 200px;
 }
-
 .cont-act-sidNav {
   transform: translateX(-200px);
 }
@@ -180,6 +185,12 @@ button {
   .content-wrap > *:last-child {
     display: none;
   }
+  .sec-wrap {
+    margin-top: 48px;
+  }
+  .sec-wrap > * {
+    margin-bottom: 80px;
+  }
 }
 
 @media only screen and (min-width: 960px) {
@@ -187,11 +198,24 @@ button {
     margin: auto;
     width: 940px;
   }
+  .sec-wrap {
+    margin-top: 64px;
+  }
+  .sec-wrap > * {
+    margin-bottom: 120px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .spacing {
     margin: auto;
     width: 1140px;
+  }
+  .sec-wrap {
+    margin-top: 80px;
+    /* padding-top: 40px; */
+  }
+  .sec-wrap > * {
+    margin-bottom: 160px;
   }
 }

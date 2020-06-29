@@ -1,3 +1,8 @@
-.med-wrap {
+.med-wrap-rev {
   position: relative;
+}
+
+.med-wrap-rev img {
+  width: 100%;
+  height: auto;
 }
