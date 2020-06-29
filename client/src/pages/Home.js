@@ -3,10 +3,11 @@ import React, { Component } from "react";
 //Styling
 // import "./BannerStyle.css";
 import Section from "../comps/Section";
+import SectionRev from "../comps/SectionRev";
 
 import Landing from "../comps/Home/Landing";
-import ServiceTxt from "../comps/Section/ServiceTxt";
-import ServiceMdia from "../comps/Section/ServiceMdia";
+import ServiceTxt from "../comps/Section/Text";
+import ServiceMdia from "../comps/Section/Media";
 
 import ServicesImg from "../media/images/Placeholder.png";
 import AboutImg from "../media/images/Office.png";
@@ -28,7 +29,7 @@ class Home extends Component {
           text={<ServiceTxt />}
           media={<ServiceMdia image={AboutImg} />}
         />
-        <Section
+        <SectionRev
           lable="Leadership"
           media={<ServiceTxt />}
           text={<ServiceMdia image={Profile} />}
