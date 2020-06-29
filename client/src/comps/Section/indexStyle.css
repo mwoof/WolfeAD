@@ -145,7 +145,7 @@
   .sect-cont {
     width: 1140px;
     grid-column-gap: 20px;
-    grid-template-columns: 100px 350px 1fr;
+    grid-template-columns: 100px 400px 1fr;
   }
 
   .sect-lbl {

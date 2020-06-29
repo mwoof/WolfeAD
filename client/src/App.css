@@ -97,11 +97,20 @@ nav > * {
 a {
   text-decoration: none;
 }
+
 .link-button {
-  border: 1px solid red;
+  width: 160px;
 }
 .link-button svg {
   height: 24px;
+  opacity: 0.5;
+  margin-left: 8px;
+}
+.link-button:hover svg {
+  opacity: 1;
+}
+.link-button svg path {
+  fill: #fff;
 }
 
 .img-shadow {
@@ -138,6 +147,11 @@ button {
 .flex-rit {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+}
+.flex-lft {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 .flex-col-out {

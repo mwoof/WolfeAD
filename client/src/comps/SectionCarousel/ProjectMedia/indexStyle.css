@@ -1,0 +1,26 @@
+.project-car {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.project-car > * {
+  margin-right: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .project-car {
+    margin-top: 24px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .project-car {
+    margin-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .project-car {
+    margin-top: 72px;
+  }
+}

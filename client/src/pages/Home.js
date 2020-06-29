@@ -13,6 +13,7 @@ import ProjectTxt from "../comps/SectionCarousel/ProjectText";
 import ProjectAct from "../comps/SectionCarousel/ProjectAct";
 import ServiceMdia from "../comps/Section/Media";
 import SecRevMdia from "../comps/SectionRev/Media";
+import ProjectMida from "../comps/SectionCarousel/ProjectMedia";
 
 import ServicesImg from "../media/images/Placeholder.png";
 import AboutImg from "../media/images/Office.png";
@@ -34,7 +35,7 @@ class Home extends Component {
             lable="Projects"
             text={<ProjectTxt />}
             action={<ProjectAct />}
-            media={<ServiceMdia />}
+            media={<ProjectMida image={ProfileImg} />}
             image={ServicesImg}
           />
           <Section
