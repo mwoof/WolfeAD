@@ -2,25 +2,39 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .project-car > * {
   margin-right: 24px;
+}
+.project-car img {
+  height: 200px;
+  width: auto;
 }
 
 @media only screen and (min-width: 768px) {
   .project-car {
     margin-top: 24px;
   }
+  .project-car img {
+    height: 300px;
+  }
 }
 @media only screen and (min-width: 960px) {
   .project-car {
     margin-top: 48px;
+  }
+  .project-car img {
+    height: 350px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .project-car {
     margin-top: 72px;
+  }
+  .project-car img {
+    height: 500px;
   }
 }

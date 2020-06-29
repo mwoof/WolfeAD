@@ -1,8 +1,11 @@
 .sidNav-wrap {
-  position: fixed;
+  position: absolute;
   top: 64px;
   right: -200px;
-  height: Calc(100% - 64px);
+  height: Calc(100vh - 74px);
+}
+.SideNav-act {
+  right: 0;
 }
 .siNav-foot > * {
   height: 24px;

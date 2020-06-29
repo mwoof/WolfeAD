@@ -6,7 +6,11 @@ import Line from "../../Line";
 
 const SideNav = (props) => {
   return (
-    <div className="sidNav-wrap flex-col-out">
+    <div
+      className={`sidNav-wrap flex-col-out ${
+        props.sideNav ? "SideNav-act" : ""
+      }`}
+    >
       <nav className="flex-col-rit">
         <NavLink exact to="/" activeClassName="nav-txt-hlght">
           Home

@@ -50,7 +50,11 @@ class App extends Component {
 
     return (
       <Router>
-        <Header openSideNav={this.openSideNav} height={headHeight} />
+        <Header
+          openSideNav={this.openSideNav}
+          sideNav={sideNav}
+          height={headHeight}
+        />
         <div className="content-cont">
           <div className={`content-wrap ${sideNav ? "cont-act-sidNav" : ""}`}>
             <div className={`${sideNav ? "body-act-sidNav" : ""}`}>
@@ -61,7 +65,7 @@ class App extends Component {
                 <Route path="/admin" component={Admin} />
               </Switch>
             </div>
-            <SideNav sideNav={sideNav} />
+            <div></div>
           </div>
         </div>
         <Footer />
