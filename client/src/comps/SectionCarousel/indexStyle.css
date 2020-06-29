@@ -1,0 +1,30 @@
+.sect-car-cont {
+  grid-template-areas:
+    "lbl"
+    "mida"
+    "txt"
+    "act";
+}
+@media only screen and (min-width: 768px) {
+  .sect-car-cont {
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+      "lbl lbl"
+      "txt act"
+      "mida mida";
+  }
+}
+@media only screen and (min-width: 960px) {
+  .sect-car-cont {
+    grid-template-columns: 100px 300px 1fr;
+    grid-template-areas:
+      "lbl txt act"
+      ". mida mida";
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .sect-car-cont {
+    grid-template-columns: 100px 350px 1fr;
+  }
+}

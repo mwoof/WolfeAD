@@ -97,6 +97,12 @@ nav > * {
 a {
   text-decoration: none;
 }
+.link-button {
+  border: 1px solid red;
+}
+.link-button svg {
+  height: 24px;
+}
 
 .img-shadow {
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.12),

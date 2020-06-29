@@ -2,12 +2,15 @@ import React, { Component } from "react";
 
 import Section from "../comps/Section";
 import SectionRev from "../comps/SectionRev";
+import SectionCarousel from "../comps/SectionCarousel";
 
 import Landing from "../comps/Home/Landing";
 import ServiceTxt from "../comps/Section/ServText";
 import ContactTxt from "../comps/Section/ContText";
 import LeadTxt from "../comps/Section/LeadText";
 import AboutTxt from "../comps/Section/AboutText";
+import ProjectTxt from "../comps/SectionCarousel/ProjectText";
+import ProjectAct from "../comps/SectionCarousel/ProjectAct";
 import ServiceMdia from "../comps/Section/Media";
 import SecRevMdia from "../comps/SectionRev/Media";
 
@@ -27,7 +30,13 @@ class Home extends Component {
             text={<ServiceTxt />}
             media={<ServiceMdia image={ServicesImg} />}
           ></Section>
-          <Section lable="Projects" />
+          <SectionCarousel
+            lable="Projects"
+            text={<ProjectTxt />}
+            action={<ProjectAct />}
+            media={<ServiceMdia />}
+            image={ServicesImg}
+          />
           <Section
             lable="About"
             text={<AboutTxt />}
