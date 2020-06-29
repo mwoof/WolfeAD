@@ -23,6 +23,9 @@ h1,
   color: #fff;
   margin: 0;
 }
+.sub-title {
+  font-size: 1.25rem;
+}
 h2,
 p,
 body,
@@ -31,7 +34,7 @@ body,
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 300;
-  line-height: 17px;
+  line-height: 24px;
   color: rgba(255, 255, 255, 0.5);
 }
 .sec-txt {
@@ -56,7 +59,7 @@ body,
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 300;
-  line-height: 17px;
+  line-height: 24px;
   color: #fff;
 }
 .sub-txt {
@@ -125,6 +128,11 @@ button {
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+.flex-rit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .flex-col-out {
   display: flex;
@@ -207,6 +215,21 @@ button {
 }
 
 @media only screen and (min-width: 1200px) {
+  h2,
+  p,
+  body,
+  .txt,
+  .nav-txt,
+  .nav-txt-hlght,
+  .txt-hlght {
+    font-size: 1rem;
+    line-height: 28px;
+  }
+  .sub-txt {
+    font-size: 0.875rem;
+    line-height: 20px;
+  }
+
   .spacing {
     margin: auto;
     width: 1140px;

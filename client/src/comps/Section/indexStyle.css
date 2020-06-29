@@ -1,6 +1,7 @@
-section {
+.sect-cont {
   box-sizing: border-box;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
   padding: 0 16px;
   display: grid;
   grid-template-columns: 1fr;
@@ -10,7 +11,13 @@ section {
     "mida"
     "txt";
 }
-section > * {
+.rev-sect-cont {
+  grid-template-areas:
+    "lbl"
+    "txt"
+    "mida";
+}
+.sect-cont > * {
   position: relative;
 }
 
@@ -64,8 +71,17 @@ section > * {
   margin: 24px 0;
 }
 
+.Highlight-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 8px;
+}
+.Highlight-con-lin {
+  margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 768px) {
-  section {
+  .sect-cont {
     padding: 0;
     width: 720px;
     grid-column-gap: 32px;
@@ -98,7 +114,7 @@ section > * {
 }
 
 @media only screen and (min-width: 960px) {
-  section {
+  .sect-cont {
     width: 940px;
     grid-column-gap: 32px;
     grid-row-gap: 0;
@@ -123,7 +139,7 @@ section > * {
 }
 
 @media only screen and (min-width: 1200px) {
-  section {
+  .sect-cont {
     width: 1140px;
     grid-column-gap: 20px;
     grid-template-columns: 100px 350px 1fr;

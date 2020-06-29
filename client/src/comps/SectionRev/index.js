@@ -8,7 +8,7 @@ const Section = (props) => {
   console.log(props.children);
 
   return (
-    <section>
+    <section className="sect-cont rev-sect-cont">
       <div className="sect-lbl sec-txt">
         <div style={{ position: "relative" }}>
           {`${props.lable}.`}

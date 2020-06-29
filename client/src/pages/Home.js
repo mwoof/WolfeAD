@@ -4,7 +4,10 @@ import Section from "../comps/Section";
 import SectionRev from "../comps/SectionRev";
 
 import Landing from "../comps/Home/Landing";
-import ServiceTxt from "../comps/Section/Text";
+import ServiceTxt from "../comps/Section/ServText";
+import ContactTxt from "../comps/Section/ContText";
+import LeadTxt from "../comps/Section/LeadText";
+import AboutTxt from "../comps/Section/AboutText";
 import ServiceMdia from "../comps/Section/Media";
 import SecRevMdia from "../comps/SectionRev/Media";
 
@@ -27,17 +30,17 @@ class Home extends Component {
           <Section lable="Projects" />
           <Section
             lable="About"
-            text={<ServiceTxt />}
+            text={<AboutTxt />}
             media={<ServiceMdia image={AboutImg} />}
           />
           <SectionRev
             lable="Leadership"
-            media={<ServiceTxt />}
+            media={<LeadTxt />}
             text={<SecRevMdia image={ProfileImg} />}
           />
           <Section
             lable="Contact"
-            text={<ServiceTxt />}
+            text={<ContactTxt />}
             media={<ServiceMdia image={MapImg} />}
           />
         </div>
