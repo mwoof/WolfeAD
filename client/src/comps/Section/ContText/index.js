@@ -15,7 +15,7 @@ const Section = (props) => {
           mattwolfe@wolfead.net
         </a>
         <br />
-        314-960-0099
+        314-960-0099 <br /> <br />
       </p>
 
       <h1>Employment</h1>

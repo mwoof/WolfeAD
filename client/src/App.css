@@ -47,7 +47,7 @@ body,
 }
 .nav-txt {
   font-family: "Gilroy";
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: 17px;
@@ -56,11 +56,14 @@ body,
 .nav-txt-hlght,
 .txt-hlght {
   font-family: "Gilroy-SemiBold";
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: 24px;
   color: #fff;
+}
+.txt-hlght {
+  font-size: 0.875rem;
 }
 .sub-txt {
   font-family: "Gilroy";
@@ -125,6 +128,19 @@ button {
 .but-line {
 }
 .but-fill {
+}
+.svg-button {
+  padding: 4px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.svg-button svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.svg-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* animations */
@@ -218,6 +234,11 @@ button {
   }
   .sec-wrap > * {
     /* margin-bottom: 120px; */
+  }
+  .nav-txt,
+  .nav-txt-hlght,
+  .txt-hlght {
+    font-size: 0.875rem;
   }
 }
 
