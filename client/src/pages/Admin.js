@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Section from "../comps/Section";
 import SectionRev from "../comps/SectionRev";
-import SectionCarousel from "../comps/SectionCarousel";
+import SectionGall from "../comps/SectionGall";
 
 import Banner from "../comps/Banner";
 import ServiceTxt from "../comps/Section/ServText";
@@ -19,7 +19,7 @@ class Home extends Component {
         <div className="sec-wrap">
           <Section lable="Landing"></Section>
           <Section lable="Featured"></Section>
-          <Section lable="Archive"></Section>
+          <SectionGall lable="Archive"></SectionGall>
         </div>
       </div>
     );

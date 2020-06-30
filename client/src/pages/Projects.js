@@ -8,7 +8,7 @@ class Home extends Component {
     const tabs = [
       {
         title: "All Projects",
-        link: "all",
+        link: "",
       },
       {
         title: "Commercial",

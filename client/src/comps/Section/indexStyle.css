@@ -33,6 +33,9 @@
 .sect-act {
   grid-area: act;
 }
+.sect-gal {
+  grid-area: gal;
+}
 
 .sect-lbl > * {
   padding-bottom: 14px;

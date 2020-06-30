@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import Section from "../comps/Section";
-import SectionRev from "../comps/SectionRev";
-import SectionCarousel from "../comps/SectionCarousel";
+import SectionGall from "../comps/SectionGall";
 
 import Banner from "../comps/Banner";
 import ServiceTxt from "../comps/Section/ServText";
@@ -22,7 +21,7 @@ class Home extends Component {
             text={<ServiceTxt />}
             media={<ServiceMdia image={RendrImg} />}
           ></Section>
-          <Section lable="Archive"></Section>
+          <SectionGall lable="Archive"></SectionGall>
         </div>
       </div>
     );

@@ -1,0 +1,7 @@
+.sect-gal-cont {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "lbl"
+    "gal";
+  grid-row-gap: 24px;
+}

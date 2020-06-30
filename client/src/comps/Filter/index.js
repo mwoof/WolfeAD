@@ -18,6 +18,8 @@ class Filter extends Component {
         to={`/projects/${tab.link}`}
         className="button"
         activeClassName="tab-txt-hlght"
+        key={Math.random()}
+        exact
       >
         {tab.title}
       </NavLink>
