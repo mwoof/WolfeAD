@@ -1,0 +1,14 @@
+.srch-input {
+  font-size: inherit;
+  font-family: inherit;
+  color: #fff;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.srch-input::placeholder {
+  font-size: inherit;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.5);
+}

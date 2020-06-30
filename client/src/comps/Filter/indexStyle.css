@@ -6,12 +6,17 @@
   display: inline-block;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
 }
 .filt-wrap a {
   display: inline;
   padding: 10px 16px;
+
   border-radius: 0;
 }
 .tab-txt-hlght {
   border-bottom: 3px solid #fff;
+}
+.filt-but-wrap > *:not(:last-child) {
+  margin-right: 16px;
 }

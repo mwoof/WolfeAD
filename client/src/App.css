@@ -135,7 +135,7 @@ button,
   color: #fff;
   cursor: pointer;
   outline: none;
-  /* border-radius: 5px; */
+  border-radius: 5px;
 }
 button:hover,
 .button:hover {
@@ -147,6 +147,15 @@ button:hover,
 }
 .but-fill {
 }
+.svg-button-sml {
+  /* paddings: 0 5px; */
+}
+.svg-button-sml svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .svg-button {
   padding: 4px;
   border-radius: 2px;
@@ -178,6 +187,7 @@ button:hover,
   display: flex;
   flex-direction: column;
 }
+
 .flex-rit {
   display: flex;
   justify-content: flex-start;
