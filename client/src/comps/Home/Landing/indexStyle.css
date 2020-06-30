@@ -4,6 +4,8 @@
   overflow: hidden;
 }
 .Landing-cont img {
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   box-sizing: border-box;
   display: block;

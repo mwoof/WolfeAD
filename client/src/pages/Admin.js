@@ -1,8 +1,28 @@
 import React, { Component } from "react";
 
+import Section from "../comps/Section";
+import SectionRev from "../comps/SectionRev";
+import SectionCarousel from "../comps/SectionCarousel";
+
+import Banner from "../comps/Banner";
+import ServiceTxt from "../comps/Section/ServText";
+import ServiceMdia from "../comps/Section/Media";
+
+import RendrImg from "../media/images/RenderImg.png";
+import AdminBanner from "../media/images/AdminBanner.png";
+
 class Home extends Component {
   render() {
-    return <div>Admin</div>;
+    return (
+      <div>
+        <Banner image={AdminBanner} />
+        <div className="sec-wrap">
+          <Section lable="Landing"></Section>
+          <Section lable="Featured"></Section>
+          <Section lable="Archive"></Section>
+        </div>
+      </div>
+    );
   }
 }
 

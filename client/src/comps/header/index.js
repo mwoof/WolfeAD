@@ -26,6 +26,9 @@ const Header = (props) => {
         <NavLink to="/rendering" activeClassName="nav-txt-hlght">
           Rendering
         </NavLink>
+        <NavLink to="/admin" activeClassName="nav-txt-hlght">
+          Admin
+        </NavLink>
       </nav>
       <nav className="flex-cent desktop-only" style={{ marginRight: "-16px" }}>
         <NavLink to="/login" activeClassName="nav-txt-hlght">

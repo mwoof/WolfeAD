@@ -1,0 +1,17 @@
+.filt-cont {
+  margin: 56px auto;
+  padding: 64px 0;
+}
+.filt-wrap {
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.filt-wrap a {
+  display: inline;
+  padding: 10px 16px;
+  border-radius: 0;
+}
+.tab-txt-hlght {
+  border-bottom: 3px solid #fff;
+}
