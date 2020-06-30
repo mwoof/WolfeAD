@@ -6,7 +6,7 @@ import Image from "../../../media/images/LandingTest.jpg";
 
 function Landing() {
   return (
-    <div className="Landing-cont">
+    <div className="Landing-cont flex-cent">
       <img src={Image} alt="WolfeAD Landing Page" />
     </div>
   );

@@ -1,10 +1,10 @@
 .Landing-cont {
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 .Landing-cont img {
-  height: 100vmin;
-  object-fit: fill;
+  object-fit: cover;
   box-sizing: border-box;
   display: block;
 }
