@@ -1,0 +1,18 @@
+.project-cont {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.project-cont img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  box-sizing: border-box;
+  display: block;
+}
+.backButton {
+  position: absolute;
+  top: 54px;
+  left: 0;
+}

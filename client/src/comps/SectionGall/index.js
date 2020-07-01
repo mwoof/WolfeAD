@@ -6,8 +6,6 @@ import Line from "../Line";
 import Gallery from "../Gallery";
 
 const Section = (props) => {
-  console.log(props.children);
-
   return (
     <section className="sect-cont sect-gal-cont">
       <div className="sect-lbl sec-txt">

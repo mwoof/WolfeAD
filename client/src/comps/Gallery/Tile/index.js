@@ -11,7 +11,7 @@ const Drop = (props) => {
   const image = Image;
 
   return (
-    <Link to={`/projects/${link}`} className="tile-cont flex-cent">
+    <Link to={`/projects/project/${link}`} className="tile-cont flex-cent">
       <img src={image} />
       <div className="tile-overlay flex-cent flex-col">
         <h1>{name}</h1>

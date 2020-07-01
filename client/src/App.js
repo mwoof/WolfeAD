@@ -8,6 +8,7 @@ import SideNav from "./comps/header/SideNav";
 import Footer from "./comps/footer";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
+import Project from "./pages/Project";
 import Rendering from "./pages/Rendering";
 import Admin from "./pages/Admin";
 
@@ -60,7 +61,12 @@ class App extends Component {
             <div className={`${sideNav ? "body-act-sidNav" : ""}`}>
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route
+                  path="/projects/project/:ProjectName"
+                  component={Project}
+                />
                 <Route path="/projects" component={Projects} />
+
                 <Route path="/rendering" component={Rendering} />
                 <Route path="/admin" component={Admin} />
               </Switch>

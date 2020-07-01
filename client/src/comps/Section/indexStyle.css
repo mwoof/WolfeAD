@@ -49,7 +49,8 @@
 .med-wrap {
   position: relative;
 }
-.med-wrap img {
+.med-wrap img,
+.sect-txt img {
   height: auto;
   width: 100%;
   object-fit: fill;
@@ -63,14 +64,13 @@
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.05);
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.med-shad-top {
-  top: -8px;
-  left: -8px;
+.act-anim .med-shad-top {
+  transform: translateX(-8px) translateY(-8px);
 }
-.med-shad-bot {
-  right: -8px;
-  bottom: -8px;
+.act-anim .med-shad-bot {
+  transform: translateX(8px) translateY(8px);
 }
 
 .serv-div {
@@ -109,13 +109,11 @@
     height: 100%;
     width: auto;
   }
-  .med-shad-top {
-    top: -20px;
-    left: -20px;
+  .act-anim .med-shad-top {
+    transform: translateX(-20px) translateY(-20px);
   }
-  .med-shad-bot {
-    right: -20px;
-    bottom: -20px;
+  .act-anim .med-shad-bot {
+    transform: translateX(20px) translateY(20px);
   }
 }
 
@@ -134,13 +132,11 @@
   .sect-txt {
     padding-right: 20px;
   }
-  .med-shad-top {
-    top: -30px;
-    left: -30px;
+  .act-anim .med-shad-top {
+    transform: translateX(-30px) translateY(-30px);
   }
-  .med-shad-bot {
-    right: -30px;
-    bottom: -30px;
+  .act-anim .med-shad-bot {
+    transform: translateX(30px) translateY(30px);
   }
 }
 
@@ -152,7 +148,7 @@
   }
 
   .sect-lbl {
-    padding-rit: 40px;
+    padding-right: 40px;
   }
   .sect-mdia {
     padding-left: 40px;
@@ -160,12 +156,10 @@
   .sect-txt {
     padding: 0 40px;
   }
-  .med-shad-top {
-    top: -40px;
-    left: -40px;
+  .act-anim .med-shad-top {
+    transform: translateX(-40px) translateY(-40px);
   }
-  .med-shad-bot {
-    right: -40px;
-    bottom: -40px;
+  .act-anim .med-shad-bot {
+    transform: translateX(40px) translateY(40px);
   }
 }
