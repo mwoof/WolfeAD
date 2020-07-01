@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
       sideNav: false,
-      headHeight: 56,
+      headHeight: true,
     };
   }
   componentDidMount() {
@@ -30,20 +30,20 @@ class App extends Component {
   updateWindowDimensions = () => {
     window.innerWidth > 768 && this.setState({ sideNav: false });
   };
-  setHead = () => {
-    const { headHeight } = this.state;
-    headHeight !== 48 &&
-      window.pageYOffset > 3 &&
-      this.setState({ headHeight: 48 });
-    headHeight !== 56 &&
-      window.pageYOffset <= 3 &&
-      this.setState({ headHeight: 56 });
-  };
-  openSideNav = () => {
-    this.setState({
-      sideNav: !this.state.sideNav,
-    });
-  };
+  // setHead = () => {
+  //   const { headHeight } = this.state;
+  //   headHeight &&
+  //     window.pageYOffset > 3 &&
+  //     this.setState({ headHeight: false });
+  //   !headHeight &&
+  //     window.pageYOffset <= 3 &&
+  //     this.setState({ headHeight: true });
+  // };
+  // openSideNav = () => {
+  //   this.setState({
+  //     sideNav: !this.state.sideNav,
+  //   });
+  // };
 
   render() {
     const { sideNav, headHeight } = this.state;

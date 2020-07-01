@@ -10,13 +10,14 @@ import SideNav from "./SideNav";
 const Header = (props) => {
   return (
     <div
-      className="header-cont flex-cent nav-txt flex-out"
-      style={{ height: `${props.height}px` }}
+      className={`header-cont flex-cent nav-txt flex-out ${
+        props.height ? "" : "header-cont-sml"
+      }`}
     >
       <NavLink exact to="/" className="flex-cent">
         <Logo height="24px" />
       </NavLink>
-      <nav className="flex-cent desktop-only">
+      <nav className="flex-cent core-links desktop-only">
         <NavLink exact to="/" activeClassName="nav-txt-hlght">
           Home
         </NavLink>

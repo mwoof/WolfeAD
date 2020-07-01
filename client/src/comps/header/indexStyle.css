@@ -8,6 +8,24 @@
   padding: 016px;
   background: rgba(33, 33, 33, 0.85);
   backdrop-filter: blur(5px);
+  height: 56px;
+}
+.header-cont a {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.header-cont a:hover {
+  opacity: 0.5;
+}
+.header-cont-sml {
+  height: 48px;
+}
+
+.header-cont .core-links a {
+  height: 56px;
+}
+
+.core-links .nav-txt-hlght {
+  border-bottom: 3px solid #fff;
 }
 
 .menu-butn {
