@@ -25,7 +25,11 @@ class Project extends Component {
 
     const projectArr = [Image1, Image2, Image3];
     const imgCar = projectArr.map((img, i) => (
-      <img src={img} onClick={() => this.setState({ actImg: i })}></img>
+      <img
+        src={img}
+        className={`${actImg !== i ? "" : "act-img-tile"}`}
+        onClick={() => this.setState({ actImg: i })}
+      ></img>
     ));
 
     return (

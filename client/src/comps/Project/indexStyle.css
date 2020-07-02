@@ -33,7 +33,7 @@
 }
 
 .info-cont {
-  width: 250px;
+  max-width: 250px;
   overflow: hidden;
   height: 0;
   transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
@@ -58,8 +58,12 @@
   display: block;
   margin-right: 8px;
   cursor: pointer;
-  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-sizing: border-box;
 }
 .project-img-gal img:hover {
   transform: translateY(-8px);
+}
+.act-img-tile {
+  border-top: 3px solid white;
 }
