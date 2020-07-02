@@ -10,6 +10,7 @@ const Landing = (props) => {
   const history = useHistory();
   const [view, setView] = useState(0);
   const [info, setInfo] = useState(0);
+  const [fit, setFit] = useState(0);
 
   return (
     <div className="project-cont flex-cent">
@@ -51,6 +52,14 @@ const Landing = (props) => {
               This is a bunch of text
             </div>
           </div>
+          <button onClick={() => setFit(!fit)}>
+            <svg width="24px" height="24px" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z"
+              />
+            </svg>
+          </button>
 
           <button className="" onClick={() => setView(!view)}>
             <svg width="24px" height="24px" viewBox="0 0 24 24">
@@ -65,7 +74,10 @@ const Landing = (props) => {
 
       <img
         src={Image}
-        style={{ height: `${!view ? "100vh" : "Calc(100vh - 160px)"}` }}
+        style={{
+          height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`,
+          objectFit: `${!fit ? "cover" : "contain"}`,
+        }}
         alt="WolfeAD Landing Page"
       />
     </div>

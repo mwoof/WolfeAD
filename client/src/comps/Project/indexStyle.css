@@ -8,7 +8,7 @@
   position: absolute;
   top: 0;
   width: 100vw;
-  object-fit: cover;
+  /* object-fit: cover; */
   box-sizing: border-box;
   display: block;
   transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
@@ -37,7 +37,7 @@
   width: 250px;
   overflow: hidden;
   height: 0;
-  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .info-cont-ext {
   height: 300px;
