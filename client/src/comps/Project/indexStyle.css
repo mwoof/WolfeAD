@@ -4,7 +4,7 @@
   overflow: hidden;
   position: relative;
 }
-.project-cont img {
+.project-act-img {
   position: absolute;
   top: 0;
   width: 100vw;
@@ -40,4 +40,26 @@
 }
 .info-cont-ext {
   height: 300px;
+}
+
+.project-img-gal {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* .project-img-gal>*:not(:last-child) */
+.project-img-gal img {
+  height: 112px;
+  width: 168px;
+  object-fit: cover;
+  display: block;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.project-img-gal img:hover {
+  transform: translateY(-8px);
 }

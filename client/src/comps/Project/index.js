@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import "./indexStyle.css";
 
 import Image1 from "../../media/images/Img1.png";
-import Image2 from "../../media/images/Img1.png";
-import Image3 from "../../media/images/Img1.png";
+import Image2 from "../../media/images/Img2.png";
+import Image3 from "../../media/images/Img3.png";
 
 // const Landing = (props) => {
 class Project extends Component {
@@ -16,11 +16,18 @@ class Project extends Component {
       view: false,
       info: false,
       fit: false,
+      actImg: 0,
     };
     this.contentbox = React.createRef();
   }
   render() {
-    const { view, info, fit } = this.state;
+    const { view, info, fit, actImg } = this.state;
+
+    const projectArr = [Image1, Image2, Image3];
+    const imgCar = projectArr.map((img, i) => (
+      <img src={img} onClick={() => this.setState({ actImg: i })}></img>
+    ));
+
     return (
       <div className="project-cont flex-cent">
         <div className="button-overlay spacing">
@@ -75,7 +82,6 @@ class Project extends Component {
                 />
               </svg>
             </button>
-
             <button className="" onClick={() => this.setState({ view: !view })}>
               <svg width="24px" height="24px" viewBox="0 0 24 24">
                 <path
@@ -85,10 +91,17 @@ class Project extends Component {
               </svg>
             </button>
           </div>
+          <div
+            className="project-img-gal flex-rit"
+            style={{ height: `${!view ? "0" : "160px"}` }}
+          >
+            {imgCar}
+          </div>
         </div>
 
         <img
-          src={Image}
+          className="project-act-img"
+          src={projectArr[actImg]}
           style={{
             height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`,
             objectFit: `${!fit ? "cover" : "contain"}`,
