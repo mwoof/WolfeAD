@@ -40,11 +40,11 @@ class App extends Component {
   //     window.pageYOffset <= 3 &&
   //     this.setState({ headHeight: true });
   // };
-  // openSideNav = () => {
-  //   this.setState({
-  //     sideNav: !this.state.sideNav,
-  //   });
-  // };
+  openSideNav = () => {
+    this.setState({
+      sideNav: !this.state.sideNav,
+    });
+  };
 
   render() {
     const { sideNav, headHeight } = this.state;
@@ -66,7 +66,6 @@ class App extends Component {
                   component={Project}
                 />
                 <Route path="/projects" component={Projects} />
-
                 <Route path="/rendering" component={Rendering} />
                 <Route path="/admin" component={Admin} />
               </Switch>

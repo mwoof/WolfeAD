@@ -11,8 +11,25 @@
   box-sizing: border-box;
   display: block;
 }
-.backButton {
+.button-overlay {
   position: absolute;
-  top: 54px;
+  top: 0;
+  height: 100vh;
+  z-index: 50;
+}
+.proj-but-top,
+.proj-but-bot {
+  position: absolute;
+  padding: 0 16px;
+  height: 36px;
+  background: rgba(33, 33, 33, 0.5);
+  backdrop-filter: blur(4px);
+}
+.proj-but-top {
+  top: 56px;
+  left: 0;
+}
+.proj-but-bot {
+  bottom: 0;
   left: 0;
 }
