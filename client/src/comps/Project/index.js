@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import "./indexStyle.css";
@@ -7,7 +7,10 @@ import Image from "../../media/images/Img1.png";
 
 const Landing = (props) => {
   // const goBack = props.history.goback();
-  let history = useHistory();
+  const history = useHistory();
+  const [view, setView] = useState(0);
+  const [info, setInfo] = useState(0);
+
   return (
     <div className="project-cont flex-cent">
       <div className="button-overlay spacing">
@@ -28,11 +31,28 @@ const Landing = (props) => {
           </button>
           <button className="txt-hlght">Share</button>
         </div>
-        <div className="proj-but-bot flex-cent">
-          <button className="" onClick={(e) => history.goBack()}>
-            Project Name
-          </button>
-          <button className="">
+        <div
+          className="proj-but flex-cent"
+          style={{ bottom: `${!view ? 0 : "160px"}` }}
+        >
+          <div>
+            <button className="" onClick={() => setInfo(!info)}>
+              Project Name
+              <svg
+                width="24px"
+                height="24px"
+                style={{ marginLeft: "8px" }}
+                viewBox="0 0 24 24"
+              >
+                <path fill="currentColor" d="M7,15L12,10L17,15H7Z" />
+              </svg>
+            </button>
+            <div className={`info-cont ${!info ? "" : "info-cont-ext"}`}>
+              This is a bunch of text
+            </div>
+          </div>
+
+          <button className="" onClick={() => setView(!view)}>
             <svg width="24px" height="24px" viewBox="0 0 24 24">
               <path
                 fill="#fff"
@@ -43,7 +63,11 @@ const Landing = (props) => {
         </div>
       </div>
 
-      <img src={Image} alt="WolfeAD Landing Page" />
+      <img
+        src={Image}
+        style={{ height: `${!view ? "100vh" : "Calc(100vh - 160px)"}` }}
+        alt="WolfeAD Landing Page"
+      />
     </div>
   );
 };

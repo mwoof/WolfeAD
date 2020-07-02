@@ -86,7 +86,7 @@ body,
 body {
   background: #212121;
   margin: 0;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
   /* overflow-x: hidden; */
 }
 nav > * {

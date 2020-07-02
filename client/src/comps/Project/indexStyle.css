@@ -5,11 +5,13 @@
   position: relative;
 }
 .project-cont img {
+  position: absolute;
+  top: 0;
   width: 100vw;
-  height: 100vh;
   object-fit: cover;
   box-sizing: border-box;
   display: block;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .button-overlay {
   position: absolute;
@@ -18,18 +20,25 @@
   z-index: 50;
 }
 .proj-but-top,
-.proj-but-bot {
+.proj-but {
   position: absolute;
   padding: 0 16px;
   height: 36px;
   background: rgba(33, 33, 33, 0.5);
   backdrop-filter: blur(4px);
+  left: 0;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .proj-but-top {
   top: 56px;
-  left: 0;
 }
-.proj-but-bot {
-  bottom: 0;
-  left: 0;
+
+.info-cont {
+  width: 250px;
+  overflow: hidden;
+  height: 0;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.info-cont-ext {
+  height: 300px;
 }
