@@ -8,7 +8,6 @@
   position: absolute;
   top: 0;
   width: 100vw;
-  /* object-fit: cover; */
   box-sizing: border-box;
   display: block;
   transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
