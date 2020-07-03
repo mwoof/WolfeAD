@@ -55,6 +55,14 @@
   width: 100%;
   object-fit: fill;
   display: block;
+  opacity: 0;
+  transform: translateY(16px) translateX(16px);
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.act-anim .med-wrap img,
+.act-anim .sect-txt img {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
 }
 
 .med-shad-top,

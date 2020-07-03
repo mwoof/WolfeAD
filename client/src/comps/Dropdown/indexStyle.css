@@ -1,0 +1,8 @@
+.drop-dwn-cont svg {
+  opacity: 0.5;
+  transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.drop-dwn-cont:hover svg {
+  opacity: 1;
+}

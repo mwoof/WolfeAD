@@ -44,7 +44,7 @@ class Home extends Component {
             media={<ServiceMdia image={AboutImg} />}
           />
           <SectionRev
-            lable="Leadership"
+            lable="Founder"
             media={<LeadTxt />}
             text={<SecRevMdia image={ProfileImg} />}
           />

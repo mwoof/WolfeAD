@@ -9,10 +9,11 @@ import SearchBar from "../SearchBar";
 class Filter extends Component {
   state = {
     listView: false,
+    // sortSElect: 0,
   };
 
   render() {
-    let { listView } = this.state;
+    let { listView, sortSElect } = this.state;
     let tabComps = this.props.tabs.map((tab) => (
       <NavLink
         to={`/projects/${tab.link}`}
@@ -25,14 +26,17 @@ class Filter extends Component {
       </NavLink>
     ));
 
+    let sort = [{ name: "Date", value: "date" }];
+
     return (
       <div className="filt-cont flex-cent flex-col">
         <div className="filt-wrap">{tabComps}</div>
         <div className="filt-but-wrap flex-cent">
           <SearchBar placeholder="Enter Project..." />
-          <DropDown />
-          <DropDown />
-          <button className="but-line">Awarded</button>
+          <DropDown items={sort} placeholder="Filter" />
+          <DropDown items={sort} selected={sortSElect} placeholder="Sort" />
+
+          <button className="but-line txt">Awarded</button>
           <button className="but-line svg-button-sml ">
             <svg viewBox="0 0 24 24">
               <path

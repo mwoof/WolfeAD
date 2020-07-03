@@ -17,7 +17,7 @@ class Home extends Component {
         <Banner image={RenderBanner} />
         <div className="sec-wrap">
           <Section
-            lable="Rendering"
+            lable="Render"
             text={<ServiceTxt />}
             media={<ServiceMdia image={RendrImg} />}
           ></Section>
