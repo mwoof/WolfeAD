@@ -13,6 +13,7 @@ class Login extends Component {
       email: "",
       pass: "",
     };
+    this.login = this.login.bind(this);
   }
 
   login = () => {
@@ -21,7 +22,7 @@ class Login extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.pass)
       .then((user) => {
         console.log("loged in");
-        this.props.hisotry.push("/");
+        this.props.history.push("/");
       })
       .catch((err) => {
         console.log(err);
