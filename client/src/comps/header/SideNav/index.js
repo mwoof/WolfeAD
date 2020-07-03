@@ -12,38 +12,60 @@ const SideNav = (props) => {
       }`}
     >
       <nav className="flex-col-rit">
-        <NavLink exact to="/" activeClassName="nav-txt-hlght">
+        <NavLink
+          exact
+          to="/"
+          onClick={(e) => props.openSideNav()}
+          activeClassName="nav-txt-hlght"
+        >
           Home
         </NavLink>
-        <NavLink to="/projects" activeClassName="nav-txt-hlght">
+        <NavLink
+          to="/projects"
+          onClick={(e) => props.openSideNav()}
+          activeClassName="nav-txt-hlght"
+        >
           Projects
         </NavLink>
-        <NavLink to="/rendering" activeClassName="nav-txt-hlght">
+        <NavLink
+          to="/rendering"
+          onClick={(e) => props.openSideNav()}
+          activeClassName="nav-txt-hlght"
+        >
           Rendering
         </NavLink>
         {!props.authed ? (
           ""
         ) : (
-          <NavLink to="/admin" activeClassName="nav-txt-hlght">
+          <NavLink
+            to="/admin"
+            onClick={(e) => props.openSideNav()}
+            activeClassName="nav-txt-hlght"
+          >
             Admin
           </NavLink>
         )}
         <Line width="32px" className="sidNav-div" />
         {!props.authed ? (
-          <NavLink to="/login" activeClassName="nav-txt-hlght">
+          <NavLink
+            to="/login"
+            onClick={(e) => props.openSideNav()}
+            activeClassName="nav-txt-hlght"
+          >
             Log in
           </NavLink>
         ) : (
           <NavLink
             to="/login"
-            onClick={() =>
+            onClick={() => {
+              props.openSideNav();
               props.firebase
                 .auth()
                 .signOut()
                 .catch(function (error) {
                   console.log(error);
-                })
-            }
+                });
+            }}
             activeClassName="nav-txt-hlght"
           >
             Log out

@@ -1,0 +1,14 @@
+.serv-txt-cont {
+  cursor: pointer;
+}
+.serv-itm-txt {
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.serv-itm-txt-act {
+  margin: 12px 0;
+  height: auto;
+}

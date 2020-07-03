@@ -93,6 +93,7 @@ const Header = (props) => {
         </svg>
       </div>
       <SideNav
+        openSideNav={props.openSideNav}
         firebase={firebase}
         authed={props.authed}
         sideNav={props.sideNav}
