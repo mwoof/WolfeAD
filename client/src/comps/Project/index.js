@@ -8,7 +8,6 @@ import Image1 from "../../media/images/Img1.png";
 import Image2 from "../../media/images/Img2.png";
 import Image3 from "../../media/images/Img3.png";
 
-// const Landing = (props) => {
 class Project extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +25,7 @@ class Project extends Component {
     const projectArr = [Image1, Image2, Image3];
     const imgCar = projectArr.map((img, i) => (
       <img
+        key={Math.random()}
         src={img}
         className={`${actImg !== i ? "" : "act-img-tile"}`}
         onClick={() => this.setState({ actImg: i })}
@@ -79,7 +79,12 @@ class Project extends Component {
               </div>
             </div>
             <button onClick={() => this.setState({ fit: !fit })}>
-              <svg width="24px" height="24px" viewBox="0 0 24 24">
+              <svg
+                style={{ opacity: !fit ? 0.5 : 1 }}
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+              >
                 <path
                   fill="currentColor"
                   d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z"
@@ -87,7 +92,12 @@ class Project extends Component {
               </svg>
             </button>
             <button className="" onClick={() => this.setState({ view: !view })}>
-              <svg width="24px" height="24px" viewBox="0 0 24 24">
+              <svg
+                width="24px"
+                height="24px"
+                style={{ opacity: !view ? 0.5 : 1 }}
+                viewBox="0 0 24 24"
+              >
                 <path
                   fill="#fff"
                   d="M3 11H11V3H3M5 5H9V9H5M13 21H21V13H13M15 15H19V19H15M3 21H11V13H3M5 15H9V19H5M13 3V11H21V3M19 9H15V5H19Z"
