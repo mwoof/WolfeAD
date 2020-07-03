@@ -9,7 +9,7 @@ class Section extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      actItm: 1,
+      actItm: 0,
     };
   }
 

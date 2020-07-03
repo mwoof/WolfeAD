@@ -52,9 +52,9 @@ class Section extends Component {
         className={`sect-cont ${animate ? "act-anim" : ""}`}
         ref={this.contentbox}
       >
-        <div className="sect-lbl sec-txt">
+        <div className="sect-lbl">
           <div style={{ position: "relative" }}>
-            {`${lable}.`}
+            <div className="sec-txt">{`${lable}.`}</div>
             <Line className="sect-lbl-lin" width="50vw" />
           </div>
         </div>
