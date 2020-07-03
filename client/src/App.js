@@ -13,6 +13,7 @@ import Projects from "./pages/Projects";
 import Project from "./pages/Project";
 import Rendering from "./pages/Rendering";
 import Admin from "./pages/Admin";
+import Login from "./pages/Login";
 
 class App extends Component {
   constructor(props) {
@@ -20,8 +21,13 @@ class App extends Component {
     this.state = {
       sideNav: false,
       headHeight: true,
+      authed: false,
     };
   }
+  componentWillMount() {
+    this.authListener();
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.setHead, false);
     window.addEventListener("resize", this.updateWindowDimensions);
@@ -48,8 +54,19 @@ class App extends Component {
     });
   };
 
+  authListener = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("LOGGED IN------------------------------");
+        console.log(user);
+        return this.setState({ authed: true });
+      }
+      this.state.authed && this.setState({ authed: false });
+    });
+  };
+
   render() {
-    const { sideNav, headHeight } = this.state;
+    const { sideNav, headHeight, authed } = this.state;
 
     return (
       <Router>
@@ -57,6 +74,7 @@ class App extends Component {
           openSideNav={this.openSideNav}
           sideNav={sideNav}
           height={headHeight}
+          authed={authed}
         />
         <div className="content-cont">
           <div className={`content-wrap ${sideNav ? "cont-act-sidNav" : ""}`}>
@@ -70,6 +88,7 @@ class App extends Component {
                 <Route path="/projects" component={Projects} />
                 <Route path="/rendering" component={Rendering} />
                 <Route path="/admin" component={Admin} />
+                <Route path="/login" component={Login} />
               </Switch>
             </div>
             <div></div>

@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import "./indexStyle.css";
+import firebase from "../../firebase";
 
 import Logo from "../../media/svgs/Logo";
 
@@ -27,14 +28,35 @@ const Header = (props) => {
         <NavLink to="/rendering" activeClassName="nav-txt-hlght">
           Rendering
         </NavLink>
-        <NavLink to="/admin" activeClassName="nav-txt-hlght">
-          Admin
-        </NavLink>
+        {!props.authed ? (
+          ""
+        ) : (
+          <NavLink to="/admin" activeClassName="nav-txt-hlght">
+            Admin
+          </NavLink>
+        )}
       </nav>
       <nav className="flex-cent desktop-only" style={{ marginRight: "-16px" }}>
-        <NavLink to="/login" activeClassName="nav-txt-hlght">
-          Login
-        </NavLink>
+        {!props.authed ? (
+          <NavLink to="/login" activeClassName="nav-txt-hlght">
+            Log in
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            onClick={() =>
+              firebase
+                .auth()
+                .signOut()
+                .catch(function (error) {
+                  console.log(error);
+                })
+            }
+            activeClassName="nav-txt-hlght"
+          >
+            Log out
+          </NavLink>
+        )}
         <NavLink
           className="nav-txt-hlght"
           to="/"
@@ -70,7 +92,11 @@ const Header = (props) => {
           />
         </svg>
       </div>
-      <SideNav sideNav={props.sideNav} />
+      <SideNav
+        firebase={firebase}
+        authed={props.authed}
+        sideNav={props.sideNav}
+      />
     </div>
   );
 };

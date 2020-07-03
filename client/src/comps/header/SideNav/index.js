@@ -21,14 +21,35 @@ const SideNav = (props) => {
         <NavLink to="/rendering" activeClassName="nav-txt-hlght">
           Rendering
         </NavLink>
-        <NavLink to="/admin" activeClassName="nav-txt-hlght">
-          Admin
-        </NavLink>
+        {!props.authed ? (
+          ""
+        ) : (
+          <NavLink to="/admin" activeClassName="nav-txt-hlght">
+            Admin
+          </NavLink>
+        )}
         <Line width="32px" className="sidNav-div" />
-        <NavLink to="/projects" activeClassName="nav-txt-hlght">
-          Login
-        </NavLink>
-        <NavLink to="/rendering" className="nav-txt-hlght">
+        {!props.authed ? (
+          <NavLink to="/login" activeClassName="nav-txt-hlght">
+            Log in
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            onClick={() =>
+              props.firebase
+                .auth()
+                .signOut()
+                .catch(function (error) {
+                  console.log(error);
+                })
+            }
+            activeClassName="nav-txt-hlght"
+          >
+            Log out
+          </NavLink>
+        )}
+        <NavLink to="/" className="nav-txt-hlght">
           Contact
         </NavLink>
       </nav>
