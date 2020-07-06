@@ -54,7 +54,7 @@
 .sec-txt {
   opacity: 0;
   transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-  transition-delay: 0.45s;
+  transition-delay: 0.5s;
   transform: translateX(-16px);
 }
 .act-anim .sec-txt {
@@ -65,20 +65,33 @@
 .med-wrap {
   position: relative;
 }
+
+.med-wrap img,
+.sect-txt {
+  display: block;
+  opacity: 0;
+}
 .med-wrap img,
 .sect-txt img {
   height: auto;
   width: 100%;
   object-fit: fill;
-  display: block;
-  opacity: 0;
-  transform: translateY(16px) translateX(16px);
-
-  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  transition-delay: 0.5s;
 }
+
+.sect-txt {
+  transform: translateY(16px);
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition-delay: 0.75s;
+}
+.med-wrap img {
+  transform: translateX(40px);
+
+  transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transition-delay: 0.9s;
+}
+
 .act-anim .med-wrap img,
-.act-anim .sect-txt img {
+.act-anim .sect-txt {
   opacity: 1;
   transform: translateY(0) translateX(0);
 }
@@ -91,7 +104,7 @@
   height: 100%;
   background: rgba(255, 255, 255, 0.05);
   transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-  transition-delay: 0.75s;
+  transition-delay: 1.2s;
   opacity: 0;
 }
 .act-anim .med-shad-top {

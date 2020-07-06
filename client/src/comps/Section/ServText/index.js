@@ -42,6 +42,7 @@ class Section extends Component {
       <div
         onClick={() => this.setState({ actItm: i })}
         className="serv-txt-cont"
+        key={Math.random()}
       >
         <h1>{item.title}</h1>
         <h2

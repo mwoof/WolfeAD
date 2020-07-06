@@ -8,11 +8,13 @@ import Line from "../Line";
 class Section extends Component {
   constructor(props) {
     super(props);
-    this.state = { height: 0, animate: false };
+    this.state = { height: 800, animate: false };
     this.contentbox = React.createRef();
   }
   componentDidMount() {
+    console.log("mounted");
     this.updateWindowDimensions();
+    this.animCheck();
     window.addEventListener("scroll", this.scroll, false);
     window.addEventListener("resize", this.updateWindowDimensions);
   }
@@ -27,9 +29,11 @@ class Section extends Component {
         : window.innerHeight + 48;
     this.setState({ height: trigger });
   };
-  scroll = () => {
+  animCheck = () => {
+    console.log("running check");
     const { height, animate } = this.state;
     var container = this.contentbox.current.getBoundingClientRect();
+    console.log(container.bottom, height, animate);
 
     if (container.bottom < height && !animate) {
       return this.setState({
@@ -41,6 +45,9 @@ class Section extends Component {
         animate: false,
       });
     }
+  };
+  scroll = () => {
+    this.animCheck();
   };
 
   render() {

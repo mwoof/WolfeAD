@@ -27,7 +27,6 @@ class App extends Component {
   componentWillMount() {
     this.authListener();
   }
-
   componentDidMount() {
     window.addEventListener("scroll", this.setHead, false);
     window.addEventListener("resize", this.updateWindowDimensions);
@@ -44,7 +43,6 @@ class App extends Component {
       sideNav: !this.state.sideNav,
     });
   };
-
   authListener = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
