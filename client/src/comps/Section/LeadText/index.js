@@ -4,7 +4,7 @@ import Line from "../../Line";
 
 const Section = (props) => {
   return (
-    <div>
+    <div className="rev-sec-txt">
       <h1>Matt Wolfe</h1>
       <p style={{ margin: "0 0 8px 0" }}>Principal & Founder</p>
       <Line width="30%" className="" />
