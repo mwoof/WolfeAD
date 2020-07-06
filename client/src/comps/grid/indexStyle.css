@@ -1,0 +1,13 @@
+.grid-dot {
+  height: 4px;
+  width: 4px;
+  border-radius: 100%;
+  background: #fff;
+  opacity: 0.3;
+}
+.grid-grid {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 4px);
+  grid-gap: 36px;
+}

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Section from "../comps/Section";
 import SectionRev from "../comps/SectionRev";
 import SectionCarousel from "../comps/SectionCarousel";
+import DotGrid from "../comps/grid";
 
 import Landing from "../comps/Home/Landing";
 import ServiceTxt from "../comps/Section/ServText";
@@ -53,6 +54,15 @@ class Home extends Component {
             text={<ContactTxt />}
             media={<ServiceMdia image={MapImg} />}
           />
+          <div className="grid-wrapper flex-cent">
+            <div className="spacing" style={{ height: "100%" }}>
+              <DotGrid top="8%" left="-66px" />
+              <DotGrid top="36%" right="-66px" />
+              <DotGrid top="57%" left="-66px" />
+              <DotGrid top="78%" right="-66px" />
+              <DotGrid top="96%" left="-66px" />
+            </div>
+          </div>
         </div>
       </div>
     );
