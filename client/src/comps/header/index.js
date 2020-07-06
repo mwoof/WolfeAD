@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./indexStyle.css";
 import firebase from "../../firebase";
 
-import Logo from "../../media/svgs/Logo";
+import Logo from "../../media/svgs/LogoRed";
 
 import SideNav from "./SideNav";
 

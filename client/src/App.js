@@ -39,15 +39,6 @@ class App extends Component {
   updateWindowDimensions = () => {
     window.innerWidth > 768 && this.setState({ sideNav: false });
   };
-  // setHead = () => {
-  //   const { headHeight } = this.state;
-  //   headHeight &&
-  //     window.pageYOffset > 3 &&
-  //     this.setState({ headHeight: false });
-  //   !headHeight &&
-  //     window.pageYOffset <= 3 &&
-  //     this.setState({ headHeight: true });
-  // };
   openSideNav = () => {
     this.setState({
       sideNav: !this.state.sideNav,

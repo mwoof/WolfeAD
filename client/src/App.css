@@ -219,6 +219,7 @@ button:hover,
 
 .sec-wrap {
   margin-top: 32px;
+  position: relative;
 }
 .sec-wrap > * {
   margin-bottom: 120px;
@@ -226,6 +227,7 @@ button:hover,
 /* LOCALS-------------------------------------------------------------------- */
 .content-cont {
   width: 100%;
+
   min-height: 100vh;
   overflow-x: hidden;
 }

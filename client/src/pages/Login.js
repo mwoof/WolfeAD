@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import firebase from "../firebase";
 
 import TxtInput from "../comps/TxtInput";
-import Logo from "../media/svgs/Logo.js";
+import Logo from "../media/svgs/LogoRed";
 
 class Login extends Component {
   constructor(props) {
