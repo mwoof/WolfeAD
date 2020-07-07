@@ -46,8 +46,6 @@ class App extends Component {
   authListener = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log("LOGGED IN------------------------------");
-        console.log(user);
         return this.setState({ authed: true });
       }
       this.state.authed && this.setState({ authed: false });

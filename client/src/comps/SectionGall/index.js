@@ -62,7 +62,7 @@ class Section extends Component {
             <Line className="sect-lbl-lin" width="50vw" />
           </div>
         </div>
-        <Gallery className="sect-gal" />
+        <Gallery className="sect-gal" noMargin={true} />
       </section>
     );
   }

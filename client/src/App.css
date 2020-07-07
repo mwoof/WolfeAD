@@ -250,6 +250,7 @@ button:hover,
   width: 100%;
   display: grid;
   grid-template-columns: 100% 200px;
+  transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .cont-act-sidNav {
   transform: translateX(-200px);

@@ -3,6 +3,7 @@
   top: 64px;
   right: -200px;
   height: Calc(100vh - 74px);
+  transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .SideNav-act {
   right: 0;
