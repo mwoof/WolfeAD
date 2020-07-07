@@ -19,7 +19,7 @@ class Section extends Component {
       {
         title: "Architectural Services",
         content:
-          "We provide design, document prep, and project management services along with feasibility studies",
+          "Wolfe A&D provides full architectural services from feasibility studies, concept generation through move in.",
       },
       {
         title: "Programming & Pre-Design",
