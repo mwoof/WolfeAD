@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import "./indexStyle.css";
 import Line from "../../Line";
 
+import DotGrid from "../../grid";
+
 const SideNav = (props) => {
   return (
     <div
@@ -76,11 +78,21 @@ const SideNav = (props) => {
         </NavLink>
       </nav>
 
-      <div className="siNav-foot flex-col-rit">
+      <div className="siNav-foot flex-col-rit" style={{ marginRight: "16px" }}>
         <div className="txt">314-258-0118</div>
-        <a className="nav-txt-hlght" href="mailto:matthew.wolfe5@gmail.com">
+        <a
+          className="nav-txt-hlght"
+          style={{ fontSize: "14px" }}
+          href="mailto:matthew.wolfe5@gmail.com"
+        >
           matthew.wolfe5@gmail.com
         </a>
+      </div>
+
+      <div className="grid-wrapper flex-cent">
+        <div className="" style={{ height: "100%" }}>
+          <DotGrid top="50%" right="-66px" />
+        </div>
       </div>
     </div>
   );
