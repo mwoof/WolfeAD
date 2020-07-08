@@ -61,6 +61,13 @@
   opacity: 1;
   transform: translateX(0);
 }
+.rendr-txt-cont {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.rendr-txt-cont > * {
+  margin: 0 16px 16px 0;
+}
 
 .med-wrap {
   position: relative;

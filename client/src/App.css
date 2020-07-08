@@ -149,6 +149,10 @@ button:hover,
   border: 1px solid #fff;
 }
 .but-fill {
+  background: rgba(255, 255, 255, 0.1);
+}
+.but-fill:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 .svg-button-sml {
   /* paddings: 0 5px; */
@@ -221,7 +225,7 @@ button:hover,
 
 .sec-wrap {
   width: 100%;
-  margin-top: 32px;
+  padding-top: 32px;
   position: relative;
   overflow: hidden;
 }
@@ -277,7 +281,7 @@ button:hover,
     display: none;
   }
   .sec-wrap {
-    margin-top: 48px;
+    padding-top: 48px;
   }
   .sec-wrap > * {
     /* margin-bottom: 120px; */
@@ -295,7 +299,7 @@ button:hover,
     width: 940px;
   }
   .sec-wrap {
-    margin-top: 64px;
+    padding-top: 64px;
   }
   .sec-wrap > * {
     margin-bottom: 160px;
@@ -323,7 +327,7 @@ button:hover,
     width: 1140px;
   }
   .sec-wrap {
-    margin-top: 80px;
+    padding-top: 80px;
     /* padding-top: 40px; */
   }
   .sec-wrap > * {

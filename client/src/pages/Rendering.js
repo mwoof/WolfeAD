@@ -5,7 +5,8 @@ import SectionGall from "../comps/SectionGall";
 import DotGrid from "../comps/grid";
 
 import Banner from "../comps/Banner";
-import ServiceTxt from "../comps/Section/ServText";
+// import ServiceTxt from "../comps/Section/ServText";
+import RendrTxt from "../comps/Section/RenderTxt";
 import ServiceMdia from "../comps/Section/Media";
 
 import RendrImg from "../media/images/RenderImg.png";
@@ -19,7 +20,7 @@ class Home extends Component {
         <div className="sec-wrap">
           <Section
             lable="Render"
-            text={<ServiceTxt />}
+            text={<RendrTxt />}
             media={<ServiceMdia image={RendrImg} />}
           ></Section>
           <SectionGall lable="Archive" />
