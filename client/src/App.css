@@ -249,11 +249,11 @@ button:hover,
 .content-wrap {
   width: 100%;
   display: grid;
-  grid-template-columns: 100% 200px;
+  grid-template-columns: 100% 220px;
   transition: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .cont-act-sidNav {
-  transform: translateX(-200px);
+  transform: translateX(-220px);
 }
 .body-act-sidNav {
   opacity: 0.5;
