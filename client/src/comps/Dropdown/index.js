@@ -22,7 +22,7 @@ class Drop extends Component {
         <button
           className="but-line drop-dwn-cont"
           onClick={() => {
-            this.setState({ opened: !opened });
+            this.setState({ opened: !opened, selected: "" });
           }}
         >
           {selected !== undefined ? (
