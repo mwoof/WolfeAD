@@ -6,8 +6,8 @@ import Tile from "./Tile";
 
 class Gallery extends Component {
   render() {
-    const tileSet = [1, 2, 3, 4, 5, 1, 3, 4, 5, 6, 7, 8];
-    const tiles = tileSet.map((tile) => <Tile key={Math.random()} />);
+    const tileSet = this.props.array ? this.props.array : [];
+    const tiles = tileSet.map(tile => <Tile key={tile.id} data={tile} />);
 
     return (
       <div

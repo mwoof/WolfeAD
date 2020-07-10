@@ -1,38 +1,63 @@
 import React, { Component } from "react";
 
+import firebase from "../firebase";
+
 import Filter from "../comps/Filter";
 import Gallery from "../comps/Gallery";
 import DotGrid from "../comps/grid";
 
+const db = firebase.firestore();
+
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: []
+    };
+  }
+  componentDidMount() {
+    let projectsRef = db.collection("projects");
+    projectsRef.get().then(doc => {
+      let projects = this.state.projects;
+      doc.forEach(project => {
+        let projObj = {
+          id: project.id,
+          data: project.data()
+        };
+        projects.push(projObj);
+        this.setState({ projects });
+      });
+    });
+  }
+
   render() {
     const tabs = [
       {
         title: "All Projects",
-        link: "",
+        link: ""
       },
       {
         title: "Commercial",
-        link: "commercial",
+        link: "commercial"
       },
       {
         title: "Institutional",
-        link: "institutional",
+        link: "institutional"
       },
       {
         title: "Residential",
-        link: "residential",
+        link: "residential"
       },
       {
         title: "On The Boards",
-        link: "boards",
-      },
+        link: "boards"
+      }
     ];
 
     return (
       <div>
         <Filter tabs={tabs} />
-        <Gallery />
+        <Gallery array={this.state.projects} />
         <div className="grid-wrapper flex-cent">
           <div className="spacing" style={{ height: "100%" }}>
             <DotGrid top="10%" left="-66px" />
