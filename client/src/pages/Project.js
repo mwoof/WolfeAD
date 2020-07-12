@@ -4,6 +4,10 @@ import Project from "../comps/Project";
 import DotGrid from "../comps/grid";
 
 class Home extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>

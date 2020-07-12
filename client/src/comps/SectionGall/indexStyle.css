@@ -2,6 +2,15 @@
   grid-template-columns: 1fr;
   grid-template-areas:
     "lbl"
+    "act"
     "gal";
   grid-row-gap: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .sect-gal-cont {
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+      "lbl act"
+      "gal gal";
+  }
 }

@@ -17,7 +17,6 @@ class Home extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
   render() {
     let landTxt = (
       <div style={{ margin: 0 }}>
@@ -37,7 +36,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Banner image={AdminBanner} />
+        <Banner image={AdminBanner} text={"test"} />
         <div className="sec-wrap">
           <Section
             lable="Landing"
@@ -45,15 +44,9 @@ class Home extends Component {
             action={<LandAct />}
             media={landGal}
           ></Section>
-          <Section
-            lable="Featured"
-            text={fetTxt}
-            action={<FeatAct phrase="Add Project" link="/admin/project" />}
-            media={landGal}
-          ></Section>
           <SectionGall
-            lable="Archive"
-            action={<FeatAct phrase="New Project" link="/admin/project" />}
+            lable="Media"
+            action={<FeatAct phrase="New Project" />}
           ></SectionGall>
         </div>
       </div>

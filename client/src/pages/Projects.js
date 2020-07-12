@@ -17,6 +17,7 @@ class Home extends Component {
   }
   componentDidMount() {
     let projectsRef = db.collection("projects");
+    window.scrollTo(0, 0);
     projectsRef.get().then(doc => {
       let projects = this.state.projects;
       doc.forEach(project => {

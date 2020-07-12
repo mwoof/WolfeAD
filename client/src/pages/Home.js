@@ -22,6 +22,9 @@ import ProfileImg from "../media/images/Profile.png";
 import MapImg from "../media/images/Map.png";
 
 class Home extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <div>

@@ -36,12 +36,12 @@ class Section extends Component {
 
     if (container.top < height - 400 && !animate) {
       return this.setState({
-        animate: true,
+        animate: true
       });
     }
     if (container.top > height - 400 && animate) {
       return this.setState({
-        animate: false,
+        animate: false
       });
     }
   };
@@ -62,6 +62,7 @@ class Section extends Component {
             <Line className="sect-lbl-lin" width="50vw" />
           </div>
         </div>
+        <div className="sect-act">{this.props.action}</div>
         <Gallery className="sect-gal" noMargin={true} />
       </section>
     );

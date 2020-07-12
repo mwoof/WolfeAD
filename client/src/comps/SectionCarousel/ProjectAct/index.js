@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Section = (props) => {
+const Section = props => {
   return (
     <div className="flex-lft">
       <NavLink to="projects" className="link-button flex-lft">

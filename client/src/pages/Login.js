@@ -11,20 +11,23 @@ class Login extends Component {
     super(props);
     this.state = {
       email: "",
-      pass: "",
+      pass: ""
     };
     this.login = this.login.bind(this);
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   login = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.pass)
-      .then((user) => {
+      .then(user => {
         console.log("loged in");
         this.props.history.push("/");
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
@@ -42,14 +45,14 @@ class Login extends Component {
               className="input-input but-line input-cont"
               placeholder="emial..."
               value={this.state.email}
-              onChange={(e) => this.setState({ email: e.target.value })}
+              onChange={e => this.setState({ email: e.target.value })}
             />
             <input
               className="input-input but-line input-cont"
               placeholder="password..."
               type="password"
               value={this.state.pass}
-              onChange={(e) => this.setState({ pass: e.target.value })}
+              onChange={e => this.setState({ pass: e.target.value })}
             />
             <button onClick={this.login}>Login</button>
           </div>

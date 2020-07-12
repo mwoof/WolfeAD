@@ -14,7 +14,7 @@ import Project from "./pages/Project";
 import Rendering from "./pages/Rendering";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
-import Test from "./pages/test";
+import AdminProject from "./pages/AdminProject";
 
 class App extends Component {
   constructor(props) {
@@ -75,9 +75,11 @@ class App extends Component {
                 />
                 <Route path="/projects" component={Projects} />
                 <Route path="/rendering" component={Rendering} />
-                <Route path="/admin" component={Admin} />
+                <Route path="/admin/project" component={AdminProject} />
+
+                <Route exact path="/admin" component={Admin} />
+
                 <Route path="/login" component={Login} />
-                <Route path="/Test" component={Test} />
               </Switch>
             </div>
             <div></div>

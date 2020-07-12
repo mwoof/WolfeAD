@@ -13,6 +13,10 @@ import RendrImg from "../media/images/RenderImg.png";
 import RenderBanner from "../media/images/RenderBanner.png";
 
 class Home extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
