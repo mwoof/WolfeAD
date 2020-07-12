@@ -71,6 +71,7 @@
 
 .med-wrap {
   position: relative;
+  box-sizing: border-box;
 }
 
 .med-wrap img,

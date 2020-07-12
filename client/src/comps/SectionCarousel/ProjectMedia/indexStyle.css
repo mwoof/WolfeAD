@@ -7,7 +7,8 @@
 }
 .car-sec-slide img {
   width: 100%;
-  height: 200px;
+  max-height: 33%;
+  object-fit: cover;
 }
 
 .car-sec-car-wrap > * {
@@ -17,28 +18,18 @@
 @media only screen and (min-width: 768px) {
   .project-car {
     margin-top: 24px;
-    /* height: 300px; */
-  }
-  .car-sec-slide img {
-    height: 300px;
+    width: 100%;
   }
 }
 @media only screen and (min-width: 960px) {
   .project-car {
     margin-top: 48px;
-    /* height: 350px; */
-  }
-  .car-sec-slide img {
-    height: 350px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .project-car {
     margin-top: 72px;
-    /* height: 500px; */
-  }
-  .car-sec-slideimg {
-    height: 500px;
+    /* max-height: 500px; */
   }
 }
