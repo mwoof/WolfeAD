@@ -10,8 +10,8 @@ import Slide from "./Slide";
 import Commercial from "../../../media/images/Landing/LandingTestCom.jpg";
 import Institutional from "../../../media/images/Landing/LandingTestIns.jpg";
 import Residential from "../../../media/images/Landing/LandingTestRes.jpg";
-// import Boards from "../../../media/images/Landing/LandingTestBor.jpg";
-import Boards from "../../../media/images/Landing/LandingTestRes.jpg";
+import Boards from "../../../media/images/Landing/LandingTestBor.jpg";
+// import Boards from "../../../media/images/Landing/LandingTestRes.jpg";
 
 // function Landing() {
 class Landing extends Component {
