@@ -7,20 +7,21 @@ class Drop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      opened: false,
+      opened: false
     };
   }
 
   render() {
-    const { items, selected, placeholder } = this.props;
+    const { items, selected, placeholder, style } = this.props;
     const { opened } = this.state;
 
-    const options = items.map((item) => <div>{item.name}</div>);
+    const options = items.map(item => <div>{item.name}</div>);
 
     return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative" }} style={style}>
         <button
           className="but-line drop-dwn-cont"
+          style={{ width: "Calc(100% - 16px)" }}
           onClick={() => {
             this.setState({ opened: !opened, selected: "" });
           }}
@@ -35,7 +36,7 @@ class Drop extends Component {
             height="24px"
             style={{
               marginLeft: "8px",
-              transform: `rotate(${!opened ? 0 : "180deg"})`,
+              transform: `rotate(${!opened ? 0 : "180deg"})`
             }}
             viewBox="0 0 24 24"
           >

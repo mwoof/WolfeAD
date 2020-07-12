@@ -6,17 +6,33 @@ import SectionGall from "../comps/SectionGall";
 import Banner from "../comps/Banner";
 import LandAct from "../comps/SectionCarousel/LandAct";
 import FeatAct from "../comps/SectionCarousel/FeatAct";
-import ServiceTxt from "../comps/Section/ServText";
-import ServiceMdia from "../comps/Section/Media";
+import AdminProjectTxt from "../comps/Section/AdminProjectTxt";
 
-import RendrImg from "../media/images/RenderImg.png";
 import AdminBanner from "../media/images/AdminBanner.png";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cover: AdminBanner,
+      description: "",
+      name: "",
+      location: ""
+    };
+    this.contentbox = React.createRef();
+  }
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+  enterInfo = target => {
+    console.log(target.id, target.value);
+    this.setState({
+      [target.id]: target.value
+    });
+  };
+
   render() {
+    const { cover, description, name, category, location } = this.state;
     let landTxt = (
       <div style={{ margin: 0 }}>
         These are projects that display on the landing page slideshow. There
@@ -35,12 +51,24 @@ class Home extends Component {
 
     return (
       <div>
-        <Banner image={AdminBanner} />
+        <Banner image={cover} />
         <div className="sec-wrap">
-          <Section lable="Landing" text={landTxt} media={<LandAct />}></Section>
+          <Section
+            lable="Landing"
+            text={
+              <AdminProjectTxt
+                enterInfo={this.enterInfo}
+                description={description}
+                name={name}
+                category={category}
+                location={location}
+              />
+            }
+            media={<LandAct />}
+          ></Section>
           <SectionGall
             lable="Media"
-            action={<FeatAct phrase="New Project" />}
+            action={<FeatAct phrase="Add Images" />}
           ></SectionGall>
         </div>
       </div>

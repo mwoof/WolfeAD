@@ -9,7 +9,6 @@ import FeatAct from "../comps/SectionCarousel/FeatAct";
 import ServiceTxt from "../comps/Section/ServText";
 import ServiceMdia from "../comps/Section/Media";
 
-import RendrImg from "../media/images/RenderImg.png";
 import AdminBanner from "../media/images/AdminBanner.png";
 
 class Home extends Component {
