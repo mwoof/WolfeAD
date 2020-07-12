@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import Section from "../comps/SectionCarousel";
-import SectionRev from "../comps/SectionRev";
+import Section from "../comps/Section";
 import SectionGall from "../comps/SectionGall";
 
 import Banner from "../comps/Banner";
@@ -31,19 +30,14 @@ class Home extends Component {
         specific category.
       </div>
     );
-    let landStat = <div>STATS</div>;
+
     let landGal = <div>Media</div>;
 
     return (
       <div>
-        <Banner image={AdminBanner} text={"test"} />
+        <Banner image={AdminBanner} />
         <div className="sec-wrap">
-          <Section
-            lable="Landing"
-            text={landTxt}
-            action={<LandAct />}
-            media={landGal}
-          ></Section>
+          <Section lable="Landing" text={landTxt} media={<LandAct />}></Section>
           <SectionGall
             lable="Media"
             action={<FeatAct phrase="New Project" />}

@@ -76,9 +76,7 @@ class App extends Component {
                 <Route path="/projects" component={Projects} />
                 <Route path="/rendering" component={Rendering} />
                 <Route path="/admin/project" component={AdminProject} />
-
                 <Route exact path="/admin" component={Admin} />
-
                 <Route path="/login" component={Login} />
               </Switch>
             </div>

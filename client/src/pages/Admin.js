@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Section from "../comps/SectionCarousel";
-import SectionRev from "../comps/SectionRev";
 import SectionGall from "../comps/SectionGall";
 
 import Banner from "../comps/Banner";
