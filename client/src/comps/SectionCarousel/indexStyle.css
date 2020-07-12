@@ -1,9 +1,13 @@
 .sect-car-cont {
+  box-sizing: border-box;
   grid-template-areas:
     "lbl"
     "mida"
     "txt"
     "act";
+}
+.sect-car-cont > * {
+  width: Calc(100% - 32px);
 }
 @media only screen and (min-width: 768px) {
   .sect-car-cont {
@@ -12,6 +16,9 @@
       "lbl lbl"
       "txt act"
       "mida mida";
+  }
+  .sect-car-cont > * {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 960px) {

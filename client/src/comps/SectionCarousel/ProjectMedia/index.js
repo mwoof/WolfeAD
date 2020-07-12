@@ -24,7 +24,7 @@ const Section = props => {
   return (
     <div className="med-wrap project-car">
       <div className="med-shad-top"></div>
-      <Slider {...settings}>
+      <Slider {...settings} className="car-sec-car-wrap">
         <Slide image={Img1} />
         <Slide image={Img2} />
         <Slide image={Img3} />
