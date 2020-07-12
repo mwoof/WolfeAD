@@ -14,6 +14,7 @@ import Project from "./pages/Project";
 import Rendering from "./pages/Rendering";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
+import Test from "./pages/test";
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends Component {
     this.state = {
       sideNav: false,
       headHeight: true,
-      authed: false,
+      authed: false
     };
   }
   componentWillMount() {
@@ -40,11 +41,11 @@ class App extends Component {
   };
   openSideNav = () => {
     this.setState({
-      sideNav: !this.state.sideNav,
+      sideNav: !this.state.sideNav
     });
   };
   authListener = () => {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         return this.setState({ authed: true });
       }
@@ -76,6 +77,7 @@ class App extends Component {
                 <Route path="/rendering" component={Rendering} />
                 <Route path="/admin" component={Admin} />
                 <Route path="/login" component={Login} />
+                <Route path="/Test" component={Test} />
               </Switch>
             </div>
             <div></div>
