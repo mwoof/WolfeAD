@@ -5,7 +5,13 @@ import "./indexStyle.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Image from "../../../media/images/LandingTest.jpg";
+import Slide from "./Slide";
+
+import Commercial from "../../../media/images/Landing/LandingTestCom.jpg";
+import Institutional from "../../../media/images/Landing/LandingTestIns.jpg";
+import Residential from "../../../media/images/Landing/LandingTestRes.jpg";
+// import Boards from "../../../media/images/Landing/LandingTestBor.jpg";
+import Boards from "../../../media/images/Landing/LandingTestRes.jpg";
 
 // function Landing() {
 class Landing extends Component {
@@ -24,27 +30,30 @@ class Landing extends Component {
     return (
       <div className="Landing-cont test-g-wrap flex-cent ">
         <Slider {...settings}>
-          <div>
-            <div className="slide-wrap flex-cent flex-col">
-              <img src={Image} alt="WolfeAD Landing Page" />
-              <h1>Residential</h1>
-              <div className="landing-location nav-txt">
-                Private Res. St. Louis, MO
-              </div>
-              <button className="but-line" style={{ marginTop: "16px" }}>
-                View Project
-              </button>
-            </div>
-          </div>
-          <div>
-            <div className="slide-wrap flex-cent flex-col">
-              <img src={Image} alt="WolfeAD Landing Page" />
-              <div>
-                <h1>Residential</h1>
-                <div className="txt-hlght">Private Res. St. Louis, MO</div>
-              </div>
-            </div>
-          </div>
+          <Slide
+            type="Commercial"
+            image={Commercial}
+            location="Private Res. St. Louis, MO"
+            link="commercial"
+          />
+          <Slide
+            type="Institutional"
+            image={Institutional}
+            location="Private Res. St. Louis, MO"
+            link="institutional"
+          />
+          <Slide
+            type="Residential"
+            image={Residential}
+            location="Private Res. St. Louis, MO"
+            link="residential"
+          />
+          <Slide
+            type="On The Boards"
+            image={Boards}
+            location="Private Res. St. Louis, MO"
+            link="boards"
+          />
         </Slider>
       </div>
     );
