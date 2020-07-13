@@ -11,7 +11,7 @@ const Drop = props => {
       className="tile-cont"
       style={{ backgroundImage: `url(${props.data})` }}
     >
-      <div className="tile-footer">some text</div>
+      <div className="tile-footer">buttons</div>
     </div>
   );
 };

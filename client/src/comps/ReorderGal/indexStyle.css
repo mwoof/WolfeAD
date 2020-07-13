@@ -5,6 +5,20 @@
   margin-bottom: 64px;
 }
 
+.tile-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.tile-footer svg {
+  margin-left: 8px;
+}
+
 @media only screen and (min-width: 768px) {
   .gal-cont {
     grid-template-columns: 1fr 1fr;

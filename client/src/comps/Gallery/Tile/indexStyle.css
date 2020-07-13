@@ -33,11 +33,3 @@
 .tile-overlay:hover {
   opacity: 1;
 }
-.tile-footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 4px 12px;
-}

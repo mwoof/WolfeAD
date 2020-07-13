@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 
 import firebase from "../firebase";
 
@@ -19,20 +20,31 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newProject: false,
+      loaded: false,
       cover: AdminBanner,
       images: []
     };
     this.contentbox = React.createRef();
+    this.syncDelay = _.debounce(this.syncDelay, 1500);
   }
   componentDidMount() {
     window.scrollTo(0, 0);
     this.getCurrentProject();
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state && prevState.loaded) {
+      console.log("starting");
+      this.syncDelay();
+    }
+  }
+
+  syncDelay() {
+    this.submitChanges();
+  }
 
   getCurrentProject = () => {
     let projectID = window.location.pathname.split("/")[3];
-    if (!projectID) return this.setState({ newProject: true });
+    if (!projectID) return this.setState({ loaded: true });
     var docRef = db.collection("projects").doc(projectID);
 
     docRef
@@ -43,13 +55,15 @@ class Home extends Component {
             description,
             name,
             location,
-            category,
+            type,
             cover,
             images
           } = doc.data();
           this.setState({
+            loaded: true,
+            id: doc.id,
             name: name,
-            type: category,
+            category: type,
             location: location,
             description: description,
             cover: cover,
@@ -68,6 +82,11 @@ class Home extends Component {
       [target.id]: target.value
     });
   };
+  changeImgList = list => {
+    this.setState({
+      images: list
+    });
+  };
 
   fileuploadHandler = event => {
     const storageRef = firebase.storage().ref();
@@ -80,6 +99,7 @@ class Home extends Component {
         .then(snapshot => {
           snapshot.ref.getDownloadURL().then(downloadURL => {
             images.push(downloadURL);
+            console.log(images);
             this.setState({ images });
           });
         });
@@ -87,6 +107,7 @@ class Home extends Component {
   };
 
   submitChanges = e => {
+    console.log("submitting changes");
     const {
       description,
       name,
@@ -94,24 +115,38 @@ class Home extends Component {
       category,
       cover,
       images,
-      newProject
+      id
     } = this.state;
+
+    console.log();
     if (!description || !name || !location || !category) {
       console.log("You cannot have empty fields!");
       return;
     }
-    if (!newProject) {
+
+    let payload = {
+      name: name,
+      type: category,
+      location: location,
+      description: description,
+      cover: cover,
+      images: images
+    };
+
+    if (id) {
+      console.log("changing ", id, " prohect");
+      return db
+        .collection(`projects`)
+        .doc(id)
+        .set(payload)
+        .catch(error => {
+          console.error("Error writing document: ", error);
+        });
     }
+    console.log("adding new project");
+    payload.dateAdded = Date.now();
     db.collection("projects")
-      .add({
-        name: name,
-        type: category,
-        location: location,
-        description: description,
-        dateAdded: Date.now(),
-        cover: cover,
-        images: images
-      })
+      .add(payload)
       .then(function() {
         console.log("Document successfully written!");
       })
@@ -179,7 +214,6 @@ class Home extends Component {
           />
           <SectionGall
             lable="Media"
-            tileSet={images}
             action={<FeatAct phrase="Add Images" />}
             gallType={<ReorderGal data={images} />}
           ></SectionGall>
