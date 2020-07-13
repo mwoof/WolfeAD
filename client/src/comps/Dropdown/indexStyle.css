@@ -26,10 +26,13 @@
 }
 .drop-pop-wrap div {
   cursor: pointer;
-  padding: 12px 16px 16px;
+  padding: 8px 16px;
   min-width: 100%;
   box-sizing: border-box;
   text-transform: capitalize;
+}
+.drop-pop-wrap div:last-child {
+  padding-bottom: 12px;
 }
 .drop-pop-wrap div:hover {
   background: rgba(255, 255, 255, 0.1);

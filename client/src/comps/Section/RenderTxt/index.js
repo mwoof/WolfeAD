@@ -3,8 +3,8 @@ import React from "react";
 import Line from "../../Line";
 import Dropdown from "../../Dropdown";
 
-const Section = (props) => {
-  let sort = [{ name: "Date", value: "date" }];
+const Section = props => {
+  let sort = ["commercial", "institutional", "residential", "on the boards"];
 
   return (
     <div>
@@ -14,17 +14,33 @@ const Section = (props) => {
         form below to generates a quote.
       </p>
       <div className="rendr-txt-cont">
-        <Dropdown items={sort} placeholder="Information" />
-        <Dropdown items={sort} placeholder="Timeline" />
+        <Dropdown
+          items={sort}
+          placeholder="Information"
+          setSelected={props.setSelected}
+        />
+        <Dropdown
+          items={sort}
+          placeholder="Timeline"
+          setSelected={props.setSelected}
+        />
       </div>
       <div className="rendr-txt-cont">
-        <Dropdown items={sort} placeholder="00" />
-        <Dropdown items={sort} placeholder="00" />
+        <Dropdown
+          items={sort}
+          placeholder="00"
+          setSelected={props.setSelected}
+        />
+        <Dropdown
+          items={sort}
+          placeholder="00"
+          setSelected={props.setSelected}
+        />
       </div>
       <input
         className="input-input but-line input-cont"
         placeholder="Email address..."
-        onChange={(e) => this.setState({ email: e.target.value })}
+        onChange={e => this.setState({ email: e.target.value })}
       />
       <button className="but-fill" style={{ marginBottom: "16px" }}>
         Submit

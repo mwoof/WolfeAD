@@ -4,7 +4,7 @@ import Line from "../../Line";
 import Dropdown from "../../Dropdown";
 
 const Section = props => {
-  let sort = [{ name: "residential", value: "residential" }];
+  let items = ["commercial", "institutional", "residential", "on the boards"];
 
   return (
     <div>
@@ -22,9 +22,10 @@ const Section = props => {
       <div className="rendr-txt-cont" style={{ width: "100%" }}>
         <Dropdown
           style={{ width: "50%", marginRight: 0 }}
-          items={sort}
+          items={items}
           placeholder="Category"
           selected={props.category}
+          setSelected={props.setSelected}
         />
         <input
           required

@@ -77,6 +77,10 @@ body,
   text-transform: capitalize;
 }
 
+.light-txt {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 /* spacing */
 .spacing {
   display: block;

@@ -23,14 +23,12 @@ const Gallery = props => {
       setDragging(true);
     }, 0);
   };
-
   const handleDragEnd = () => {
     dragNode.current.removeEventListener("dragend", handleDragEnd);
     setDragging(false);
     dragNode.current = null;
     dragItem.current = null;
   };
-
   const handleDragEnter = (e, targetItem) => {
     const currentItem = dragItem.current;
     if (e.target !== dragNode.current) {
@@ -43,7 +41,6 @@ const Gallery = props => {
       });
     }
   };
-
   const getStyles = i => {
     if (dragItem.current === i) return "act-drag-tile tile-cont";
     return "tile-cont";

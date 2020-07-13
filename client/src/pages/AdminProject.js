@@ -22,7 +22,6 @@ class Home extends Component {
     super(props);
     this.state = {
       loaded: false,
-      cover: NewProgBan,
       images: []
     };
     this.contentbox = React.createRef();
@@ -36,6 +35,15 @@ class Home extends Component {
     if (prevState !== this.state && prevState.loaded) {
       console.log("starting");
       this.syncDelay();
+    }
+
+    console.log("saw that there were changes");
+    console.log(this.state.images.length > 1);
+    console.log(!this.state.cover);
+    if (this.state.images.length > 1 && !this.state.cover) {
+      console.log("setting a default cover");
+      console.log("setting it to ", this.state.images[0]);
+      this.setState({ cover: this.state.images[0] });
     }
   }
 
@@ -86,6 +94,9 @@ class Home extends Component {
     this.setState({
       [target.id]: target.value
     });
+  };
+  setSelected = selection => {
+    this.setState({ category: selection });
   };
   setCover = img => {
     this.setState({ cover: img });
@@ -144,7 +155,7 @@ class Home extends Component {
     } = this.state;
 
     console.log();
-    if (!description || !name || !location || !category) {
+    if (!description || !name || !location || !category || images.length < 1) {
       console.log("You cannot have empty fields!");
       return;
     }
@@ -159,7 +170,6 @@ class Home extends Component {
     };
 
     if (id) {
-      console.log("changing ", id, " prohect");
       return db
         .collection(`projects`)
         .doc(id)
@@ -168,12 +178,12 @@ class Home extends Component {
           console.error("Error writing document: ", error);
         });
     }
-    console.log("adding new project");
     payload.dateAdded = Date.now();
+
     db.collection("projects")
       .add(payload)
-      .then(function() {
-        console.log("Document successfully written!");
+      .then(docRef => {
+        this.setState({ id: docRef.id });
       })
       .catch(function(error) {
         console.error("Error writing document: ", error);
@@ -214,7 +224,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Banner image={cover} />
+        <Banner image={cover ? cover : NewProgBan} />
         <div className="sec-wrap">
           <Section
             lable="Landing"
@@ -226,6 +236,7 @@ class Home extends Component {
                 category={category}
                 location={location}
                 submitChanges={this.submitChanges}
+                setSelected={this.setSelected}
               />
             }
             media={<LandAct />}

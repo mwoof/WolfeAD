@@ -8,13 +8,16 @@ import SearchBar from "../SearchBar";
 
 class Filter extends Component {
   state = {
-    listView: false,
+    listView: false
     // sortSElect: 0,
+  };
+  setSelected = selection => {
+    this.setState({ category: selection });
   };
 
   render() {
     let { listView, sortSElect } = this.state;
-    let tabComps = this.props.tabs.map((tab) => (
+    let tabComps = this.props.tabs.map(tab => (
       <NavLink
         to={`/projects/${tab.link}`}
         className="button"
@@ -26,15 +29,24 @@ class Filter extends Component {
       </NavLink>
     ));
 
-    let sort = [{ name: "Date", value: "date" }];
+    let sort = ["commercial", "institutional", "residential", "on the boards"];
 
     return (
       <div className="filt-cont flex-cent flex-col">
         <div className="filt-wrap">{tabComps}</div>
         <div className="filt-but-wrap flex-cent">
           <SearchBar placeholder="Enter Project..." />
-          <DropDown items={sort} placeholder="Filter" />
-          <DropDown items={sort} selected={sortSElect} placeholder="Sort" />
+          <DropDown
+            items={sort}
+            placeholder="Filter"
+            setSelected={this.setSelected}
+          />
+          <DropDown
+            items={sort}
+            selected={sortSElect}
+            placeholder="Sort"
+            setSelected={this.setSelected}
+          />
 
           <button className="but-line txt">Awarded</button>
           <button className="but-line svg-button-sml ">
