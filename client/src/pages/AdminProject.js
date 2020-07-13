@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import _ from "lodash";
 
 import firebase from "../firebase";
@@ -8,13 +8,14 @@ import SectionGall from "../comps/SectionGall";
 
 import Banner from "../comps/Banner";
 import LandAct from "../comps/SectionCarousel/LandAct";
-import FeatAct from "../comps/SectionCarousel/FeatAct";
+import FeatActAction from "../comps/SectionCarousel/FeatActAction";
 import AdminProjectTxt from "../comps/Section/AdminProjectTxt";
 import ReorderGal from "../comps/ReorderGal";
 
 import AdminBanner from "../media/images/AdminBanner.png";
 
 const db = firebase.firestore();
+const storageRef = firebase.storage().ref();
 
 class Home extends Component {
   constructor(props) {
@@ -77,19 +78,43 @@ class Home extends Component {
         console.log("Error getting document:", error);
       });
   };
+  addImgTrigger = () => {
+    const fileInput = document.getElementById("file");
+    fileInput.click();
+  };
   enterInfo = target => {
     this.setState({
       [target.id]: target.value
     });
+  };
+  setCover = img => {
+    this.setState({ cover: img });
+  };
+  deleteImg = imgUrl => {
+    let imgId = imgUrl.substring(
+      imgUrl.lastIndexOf("FwolfeAD-") + 1,
+      imgUrl.lastIndexOf("?alt")
+    );
+    let desertRef = storageRef.child(`projects/${imgId}`);
+
+    desertRef
+      .delete()
+      .then(() => {
+        let newArr = this.state.images;
+        let index = newArr.indexOf(imgUrl);
+        newArr.splice(index, 1);
+        this.setState({ images: newArr });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
   changeImgList = list => {
     this.setState({
       images: list
     });
   };
-
   fileuploadHandler = event => {
-    const storageRef = firebase.storage().ref();
     const { images } = this.state;
     const files = Array.from(event.target.files);
     files.forEach(file => {
@@ -189,7 +214,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Banner image={cover} text={subButton} />
+        <Banner image={cover} />
         <div className="sec-wrap">
           <Section
             lable="Landing"
@@ -205,19 +230,31 @@ class Home extends Component {
             }
             media={<LandAct />}
           ></Section>
-          <input
-            id="file"
-            type="file"
-            accept="image/*"
-            onChange={this.fileuploadHandler.bind(this)}
-            multiple
-          />
+
           <SectionGall
             lable="Media"
-            action={<FeatAct phrase="Add Images" />}
-            gallType={<ReorderGal data={images} />}
+            action={
+              <FeatActAction phrase="Add Images" action={this.addImgTrigger} />
+            }
+            gallType={
+              <ReorderGal
+                data={images}
+                changeData={this.changeImgList}
+                cover={cover}
+                setCover={this.setCover}
+                deleteImg={this.deleteImg}
+              />
+            }
           ></SectionGall>
         </div>
+        <input
+          id="file"
+          type="file"
+          accept="image/*"
+          onChange={this.fileuploadHandler.bind(this)}
+          multiple
+          style={{ display: "none" }}
+        />
       </div>
     );
   }

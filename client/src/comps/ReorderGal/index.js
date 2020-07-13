@@ -38,6 +38,7 @@ const Gallery = props => {
         let newList = JSON.parse(JSON.stringify(oldList));
         newList.splice(targetItem, 0, newList.splice(dragItem.current, 1)[0]);
         dragItem.current = targetItem;
+        props.changeData(newList);
         return newList;
       });
     }
@@ -58,7 +59,9 @@ const Gallery = props => {
             <div
               draggable
               key={"tileItem" + i}
-              className={dragging ? getStyles(i) : "tile-cont"}
+              className={`${dragging ? getStyles(i) : "tile-cont"} ${
+                props.cover !== image ? "" : "tile-cont-cover"
+              }`}
               style={{ backgroundImage: `url(${image})` }}
               onDragEnter={dragging ? e => handleDragEnter(e, i) : null}
               onDragStart={e => {
@@ -66,13 +69,22 @@ const Gallery = props => {
               }}
             >
               <div className="tile-footer flex-out">
-                <button className="svg-button-sml">
-                  <div>Cover</div>
-                  <svg fill="#fff" viewBox="0 0 24 24">
-                    <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" />
-                  </svg>
+                <button
+                  className="svg-button-sml"
+                  onClick={e => props.setCover(image)}
+                >
+                  {props.cover !== image ? (
+                    <div>Set as cover</div>
+                  ) : (
+                    <svg fill="#fff" viewBox="0 0 24 24" style={{ margin: 0 }}>
+                      <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" />
+                    </svg>
+                  )}
                 </button>
-                <button className="svg-button-sml">
+                <button
+                  className="svg-button-sml"
+                  onClick={e => props.deleteImg(image)}
+                >
                   <div>Delete</div>
                   <svg fill="#fff" viewBox="0 0 24 24">
                     <path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" />

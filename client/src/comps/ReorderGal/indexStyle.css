@@ -5,6 +5,11 @@
   margin-bottom: 64px;
 }
 
+.tile-cont-cover {
+  border: 3px solid white;
+  box-sizing: border-box;
+}
+
 .tile-footer {
   width: 100%;
   position: absolute;
