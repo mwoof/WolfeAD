@@ -33,16 +33,9 @@ class Home extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state && prevState.loaded) {
-      console.log("starting");
       this.syncDelay();
     }
-
-    console.log("saw that there were changes");
-    console.log(this.state.images.length > 1);
-    console.log(!this.state.cover);
     if (this.state.images.length > 1 && !this.state.cover) {
-      console.log("setting a default cover");
-      console.log("setting it to ", this.state.images[0]);
       this.setState({ cover: this.state.images[0] });
     }
   }

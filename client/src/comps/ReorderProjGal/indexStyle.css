@@ -1,0 +1,38 @@
+.gal-cont {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8px;
+  margin-bottom: 64px;
+}
+
+.tile-cont-cover {
+  border: 3px solid white;
+  box-sizing: border-box;
+}
+
+.tile-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.tile-footer svg {
+  margin-left: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .gal-cont {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .gal-cont {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 24px;
+  }
+}

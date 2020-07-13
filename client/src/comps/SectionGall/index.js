@@ -13,7 +13,6 @@ class Section extends Component {
     this.contentbox = React.createRef();
   }
   componentDidMount() {
-    console.log("mounted");
     this.updateWindowDimensions();
     this.animCheck();
     window.addEventListener("scroll", this.scroll, false);

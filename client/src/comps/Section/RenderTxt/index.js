@@ -6,6 +6,10 @@ import Dropdown from "../../Dropdown";
 const Section = props => {
   let sort = ["commercial", "institutional", "residential", "on the boards"];
 
+  const setSelected = selcted => {
+    console.log(selcted);
+  };
+
   return (
     <div>
       <h1>Architectural Rendering</h1>
@@ -17,25 +21,17 @@ const Section = props => {
         <Dropdown
           items={sort}
           placeholder="Information"
-          setSelected={props.setSelected}
+          setSelected={setSelected}
         />
         <Dropdown
           items={sort}
           placeholder="Timeline"
-          setSelected={props.setSelected}
+          setSelected={setSelected}
         />
       </div>
       <div className="rendr-txt-cont">
-        <Dropdown
-          items={sort}
-          placeholder="00"
-          setSelected={props.setSelected}
-        />
-        <Dropdown
-          items={sort}
-          placeholder="00"
-          setSelected={props.setSelected}
-        />
+        <Dropdown items={sort} placeholder="00" setSelected={setSelected} />
+        <Dropdown items={sort} placeholder="00" setSelected={setSelected} />
       </div>
       <input
         className="input-input but-line input-cont"

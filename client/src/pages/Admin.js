@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import firebase from "../firebase";
+
 import Section from "../comps/SectionCarousel";
 import SectionGall from "../comps/SectionGall";
 
@@ -8,13 +10,46 @@ import LandAct from "../comps/SectionCarousel/LandAct";
 import FeatAct from "../comps/SectionCarousel/FeatAct";
 import ServiceTxt from "../comps/Section/ServText";
 import ServiceMdia from "../comps/Section/Media";
+import ReorderProjGal from "../comps/ReorderProjGal";
 
 import AdminBanner from "../media/images/AdminBanner.png";
 
+const db = firebase.firestore();
+const storageRef = firebase.storage().ref();
+
 class Home extends Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
+  constructor(props) {
+    super(props);
+    this.state = {
+      order: [],
+      projects: {}
+    };
   }
+
+  componentDidMount() {
+    let projectsRef = db.collection("projects");
+    window.scrollTo(0, 0);
+    projectsRef.get().then(doc => {
+      let order = this.state.order;
+      let projects = this.state.projects;
+
+      doc.forEach(project => {
+        if (project.id === "--STATS--") {
+          order = project.data().order;
+        } else {
+          projects[project.id] = project.data();
+        }
+      });
+      this.setState({
+        order,
+        projects
+      });
+    });
+  }
+
+  changeOrder = order => {
+    this.setState({ order });
+  };
 
   render() {
     let landTxt = (
@@ -52,7 +87,16 @@ class Home extends Component {
           <SectionGall
             lable="Archive"
             action={<FeatAct phrase="New Project" link="/admin/project" />}
-          ></SectionGall>
+            gallType={
+              <ReorderProjGal
+                data={this.state.order}
+                object={this.state.projects}
+                changeData={this.changeOrder}
+                setCover={this.setCover}
+                deleteImg={this.deleteImg}
+              />
+            }
+          />
         </div>
       </div>
     );

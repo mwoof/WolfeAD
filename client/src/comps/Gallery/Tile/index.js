@@ -17,8 +17,8 @@ const Drop = props => {
     <Link
       to={`/projects/project/${id}/${name.replace(/\s+/g, "-")}`}
       className="tile-cont flex-cent"
+      style={{ backgroundImage: `url(${image})` }}
     >
-      <img src={image} />
       <div className="tile-overlay flex-cent flex-col">
         <h1>
           {name.length < strLngth ? name : name.substring(0, strLngth) + "..."}
