@@ -42,11 +42,11 @@ class Drop extends Component {
               <div className="txt text-trans-cap">{placeholder}</div>
             )}
             <svg
-              width="24px"
-              height="24px"
               style={{
                 marginLeft: "8px",
-                transform: `rotate(${!opened ? 0 : "180deg"})`
+                transform: `rotate(${!opened ? 0 : "180deg"})`,
+                width: "24px",
+                height: "24px"
               }}
               viewBox="0 0 24 24"
             >
@@ -55,7 +55,10 @@ class Drop extends Component {
           </button>
           <div
             className="drop-pop-wrap"
-            style={{ display: !opened ? "none" : "block" }}
+            style={{
+              display: !opened ? "none" : "block",
+              width: "Calc(100% - 16px)"
+            }}
           >
             {options}
           </div>

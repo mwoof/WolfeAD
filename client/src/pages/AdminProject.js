@@ -12,7 +12,7 @@ import FeatActAction from "../comps/SectionCarousel/FeatActAction";
 import AdminProjectTxt from "../comps/Section/AdminProjectTxt";
 import ReorderGal from "../comps/ReorderGal";
 
-import AdminBanner from "../media/images/AdminBanner.png";
+import NewProgBan from "../media/images/NewProgBan.png";
 
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
@@ -22,7 +22,7 @@ class Home extends Component {
     super(props);
     this.state = {
       loaded: false,
-      cover: AdminBanner,
+      cover: NewProgBan,
       images: []
     };
     this.contentbox = React.createRef();
