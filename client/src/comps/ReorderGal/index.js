@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "./indexStyle.css";
 
-import Tile from "./Tile";
-
 const Gallery = props => {
   const [list, setList] = useState(props.data);
   const [dragging, setDragging] = useState(false);

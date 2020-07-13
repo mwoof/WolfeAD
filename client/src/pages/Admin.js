@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 
 import firebase from "../firebase";
 
@@ -21,9 +22,12 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: false,
       order: [],
-      projects: {}
+      projects: {},
+      featured: []
     };
+    this.syncDelay = _.debounce(this.syncDelay, 500);
   }
 
   componentDidMount() {
@@ -32,23 +36,55 @@ class Home extends Component {
     projectsRef.get().then(doc => {
       let order = this.state.order;
       let projects = this.state.projects;
+      let featured;
 
       doc.forEach(project => {
         if (project.id === "--STATS--") {
           order = project.data().order;
+          featured = project.data().featured;
         } else {
           projects[project.id] = project.data();
         }
       });
       this.setState({
         order,
-        projects
+        projects,
+        featured,
+        loaded: true
       });
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state && prevState.loaded) {
+      this.syncDelay();
+    }
+  }
+
   changeOrder = order => {
     this.setState({ order });
+  };
+  setFeature = id => {
+    let featured = this.state.featured ? this.state.featured : [];
+    featured.push(id);
+    this.setState({ featured });
+  };
+
+  syncDelay() {
+    this.submitChanges();
+  }
+
+  submitChanges = () => {
+    console.log("saving changes");
+    db.collection("projects")
+      .doc("--STATS--")
+      .set({
+        order: this.state.order,
+        featured: this.state.featured
+      })
+      .catch(error => {
+        console.error("Error writing document: ", error);
+      });
   };
 
   render() {
@@ -81,7 +117,7 @@ class Home extends Component {
           <Section
             lable="Featured"
             text={fetTxt}
-            action={<FeatAct phrase="Add Project" link="/admin/project" />}
+            action={<FeatAct phrase={`${this.state.featured.length}/5`} />}
             media={landGal}
           ></Section>
           <SectionGall
@@ -90,9 +126,10 @@ class Home extends Component {
             gallType={
               <ReorderProjGal
                 data={this.state.order}
+                featured={this.state.featured}
                 object={this.state.projects}
                 changeData={this.changeOrder}
-                setCover={this.setCover}
+                setFeature={this.setFeature}
                 deleteImg={this.deleteImg}
               />
             }
