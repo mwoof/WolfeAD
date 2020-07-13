@@ -19,7 +19,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      newProject: false,
       cover: AdminBanner,
+      images: []
     };
     this.contentbox = React.createRef();
   }
@@ -30,13 +32,12 @@ class Home extends Component {
 
   getCurrentProject = () => {
     let projectID = window.location.pathname.split("/")[3];
-    console.log(projectID);
-    if (!projectID) return;
+    if (!projectID) return this.setState({ newProject: true });
     var docRef = db.collection("projects").doc(projectID);
 
     docRef
       .get()
-      .then((doc) => {
+      .then(doc => {
         if (doc.exists) {
           const {
             description,
@@ -44,7 +45,7 @@ class Home extends Component {
             location,
             category,
             cover,
-            images,
+            images
           } = doc.data();
           this.setState({
             name: name,
@@ -52,57 +53,54 @@ class Home extends Component {
             location: location,
             description: description,
             cover: cover,
-            images: images,
+            images: images
           });
         } else {
           console.log("No such project!");
         }
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log("Error getting document:", error);
       });
   };
-
-  enterInfo = (target) => {
+  enterInfo = target => {
     this.setState({
-      [target.id]: target.value,
+      [target.id]: target.value
     });
   };
 
-  // uploadImageAsPromise = imageFile => {
-  //   const fullDirectory = this.state.fullDirectory;
-  //   return new Promise(function(resolve, reject) {
-  //     var storageRef = firebase
-  //       .storage()
-  //       .ref(fullDirectory + "/" + imageFile.name);
-  //
-  //     //Upload file
-  //     var task = storageRef.put(imageFile);
-  //
-  //     //Update progress bar
-  //     task.on(
-  //       "state_changed",
-  //       function progress(snapshot) {
-  //         var percentage =
-  //           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-  //         uploader.value = percentage;
-  //       },
-  //       function error(err) {},
-  //       function complete() {
-  //         var downloadURL = task.snapshot.downloadURL;
-  //       }
-  //     );
-  //   });
-  // };
+  fileuploadHandler = event => {
+    const storageRef = firebase.storage().ref();
+    const { images } = this.state;
+    const files = Array.from(event.target.files);
+    files.forEach(file => {
+      storageRef
+        .child(`projects/wolfeAD-${Math.random()}`)
+        .put(file)
+        .then(snapshot => {
+          snapshot.ref.getDownloadURL().then(downloadURL => {
+            images.push(downloadURL);
+            this.setState({ images });
+          });
+        });
+    });
+  };
 
-  submitChanges = (e) => {};
-  submitNewProject = (e) => {
-    e.preventDefault();
-    console.log("running submitChanges");
-    const { description, name, location, category, cover, images } = this.state;
+  submitChanges = e => {
+    const {
+      description,
+      name,
+      location,
+      category,
+      cover,
+      images,
+      newProject
+    } = this.state;
     if (!description || !name || !location || !category) {
-      console.log("empty field!");
+      console.log("You cannot have empty fields!");
       return;
+    }
+    if (!newProject) {
     }
     db.collection("projects")
       .add({
@@ -112,12 +110,12 @@ class Home extends Component {
         description: description,
         dateAdded: Date.now(),
         cover: cover,
-        images: images,
+        images: images
       })
-      .then(function () {
+      .then(function() {
         console.log("Document successfully written!");
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.error("Error writing document: ", error);
       });
   };
@@ -146,7 +144,7 @@ class Home extends Component {
           style={{
             background: "#EE1C25",
             boxShadow:
-              " 0px 15px 25px rgba(0, 0, 0, 0.12), 0px 5px 10px rgba(0, 0, 0, 0.09)",
+              " 0px 15px 25px rgba(0, 0, 0, 0.12), 0px 5px 10px rgba(0, 0, 0, 0.09)"
           }}
         >
           Save Changes
@@ -172,6 +170,13 @@ class Home extends Component {
             }
             media={<LandAct />}
           ></Section>
+          <input
+            id="file"
+            type="file"
+            accept="image/*"
+            onChange={this.fileuploadHandler.bind(this)}
+            multiple
+          />
           <SectionGall
             lable="Media"
             tileSet={images}
