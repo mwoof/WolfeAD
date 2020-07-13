@@ -4,13 +4,14 @@ import Line from "../../Line";
 import Dropdown from "../../Dropdown";
 
 const Section = props => {
-  let sort = [{ name: "Date", value: "date" }];
+  let sort = [{ name: "residential", value: "residential" }];
 
   return (
     <div>
       <h1>Project Information</h1>
 
       <input
+        required
         style={{ width: "100%", margin: "16px 0" }}
         className="input-input but-line input-cont"
         placeholder="Name"
@@ -26,6 +27,7 @@ const Section = props => {
           selected={props.category}
         />
         <input
+          required
           style={{ width: "50%", marginRight: 0 }}
           className="input-input but-line input-cont"
           placeholder="Location (City, ST)"
@@ -36,6 +38,7 @@ const Section = props => {
       </div>
 
       <textarea
+        required
         style={{ width: "100%", height: "100px" }}
         className="input-input but-line input-cont"
         placeholder="Describer the project..."
@@ -43,9 +46,6 @@ const Section = props => {
         value={props.description}
         onChange={e => props.enterInfo(e.target)}
       />
-      <button className="but-fill" style={{ marginBottom: "16px" }}>
-        Submit
-      </button>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.gal-cont {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8px;
+  margin-bottom: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  .gal-cont {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .gal-cont {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 24px;
+  }
+}

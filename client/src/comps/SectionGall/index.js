@@ -49,7 +49,7 @@ class Section extends Component {
     this.animCheck();
   };
   render() {
-    const { lable, media, text } = this.props;
+    const { lable, media, text, gallType } = this.props;
     const { animate } = this.state;
     return (
       <section
@@ -63,7 +63,11 @@ class Section extends Component {
           </div>
         </div>
         <div className="sect-act">{this.props.action}</div>
-        <Gallery className="sect-gal" noMargin={true} />
+        {!gallType ? (
+          <Gallery className="sect-gal" noMargin={true} />
+        ) : (
+          gallType
+        )}
       </section>
     );
   }

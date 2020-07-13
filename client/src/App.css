@@ -73,6 +73,9 @@ body,
   line-height: 17px;
   color: rgba(255, 255, 255, 0.5);
 }
+.text-trans-cap {
+  text-transform: capitalize;
+}
 
 /* spacing */
 .spacing {
