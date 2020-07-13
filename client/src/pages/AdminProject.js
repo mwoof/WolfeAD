@@ -4,7 +4,6 @@ import firebase from "../firebase";
 
 import Section from "../comps/Section";
 import SectionGall from "../comps/SectionGall";
-import Modal from "../comps/modal";
 
 import Banner from "../comps/Banner";
 import LandAct from "../comps/SectionCarousel/LandAct";
@@ -20,7 +19,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cover: AdminBanner
+      cover: AdminBanner,
     };
     this.contentbox = React.createRef();
   }
@@ -37,7 +36,7 @@ class Home extends Component {
 
     docRef
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (doc.exists) {
           const {
             description,
@@ -45,7 +44,7 @@ class Home extends Component {
             location,
             category,
             cover,
-            images
+            images,
           } = doc.data();
           this.setState({
             name: name,
@@ -53,20 +52,20 @@ class Home extends Component {
             location: location,
             description: description,
             cover: cover,
-            images: images
+            images: images,
           });
         } else {
           console.log("No such project!");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("Error getting document:", error);
       });
   };
 
-  enterInfo = target => {
+  enterInfo = (target) => {
     this.setState({
-      [target.id]: target.value
+      [target.id]: target.value,
     });
   };
 
@@ -96,8 +95,8 @@ class Home extends Component {
   //   });
   // };
 
-  submitChanges = e => {};
-  submitNewProject = e => {
+  submitChanges = (e) => {};
+  submitNewProject = (e) => {
     e.preventDefault();
     console.log("running submitChanges");
     const { description, name, location, category, cover, images } = this.state;
@@ -113,12 +112,12 @@ class Home extends Component {
         description: description,
         dateAdded: Date.now(),
         cover: cover,
-        images: images
+        images: images,
       })
-      .then(function() {
+      .then(function () {
         console.log("Document successfully written!");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error("Error writing document: ", error);
       });
   };
@@ -140,7 +139,6 @@ class Home extends Component {
     );
 
     let landGal = <div>Media</div>;
-
     let subButton = (
       <div style={{ width: "100%" }} className="flex-lft">
         <button
@@ -148,7 +146,7 @@ class Home extends Component {
           style={{
             background: "#EE1C25",
             boxShadow:
-              " 0px 15px 25px rgba(0, 0, 0, 0.12), 0px 5px 10px rgba(0, 0, 0, 0.09)"
+              " 0px 15px 25px rgba(0, 0, 0, 0.12), 0px 5px 10px rgba(0, 0, 0, 0.09)",
           }}
         >
           Save Changes
@@ -158,7 +156,6 @@ class Home extends Component {
 
     return (
       <div>
-        <Modal />
         <Banner image={cover} text={subButton} />
         <div className="sec-wrap">
           <Section
