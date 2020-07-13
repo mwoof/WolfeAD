@@ -4,6 +4,7 @@ import firebase from "../firebase";
 
 import Section from "../comps/Section";
 import SectionGall from "../comps/SectionGall";
+import Modal from "../comps/modal";
 
 import Banner from "../comps/Banner";
 import LandAct from "../comps/SectionCarousel/LandAct";
@@ -157,6 +158,7 @@ class Home extends Component {
 
     return (
       <div>
+        <Modal />
         <Banner image={cover} text={subButton} />
         <div className="sec-wrap">
           <Section
