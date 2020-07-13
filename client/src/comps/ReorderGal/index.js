@@ -31,6 +31,18 @@ const Gallery = props => {
     dragItem.current = null;
   };
 
+  const handleDragEnter = (e, targetItem) => {
+    const currentItem = dragItem.current;
+    if (e.target !== dragNode.current) {
+      setList(oldList => {
+        let newList = JSON.parse(JSON.stringify(oldList));
+        newList.splice(targetItem, 0, newList.splice(dragItem.current, 1)[0]);
+        dragItem.current = targetItem;
+        return newList;
+      });
+    }
+  };
+
   const getStyles = i => {
     if (dragItem.current === i) return "act-drag-tile tile-cont";
     return "tile-cont";
@@ -48,6 +60,7 @@ const Gallery = props => {
               key={"tileItem" + i}
               className={dragging ? getStyles(i) : "tile-cont"}
               style={{ backgroundImage: `url(${image})` }}
+              onDragEnter={dragging ? e => handleDragEnter(e, i) : null}
               onDragStart={e => {
                 handleDragStart(e, i);
               }}
