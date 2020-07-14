@@ -7,7 +7,7 @@ import Image from "../../../media/images/Img1.png";
 
 const Drop = props => {
   const id = props.data.id;
-  const name = props.data.data.name;
+  const name = props.data.data.name ? props.data.data.name : "";
   const location = props.data.data.location;
   const image = props.data.data.cover;
 

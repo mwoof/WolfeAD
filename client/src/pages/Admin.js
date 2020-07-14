@@ -18,6 +18,8 @@ import AdminBanner from "../media/images/AdminBanner.png";
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
 
+const fetureLimit = 4;
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +68,14 @@ class Home extends Component {
   };
   setFeature = id => {
     let featured = this.state.featured ? this.state.featured : [];
-    featured.push(id);
+    let toggleCheck = featured.indexOf(id);
+    if (toggleCheck !== -1) {
+      featured.splice(toggleCheck, 1);
+    } else {
+      if (featured.length > fetureLimit) return;
+      featured.push(id);
+    }
+
     this.setState({ featured });
   };
 
@@ -117,7 +126,11 @@ class Home extends Component {
           <Section
             lable="Featured"
             text={fetTxt}
-            action={<FeatAct phrase={`${this.state.featured.length}/5`} />}
+            action={
+              <FeatAct
+                phrase={`${this.state.featured.length}/${fetureLimit}`}
+              />
+            }
             media={landGal}
           ></Section>
           <SectionGall

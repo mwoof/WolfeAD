@@ -19,17 +19,29 @@ class Home extends Component {
     let projectsRef = db.collection("projects");
     window.scrollTo(0, 0);
     projectsRef.get().then(doc => {
-      let projects = this.state.projects;
+      let order = [];
+      let projects = {};
+
       doc.forEach(project => {
-        let projObj = {
-          id: project.id,
-          data: project.data()
-        };
-        projects.push(projObj);
-        this.setState({ projects });
+        console.log(project.id);
+        if (project.id === "--STATS--") return (order = project.data().order);
+        projects[project.id] = project.data();
       });
+
+      this.orderProjects(projects, order);
     });
   }
+  orderProjects = (prjectObj, orderArr) => {
+    let projects = [];
+    orderArr.forEach(id => {
+      let projObj = {
+        id: id,
+        data: prjectObj[id]
+      };
+      projects.push(projObj);
+    });
+    this.setState({ projects });
+  };
 
   render() {
     const tabs = [
