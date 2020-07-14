@@ -23,7 +23,7 @@ const Drop = props => {
   };
 
   return (
-    <div style={style}>
+    <div style={style} className={props.className}>
       <div style={{ position: "relative" }}>
         <button
           className="but-line drop-dwn-cont"

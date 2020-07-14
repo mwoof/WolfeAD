@@ -2,9 +2,9 @@ import React from "react";
 
 import "./indexStyle.css";
 
-const Drop = (props) => {
+const Drop = props => {
   return (
-    <button className="but-line srch-cont">
+    <button className={`but-line srch-cont ${props.className}`}>
       <input className="srch-input" placeholder={props.placeholder} />
       <svg
         width="24px"

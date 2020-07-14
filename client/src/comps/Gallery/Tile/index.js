@@ -12,23 +12,37 @@ const Drop = props => {
   const image = props.data.data.cover;
 
   let strLngth = 20;
+  function getBaseLog(x, y) {
+    return Math.log(y) / Math.log(x);
+  }
 
   return (
-    <Link
-      key={Math.random()}
-      to={`/projects/project/${id}/${
-        name && name.includes(" ") ? name.replace(/\s+/g, "-") : name
-      }`}
-      className="tile-cont flex-cent"
-      style={{ backgroundImage: `url(${image})` }}
+    <div
+      className="tile-wrap"
+      style={{
+        animationDelay: `${props.delay}s`
+      }}
     >
-      <div className="tile-overlay flex-cent flex-col">
-        <h1>
-          {name.length < strLngth ? name : name.substring(0, strLngth) + "..."}
-        </h1>
-        <p className="nav-txt ">{location}</p>
-      </div>
-    </Link>
+      <Link
+        key={Math.random()}
+        to={`/projects/project/${id}/${
+          name && name.includes(" ") ? name.replace(/\s+/g, "-") : name
+        }`}
+        className="tile-cont flex-cent"
+        style={{
+          backgroundImage: `url(${image})`
+        }}
+      >
+        <div className="tile-overlay flex-cent flex-col">
+          <h1>
+            {name.length < strLngth
+              ? name
+              : name.substring(0, strLngth) + "..."}
+          </h1>
+          <p className="nav-txt ">{location}</p>
+        </div>
+      </Link>
+    </div>
   );
 };
 

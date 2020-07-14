@@ -1,3 +1,9 @@
+.tile-wrap {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: scaleUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 .tile-cont {
   width: 100%;
   overflow: hidden;
@@ -6,15 +12,13 @@
     0px 5px 10px rgba(0, 0, 0, 0.09);
   height: 253px;
   position: relative;
-  background-size: cover;
   transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.act-drag-tile {
-  opacity: 0;
+  background-size: cover;
+  background-position: center;
 }
 
-.tile-cont:hover {
-  transform: translateY(-8px);
+.act-drag-tile {
+  opacity: 0;
 }
 
 .tile-overlay {
@@ -27,4 +31,20 @@
 }
 .tile-overlay:hover {
   opacity: 1;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .tile-cont:hover {
+    transform: translateY(-8px);
+  }
 }

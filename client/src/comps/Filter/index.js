@@ -35,20 +35,22 @@ class Filter extends Component {
       <div className="filt-cont flex-cent flex-col">
         <div className="filt-wrap">{tabComps}</div>
         <div className="filt-but-wrap flex-cent">
-          <SearchBar placeholder="Enter Project..." />
+          <SearchBar placeholder="Enter Project..." className="filt-srch-bar" />
           <DropDown
+            className="desktop-only "
             items={sort}
             placeholder="Filter"
             setSelected={this.setSelected}
           />
           <DropDown
+            className="desktop-only "
             items={sort}
             selected={sortSElect}
             placeholder="Sort"
             setSelected={this.setSelected}
           />
 
-          <button className="but-line txt">Awarded</button>
+          <button className="but-line txt desktop-only ">Awarded</button>
           <button className="but-line svg-button-sml ">
             <svg viewBox="0 0 24 24">
               <path

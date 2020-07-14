@@ -1,6 +1,6 @@
 .filt-cont {
   margin: 56px auto 0;
-  padding: 64px 0;
+  padding: 8px 0;
 }
 .filt-wrap {
   display: inline-block;
@@ -17,6 +17,33 @@
 .tab-txt-hlght {
   border-bottom: 3px solid #fff;
 }
+
+.filt-but-wrap {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
 .filt-but-wrap > *:not(:last-child) {
   margin-right: 16px;
+}
+
+.filt-srch-bar {
+  width: 100%;
+}
+.filt-srch-bar .srch-input {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filt-but-wrap {
+    width: auto;
+    padding: 0;
+  }
+  .filt-srch-bar .srch-input {
+    width: inherit;
+  }
+  .filt-cont {
+    margin: 56px auto 0;
+    padding: 64px 0;
+  }
 }

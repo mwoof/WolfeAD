@@ -5,7 +5,8 @@
   background: none;
   border: none;
   outline: none;
-  width: 177px;
+
+  box-sizing: border-box;
 }
 
 .srch-input::placeholder {
@@ -16,11 +17,18 @@
 
 .srch-cont {
   flex-direction: row-reverse;
+  width: 100%;
+  background: #212121;
 }
-.srch-input:focus {
-  width: Calc(177px + 32px);
+.srch-input {
+  width: 100%;
 }
 .srch-input:focus ~ svg {
   display: none;
   /* border: 1px solid red; */
+}
+@media only screen and (min-width: 768px) {
+  .srch-cont {
+    width: 228px;
+  }
 }
