@@ -18,13 +18,13 @@
 }
 .list-cont {
   width: 100%;
-  overflow: hidden;
   border-radius: 2px;
   /* box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.12),
     0px 5px 10px rgba(0, 0, 0, 0.09); */
   height: 56px;
   position: relative;
-  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: 0.05s cubic-bezier(0.25, 1, 0.5, 1);
+  background: none;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -32,6 +32,8 @@
   margin: 0;
 }
 .list-cont img {
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.12),
+    0px 5px 10px rgba(0, 0, 0, 0.09);
   height: 56px;
   width: 84px;
   object-fit: cover;
@@ -58,6 +60,9 @@
 }
 .tile-overlay:hover {
   opacity: 1;
+}
+.list-cont:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 @keyframes scaleUp {
