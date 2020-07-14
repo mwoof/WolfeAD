@@ -63,7 +63,11 @@ class Section extends Component {
         </div>
         <div className="sect-act">{this.props.action}</div>
         {!gallType ? (
-          <Gallery className="sect-gal" noMargin={true} />
+          <Gallery
+            className="sect-gal"
+            noMargin={true}
+            array={this.props.items}
+          />
         ) : (
           gallType
         )}

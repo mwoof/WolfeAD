@@ -17,15 +17,15 @@ class Filter extends Component {
 
   render() {
     let { listView, sortSElect } = this.state;
-    let tabComps = this.props.tabs.map(tab => (
+    let tabComps = this.props.tabs.map((tab, i) => (
       <NavLink
-        to={`/projects/${tab.link}`}
+        to={`/projects/${i < 1 ? "" : tab.toLowerCase().replace(/\s/g, "")}`}
         className="button"
         activeClassName="tab-txt-hlght"
         key={Math.random()}
         exact
       >
-        {tab.title}
+        {tab}
       </NavLink>
     ));
 

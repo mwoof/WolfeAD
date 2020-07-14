@@ -12,7 +12,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      TypeFilter: "",
+      SortFilt: ""
     };
   }
   componentDidMount() {
@@ -23,13 +25,20 @@ class Home extends Component {
       let projects = {};
 
       doc.forEach(project => {
-        console.log(project.id);
         if (project.id === "--STATS--") return (order = project.data().order);
         projects[project.id] = project.data();
       });
 
       this.orderProjects(projects, order);
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    const currentPath = this.props.location.pathname;
+    console.log(currentPath);
+    if (currentPath !== prevProps.location.pathname) {
+      this.setState({ TypeFilter: currentPath.replace("/projects/", "") });
+    }
   }
   orderProjects = (prjectObj, orderArr) => {
     let projects = [];
@@ -38,6 +47,7 @@ class Home extends Component {
         id: id,
         data: prjectObj[id]
       };
+
       projects.push(projObj);
     });
     this.setState({ projects });
@@ -45,32 +55,44 @@ class Home extends Component {
 
   render() {
     const tabs = [
-      {
-        title: "All Projects",
-        link: ""
-      },
-      {
-        title: "Commercial",
-        link: "commercial"
-      },
-      {
-        title: "Institutional",
-        link: "institutional"
-      },
-      {
-        title: "Residential",
-        link: "residential"
-      },
-      {
-        title: "On The Boards",
-        link: "boards"
-      }
+      "All Projects",
+      "Commercial",
+      "Institutional",
+      "Residential",
+      "On The Boards"
     ];
+    // const tabs = [
+    //   {
+    //     title: "All Projects"
+    //   },
+    //   {
+    //     title: "Commercial",
+    //     link: "commercial"
+    //   },
+    //   {
+    //     title: "Institutional",
+    //     link: "institutional"
+    //   },
+    //   {
+    //     title: "Residential",
+    //     link: "residential"
+    //   },
+    //   {
+    //     title: "On The Boards",
+    //     link: "boards"
+    //   }
+    // ];
 
     return (
       <div>
         <Filter tabs={tabs} />
-        <Gallery array={this.state.projects} />
+
+        {
+          //map tabs to galleries. each tab is its own gallrey that can be swiped between
+        }
+
+        <Gallery array={this.state.projects} type={this.state.TypeFilter} />
+
         <div className="grid-wrapper flex-cent">
           <div className="spacing" style={{ height: "100%" }}>
             <DotGrid top="10%" left="-66px" />
