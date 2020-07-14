@@ -16,7 +16,34 @@ const Drop = props => {
     return Math.log(y) / Math.log(x);
   }
 
-  return (
+  const list = (
+    <div
+      className="tile-wrap"
+      style={{
+        animationDelay: `${props.delay}s`
+      }}
+    >
+      <Link
+        key={Math.random()}
+        to={`/projects/project/${id}/${
+          name && name.includes(" ") ? name.replace(/\s+/g, "-") : name
+        }`}
+        className="list-cont flex-rit"
+      >
+        <img src={image} alt={`wolfeAD ${name}`} />
+        <div className="list-txt-cont">
+          <h1>
+            {name.length < strLngth
+              ? name
+              : name.substring(0, strLngth) + "..."}
+          </h1>
+          <p className="nav-txt ">{location}</p>
+        </div>
+      </Link>
+    </div>
+  );
+
+  const tile = (
     <div
       className="tile-wrap"
       style={{
@@ -44,6 +71,8 @@ const Drop = props => {
       </Link>
     </div>
   );
+
+  return props.view ? tile : list;
 };
 
 export default Drop;

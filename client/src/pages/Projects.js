@@ -14,7 +14,8 @@ class Home extends Component {
     this.state = {
       projects: [],
       TypeFilter: "",
-      SortFilt: ""
+      SortFilt: "",
+      view: true
     };
   }
   componentDidMount() {
@@ -35,7 +36,6 @@ class Home extends Component {
 
   componentDidUpdate(prevProps) {
     const currentPath = this.props.location.pathname;
-    console.log(currentPath);
     if (currentPath !== prevProps.location.pathname) {
       this.setState({ TypeFilter: currentPath.replace("/projects/", "") });
     }
@@ -85,13 +85,16 @@ class Home extends Component {
 
     return (
       <div>
-        <Filter tabs={tabs} />
-
-        {
-          //map tabs to galleries. each tab is its own gallrey that can be swiped between
-        }
-
-        <Gallery array={this.state.projects} type={this.state.TypeFilter} />
+        <Filter
+          tabs={tabs}
+          view={this.state.view}
+          setView={e => this.setState({ view: !this.state.view })}
+        />
+        <Gallery
+          array={this.state.projects}
+          type={this.state.TypeFilter}
+          view={this.state.view}
+        />
 
         <div className="grid-wrapper flex-cent">
           <div className="spacing" style={{ height: "100%" }}>

@@ -10,7 +10,7 @@ const Drop = props => {
         width="24px"
         height="24px"
         className="srch-icon"
-        style={{ marginRight: "8px", opacity: 0.5 }}
+        style={{ marginRight: "8px", opacity: 0.5, minWidth: "24px" }}
         viewBox="0 0 24 24"
       >
         <path

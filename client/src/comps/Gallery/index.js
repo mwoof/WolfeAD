@@ -9,8 +9,14 @@ class Gallery extends Component {
     const tileSet = this.props.array ? this.props.array : [];
     const tiles = tileSet.map((tile, i) => {
       if (this.props.type && tile.data.type !== this.props.type) return;
-
-      return <Tile delay={i * 0.08} key={tile.id} data={tile} />;
+      return (
+        <Tile
+          view={this.props.view}
+          delay={i * 0.08}
+          key={tile.id}
+          data={tile}
+        />
+      );
     });
 
     return (
