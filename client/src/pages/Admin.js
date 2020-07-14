@@ -12,13 +12,14 @@ import FeatAct from "../comps/SectionCarousel/FeatAct";
 import ServiceTxt from "../comps/Section/ServText";
 import ServiceMdia from "../comps/Section/Media";
 import ReorderProjGal from "../comps/ReorderProjGal";
+import ReorderFetGal from "../comps/ReorderFetGal";
 
 import AdminBanner from "../media/images/AdminBanner.png";
 
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
 
-const fetureLimit = 4;
+const fetureLimit = 3;
 
 class Home extends Component {
   constructor(props) {
@@ -56,11 +57,13 @@ class Home extends Component {
       });
     });
   }
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state && prevState.loaded) {
       this.syncDelay();
     }
+  }
+  syncDelay() {
+    this.submitChanges();
   }
 
   changeOrder = order => {
@@ -72,16 +75,27 @@ class Home extends Component {
     if (toggleCheck !== -1) {
       featured.splice(toggleCheck, 1);
     } else {
-      if (featured.length > fetureLimit) return;
+      console.log(featured.length);
+      if (featured.length >= fetureLimit) {
+        let array = this.state.featured;
+        let newAddition = featured.filter(x => !array.includes(x));
+        array = array.slice(0, fetureLimit - 1);
+        array.unshift(id);
+        return this.setState({ featured: array });
+      }
       featured.push(id);
+      this.setState({ featured });
     }
-
+  };
+  changeFetOrder = featured => {
     this.setState({ featured });
   };
-
-  syncDelay() {
-    this.submitChanges();
-  }
+  removeFeature = id => {
+    let array = this.state.featured;
+    let index = array.indexOf(id);
+    array.splice(index, 1);
+    this.setState({ featured: array });
+  };
 
   submitChanges = () => {
     console.log("saving changes");
@@ -121,9 +135,18 @@ class Home extends Component {
             lable="Landing"
             text={landTxt}
             action={<LandAct />}
-            media={landGal}
+            media={
+              <ReorderFetGal
+                data={this.state.featured}
+                object={this.state.projects}
+                changeData={this.changeFetOrder}
+                setFeature={this.setFeature}
+                deleteImg={this.deleteImg}
+                removeFeature={this.removeFeature}
+              />
+            }
           ></Section>
-          <Section
+          <SectionGall
             lable="Featured"
             text={fetTxt}
             action={
@@ -131,8 +154,17 @@ class Home extends Component {
                 phrase={`${this.state.featured.length}/${fetureLimit}`}
               />
             }
-            media={landGal}
-          ></Section>
+            gallType={
+              <ReorderFetGal
+                data={this.state.featured}
+                object={this.state.projects}
+                changeData={this.changeFetOrder}
+                setFeature={this.setFeature}
+                deleteImg={this.deleteImg}
+                removeFeature={this.removeFeature}
+              />
+            }
+          ></SectionGall>
           <SectionGall
             lable="Archive"
             action={<FeatAct phrase="New Project" link="/admin/project" />}
