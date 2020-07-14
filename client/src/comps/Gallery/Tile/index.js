@@ -15,7 +15,10 @@ const Drop = props => {
 
   return (
     <Link
-      to={`/projects/project/${id}/${name.replace(/\s+/g, "-")}`}
+      key={Math.random()}
+      to={`/projects/project/${id}/${
+        name && name.includes(" ") ? name.replace(/\s+/g, "-") : name
+      }`}
       className="tile-cont flex-cent"
       style={{ backgroundImage: `url(${image})` }}
     >

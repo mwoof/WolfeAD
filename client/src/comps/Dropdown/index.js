@@ -10,7 +10,11 @@ const Drop = props => {
   const { items, placeholder, style, selected } = props;
   const options = !items
     ? []
-    : items.map(item => <div onClick={e => select(item)}>{item}</div>);
+    : items.map(item => (
+        <div key={Math.random()} onClick={e => select(item)}>
+          {item}
+        </div>
+      ));
 
   const select = selction => {
     console.log(selction);

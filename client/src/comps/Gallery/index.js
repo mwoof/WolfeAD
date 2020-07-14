@@ -7,7 +7,7 @@ import Tile from "./Tile";
 class Gallery extends Component {
   render() {
     const tileSet = this.props.array ? this.props.array : [];
-    const tiles = tileSet.map(tile => <Tile key={tile.id} data={tile} />);
+    const tiles = tileSet.map((tile, i) => <Tile delay=key={tile.id} data={tile} />);
 
     return (
       <div
