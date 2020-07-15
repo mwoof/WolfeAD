@@ -72,7 +72,7 @@ const Drop = props => {
     </div>
   );
 
-  return props.view ? tile : list;
+  return props.view || typeof props.view === "undefined" ? tile : list;
 };
 
 export default Drop;

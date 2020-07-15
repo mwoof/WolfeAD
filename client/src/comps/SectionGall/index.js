@@ -61,6 +61,7 @@ class Section extends Component {
             <Line className="sect-lbl-lin" width="50vw" />
           </div>
         </div>
+        <div className="sect-txt">{this.props.text}</div>
         <div className="sect-act">{this.props.action}</div>
         {!gallType ? (
           <Gallery

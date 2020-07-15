@@ -79,6 +79,7 @@ class Home extends Component {
         console.log("Error getting document:", error);
       });
   };
+
   addImgTrigger = () => {
     const fileInput = document.getElementById("file");
     fileInput.click();
@@ -94,6 +95,7 @@ class Home extends Component {
   setCover = img => {
     this.setState({ cover: img });
   };
+
   deleteImg = imgUrl => {
     let imgId = imgUrl.substring(
       imgUrl.lastIndexOf("FwolfeAD-") + 1,

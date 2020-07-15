@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 
 import firebase from "../firebase";
+import DotGrid from "../comps/grid";
 
 import Section from "../comps/SectionCarousel";
 import SectionGall from "../comps/SectionGall";
@@ -13,6 +14,7 @@ import ServiceTxt from "../comps/Section/ServText";
 import ServiceMdia from "../comps/Section/Media";
 import ReorderProjGal from "../comps/ReorderProjGal";
 import ReorderFetGal from "../comps/ReorderFetGal";
+import ReorderLandGal from "../comps/ReorderLandGal";
 
 import AdminBanner from "../media/images/AdminBanner.png";
 
@@ -28,7 +30,8 @@ class Home extends Component {
       loaded: false,
       order: [],
       projects: {},
-      featured: []
+      featured: [],
+      landing: []
     };
     this.syncDelay = _.debounce(this.syncDelay, 500);
   }
@@ -39,12 +42,13 @@ class Home extends Component {
     projectsRef.get().then(doc => {
       let order = this.state.order;
       let projects = this.state.projects;
-      let featured;
+      let featured, landing;
 
       doc.forEach(project => {
         if (project.id === "--STATS--") {
           order = project.data().order;
           featured = project.data().featured;
+          landing = project.data().landing;
         } else {
           projects[project.id] = project.data();
         }
@@ -53,6 +57,7 @@ class Home extends Component {
         order,
         projects,
         featured,
+        landing,
         loaded: true
       });
     });
@@ -75,7 +80,6 @@ class Home extends Component {
     if (toggleCheck !== -1) {
       featured.splice(toggleCheck, 1);
     } else {
-      console.log(featured.length);
       if (featured.length >= fetureLimit) {
         let array = this.state.featured;
         let newAddition = featured.filter(x => !array.includes(x));
@@ -83,12 +87,15 @@ class Home extends Component {
         array.unshift(id);
         return this.setState({ featured: array });
       }
-      featured.push(id);
-      this.setState({ featured });
+      featured.push(id); //i think this is wrong. you need to ad id to the current array then set state
     }
+    this.setState({ featured });
   };
   changeFetOrder = featured => {
     this.setState({ featured });
+  };
+  setLanding = landing => {
+    this.setState({ landing });
   };
   removeFeature = id => {
     let array = this.state.featured;
@@ -103,7 +110,8 @@ class Home extends Component {
       .doc("--STATS--")
       .set({
         order: this.state.order,
-        featured: this.state.featured
+        featured: this.state.featured,
+        landing: this.state.landing
       })
       .catch(error => {
         console.error("Error writing document: ", error);
@@ -113,7 +121,7 @@ class Home extends Component {
   render() {
     let landTxt = (
       <div style={{ margin: 0 }}>
-        These are projects that display on the landing page slideshow. There
+        These are pictures that display in the landing page slideshow. There
         should be one project for each category.
       </div>
     );
@@ -131,21 +139,17 @@ class Home extends Component {
       <div>
         <Banner image={AdminBanner} />
         <div className="sec-wrap">
-          <Section
+          <SectionGall
             lable="Landing"
             text={landTxt}
             action={<LandAct />}
-            media={
-              <ReorderFetGal
-                data={this.state.featured}
-                object={this.state.projects}
-                changeData={this.changeFetOrder}
-                setFeature={this.setFeature}
-                deleteImg={this.deleteImg}
-                removeFeature={this.removeFeature}
+            gallType={
+              <ReorderLandGal
+                data={this.state.landing}
+                changeData={this.setLanding}
               />
             }
-          ></Section>
+          ></SectionGall>
           <SectionGall
             lable="Featured"
             text={fetTxt}
@@ -179,6 +183,15 @@ class Home extends Component {
               />
             }
           />
+          <div className="grid-wrapper flex-cent">
+            <div className="spacing" style={{ height: "100%" }}>
+              <DotGrid top="8%" left="-66px" />
+              <DotGrid top="36%" right="-66px" />
+              <DotGrid top="57%" left="-66px" />
+              <DotGrid top="78%" right="-66px" />
+              <DotGrid top="96%" left="-66px" />
+            </div>
+          </div>
         </div>
       </div>
     );
