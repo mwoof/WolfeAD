@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./indexStyle.css";
 
 const Drop = props => {
-  const [srch, setSrch] = useState(props.data);
-
+  const [srch, setSrch] = useState("");
   return (
     <button className={`but-line srch-cont ${props.className}`}>
       {!srch ? (
@@ -16,7 +15,10 @@ const Drop = props => {
           className="srch-icon"
           style={{ marginRight: "-8px", opacity: 0.5, minWidth: "24px" }}
           viewBox="0 0 24 24"
-          onClick={e => setSrch("")}
+          onClick={e => {
+            props.setSearch("");
+            setSrch("");
+          }}
         >
           <path
             fill="currentColor"
@@ -30,8 +32,8 @@ const Drop = props => {
         placeholder={props.placeholder}
         value={srch}
         onChange={e => {
-          setSrch(e.target.value);
           props.setSearch(e.target.value);
+          setSrch(e.target.value);
         }}
       />
       {!srch ? (

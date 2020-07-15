@@ -15,6 +15,7 @@ class Home extends Component {
       projects: [],
       TypeFilter: "",
       SortFilt: "",
+      srchFilt: "",
       view: true
     };
   }
@@ -60,10 +61,6 @@ class Home extends Component {
     this.setState({ TypeFilter: type });
   }
 
-  setSearch = search => {
-    console.log("searching: ", search);
-  };
-
   projectSort = () => {
     console.log("sorting");
   };
@@ -76,7 +73,6 @@ class Home extends Component {
       "Residential",
       "On The Boards"
     ];
-    console.log(this.state.projects, this.state.TypeFilter);
 
     return (
       <div>
@@ -84,11 +80,12 @@ class Home extends Component {
           tabs={tabs}
           view={this.state.view}
           setView={e => this.setState({ view: !this.state.view })}
-          setSearch={e => this.setSearch(e)}
+          setSearch={e => this.setState({ srchFilt: e })}
         />
         <Gallery
           array={this.state.projects}
           type={this.state.TypeFilter}
+          srch={this.state.srchFilt}
           view={this.state.view}
         />
 

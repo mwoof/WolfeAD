@@ -65,7 +65,7 @@ class Filter extends Component {
           <SearchBar
             placeholder="Enter Project..."
             className="filt-srch-bar"
-            setSearch={e => this.props.setSearch(e)}
+            setSearch={this.props.setSearch}
           />
           <DropDown
             className="desktop-only "
