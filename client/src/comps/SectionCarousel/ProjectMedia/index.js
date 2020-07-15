@@ -19,15 +19,19 @@ const Section = props => {
     slidesToShow: 1.2,
     infinite: false,
     slidesToScroll: 1,
-    focusOnSelect: true
+    focusOnSelect: true,
+    variableWidth: true
   };
+
   return (
     <div className="med-wrap project-car">
       <div className="med-shad-top"></div>
       <Slider {...settings} className="car-sec-car-wrap">
-        <Slide image={Img1} />
-        <Slide image={Img2} />
-        <Slide image={Img3} />
+        {!props.projects
+          ? ""
+          : props.featured.map(id => (
+              <Slide key={Math.random()} data={props.projects[id]} id={id} />
+            ))}
       </Slider>
     </div>
   );

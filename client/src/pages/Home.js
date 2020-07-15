@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "../firebase";
 
 import Section from "../comps/Section";
 import SectionRev from "../comps/SectionRev";
@@ -21,14 +22,43 @@ import AboutImg from "../media/images/Office.png";
 import ProfileImg from "../media/images/Profile.png";
 import MapImg from "../media/images/Map.png";
 
+const db = firebase.firestore();
+
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentWillMount() {
+    db.collection("projects")
+      .doc("--STATS--")
+      .get()
+      .then(doc => {
+        this.setState({
+          slides: doc.data().landing,
+          featured: doc.data().featured
+        });
+      });
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
+    let projects = {};
+    db.collection("projects")
+      .get()
+      .then(doc => {
+        doc.forEach(project => {
+          if (project.id === "--STATS--") return;
+          projects[project.id] = project.data();
+        });
+        this.setState({ projects });
+      });
   }
   render() {
     return (
       <div>
-        <Landing />
+        <Landing slides={this.state.slides} />
         <div className="sec-wrap">
           <Section
             lable="Services"
@@ -39,7 +69,12 @@ class Home extends Component {
             lable="Projects"
             text={<ProjectTxt />}
             action={<ProjectAct />}
-            media={<ProjectMida image={ProfileImg} />}
+            media={
+              <ProjectMida
+                featured={this.state.featured}
+                projects={this.state.projects}
+              />
+            }
             image={ServicesImg}
           />
           <Section
