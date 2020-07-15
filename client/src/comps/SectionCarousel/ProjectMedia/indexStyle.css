@@ -5,7 +5,7 @@
 .car-sec-slide {
   position: relative;
   box-sizing: border-box;
-  padding-right: 16px;
+  padding-right: 8px;
   /* border: 1px solid red; */
 }
 
@@ -25,7 +25,7 @@
 .car-sec-car-wrap > * {
   overflow: visible;
 }
-@media only screen and (min-width: 330px) {
+@media only screen and (min-width: 370px) {
   .car-sec-slide img {
     width: 300px;
     height: 200px;
@@ -36,6 +36,9 @@
   .project-car {
     margin-top: 24px;
     width: 100%;
+  }
+  .car-sec-slide {
+    padding-right: 16px;
   }
   .car-sec-slide img {
     /* width: 100%; */

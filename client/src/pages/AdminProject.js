@@ -174,7 +174,8 @@ class Home extends Component {
         });
     }
     payload.dateAdded = Date.now();
-
+    console.log(payload.dateAdded);
+    console.log(payload);
     db.collection("projects")
       .add(payload)
       .then(docRef => {

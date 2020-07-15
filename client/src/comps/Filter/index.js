@@ -31,17 +31,6 @@ class Filter extends Component {
         {tab}
       </NavLink>
     ));
-    // let tabComps = this.props.tabs.map((tab, i) => (
-    //   <NavLink
-    //     to={`/projects/${i < 1 ? "" : tab.toLowerCase().replace(/\s/g, "")}`}
-    //     className="button"
-    //     activeClassName="tab-txt-hlght"
-    //     key={Math.random()}
-    //     exact
-    //   >
-    //     {tab}
-    //   </NavLink>
-    // ));
 
     let sort = ["commercial", "institutional", "residential", "on the boards"];
     const settings = {
@@ -73,7 +62,11 @@ class Filter extends Component {
       <div className="filt-cont flex-cent flex-col">
         <div className="filt-wrap filt-wrap-desk  desktop-only">{tabComps}</div>
         <div className="filt-but-wrap flex-cent">
-          <SearchBar placeholder="Enter Project..." className="filt-srch-bar" />
+          <SearchBar
+            placeholder="Enter Project..."
+            className="filt-srch-bar"
+            setSearch={e => this.props.setSearch(e)}
+          />
           <DropDown
             className="desktop-only "
             items={sort}

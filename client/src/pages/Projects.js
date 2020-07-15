@@ -60,6 +60,14 @@ class Home extends Component {
     this.setState({ TypeFilter: type });
   }
 
+  setSearch = search => {
+    console.log("searching: ", search);
+  };
+
+  projectSort = () => {
+    console.log("sorting");
+  };
+
   render() {
     const tabs = [
       "All Projects",
@@ -76,6 +84,7 @@ class Home extends Component {
           tabs={tabs}
           view={this.state.view}
           setView={e => this.setState({ view: !this.state.view })}
+          setSearch={e => this.setSearch(e)}
         />
         <Gallery
           array={this.state.projects}
