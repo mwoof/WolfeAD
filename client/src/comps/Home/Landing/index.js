@@ -56,6 +56,7 @@ class Landing extends Component {
           ) : (
             this.state.slides.map(slide => (
               <Slide
+                key={Math.random()}
                 type={slide.type}
                 image={slide.image}
                 location="Private Res. St. Louis, MO"

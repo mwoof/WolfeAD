@@ -25,25 +25,20 @@ class Home extends Component {
     projectsRef.get().then(doc => {
       let order = [];
       let projects = {};
-
+      this.pathFilter();
       doc.forEach(project => {
         if (project.id === "--STATS--") return (order = project.data().order);
         projects[project.id] = project.data();
       });
-      this.pathFilter();
+
       this.orderProjects(projects, order);
     });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.pathFilter();
     }
-  }
-
-  pathFilter() {
-    const currentPath = this.props.location.pathname;
-    this.setState({ TypeFilter: currentPath.replace("/projects/", "") });
   }
 
   orderProjects = (prjectObj, orderArr) => {
@@ -57,7 +52,13 @@ class Home extends Component {
       projects.push(projObj);
     });
     this.setState({ projects });
+    this.pathFilter();
   };
+  pathFilter() {
+    const currentPath = this.props.location.pathname;
+    const type = currentPath.replace("/projects", "").replace("/", "");
+    this.setState({ TypeFilter: type });
+  }
 
   render() {
     const tabs = [
@@ -67,27 +68,7 @@ class Home extends Component {
       "Residential",
       "On The Boards"
     ];
-    // const tabs = [
-    //   {
-    //     title: "All Projects"
-    //   },
-    //   {
-    //     title: "Commercial",
-    //     link: "commercial"
-    //   },
-    //   {
-    //     title: "Institutional",
-    //     link: "institutional"
-    //   },
-    //   {
-    //     title: "Residential",
-    //     link: "residential"
-    //   },
-    //   {
-    //     title: "On The Boards",
-    //     link: "boards"
-    //   }
-    // ];
+    console.log(this.state.projects, this.state.TypeFilter);
 
     return (
       <div>
