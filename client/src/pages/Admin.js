@@ -166,6 +166,7 @@ class Home extends Component {
             action={<LandAct />}
             gallType={
               <ReorderLandGal
+                noMargin={true}
                 data={this.state.landing}
                 changeData={this.setLanding}
               />
@@ -181,6 +182,7 @@ class Home extends Component {
             }
             gallType={
               <ReorderFetGal
+                noMargin={true}
                 data={this.state.featured}
                 object={this.state.projects}
                 changeData={this.changeFetOrder}
@@ -195,6 +197,7 @@ class Home extends Component {
             action={<FeatAct phrase="New Project" link="/admin/project" />}
             gallType={
               <ReorderProjGal
+                noMargin={true}
                 data={this.state.order}
                 featured={this.state.featured}
                 object={this.state.projects}

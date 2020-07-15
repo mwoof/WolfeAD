@@ -6,7 +6,7 @@
   position: relative;
   box-sizing: border-box;
   padding-right: 16px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .car-sec-slide img {
