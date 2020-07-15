@@ -220,7 +220,28 @@ class Home extends Component {
 
     return (
       <div>
-        <Banner image={cover ? cover : NewProgBan} />
+        <Banner
+          image={cover ? cover : NewProgBan}
+          nav={
+            <button
+              className="txt-hlght"
+              onClick={() => this.props.history.go(-1)}
+            >
+              <svg
+                width="24px"
+                height="24px"
+                style={{ marginRight: "8px" }}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#fff"
+                  d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                />
+              </svg>
+              Back
+            </button>
+          }
+        />
         <div className="sec-wrap">
           <Section
             lable="Landing"

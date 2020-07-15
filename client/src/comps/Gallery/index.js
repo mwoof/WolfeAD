@@ -9,10 +9,6 @@ import Tile from "./Tile";
 const Gallery = props => {
   const tileSet = props.array ? props.array : [];
   const tiles = tileSet.map((tile, i) => {
-    // console.log(props.srch);
-    // console.log(tile.data.name);
-    // console.log(tile.data.name.toLowerCase().indexOf(props.srch.toLowerCase()));
-
     if (
       props.srch &&
       tile.data.name.toLowerCase().indexOf(props.srch.toLowerCase()) < 0

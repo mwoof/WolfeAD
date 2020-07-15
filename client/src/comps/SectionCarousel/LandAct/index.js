@@ -16,12 +16,12 @@ const Section = props => {
 
   return (
     <div>
-      <div className="flex-lft">
+      <div className="land-act-flex">
         <Highlight stat="Stat" lable="Page Views" />
         <Highlight stat="Stat" lable="Page Views" />
         <Highlight stat="Stat" lable="Page Views" />
       </div>
-      <div className="flex-lft">
+      <div className="land-act-flex">
         {links.map(link => (
           <a
             key={Math.random()}

@@ -9,6 +9,11 @@
 .sect-car-cont > * {
   width: Calc(100% - 32px);
 }
+.land-act-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 @media only screen and (min-width: 768px) {
   .sect-car-cont {
     grid-template-columns: 300px 1fr;
@@ -19,6 +24,9 @@
   }
   .sect-car-cont > * {
     width: auto;
+  }
+  .land-act-flex {
+    justify-content: flex-end;
   }
 }
 @media only screen and (min-width: 960px) {
