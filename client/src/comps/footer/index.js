@@ -26,11 +26,11 @@ function App() {
 
       <a
         className="nav-txt-hlght foot-email"
-        href="mailto:matthew.wolfe5@gmail.com"
+        href="mailto:mattwolfe@wolfead.net"
       >
-        matthew.wolfe5@gmail.com
+        mattwolfe@wolfead.net
       </a>
-      <div className="txt foot-number">314-258-0118</div>
+      <div className="txt foot-number">314-960-0099</div>
     </div>
   );
 }

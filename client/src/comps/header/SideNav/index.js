@@ -6,7 +6,7 @@ import Line from "../../Line";
 
 import DotGrid from "../../grid";
 
-const SideNav = (props) => {
+const SideNav = props => {
   return (
     <div
       className={`sidNav-wrap flex-col-out ${
@@ -17,21 +17,21 @@ const SideNav = (props) => {
         <NavLink
           exact
           to="/"
-          onClick={(e) => props.openSideNav()}
+          onClick={e => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Home
         </NavLink>
         <NavLink
           to="/projects"
-          onClick={(e) => props.openSideNav()}
+          onClick={e => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Projects
         </NavLink>
         <NavLink
           to="/rendering"
-          onClick={(e) => props.openSideNav()}
+          onClick={e => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Rendering
@@ -41,7 +41,7 @@ const SideNav = (props) => {
         ) : (
           <NavLink
             to="/admin"
-            onClick={(e) => props.openSideNav()}
+            onClick={e => props.openSideNav()}
             activeClassName="nav-txt-hlght"
           >
             Admin
@@ -51,7 +51,7 @@ const SideNav = (props) => {
         {!props.authed ? (
           <NavLink
             to="/login"
-            onClick={(e) => props.openSideNav()}
+            onClick={e => props.openSideNav()}
             activeClassName="nav-txt-hlght"
           >
             Log in
@@ -64,7 +64,7 @@ const SideNav = (props) => {
               props.firebase
                 .auth()
                 .signOut()
-                .catch(function (error) {
+                .catch(function(error) {
                   console.log(error);
                 });
             }}
@@ -79,13 +79,13 @@ const SideNav = (props) => {
       </nav>
 
       <div className="siNav-foot flex-col-rit" style={{ marginRight: "16px" }}>
-        <div className="txt">314-258-0118</div>
+        <div className="txt">314-960-0099</div>
         <a
           className="nav-txt-hlght"
           style={{ fontSize: "14px" }}
-          href="mailto:matthew.wolfe5@gmail.com"
+          href="mailto:mattwolfe@wolfead.net"
         >
-          matthew.wolfe5@gmail.com
+          mattwolfe@wolfead.net
         </a>
       </div>
 
