@@ -1,8 +1,26 @@
 .med-wrap-rev {
   position: relative;
+  display: block;
+}
+
+.med-wrap-rev .med-shad-bot {
+  width: 100%;
+  max-width: 268px;
 }
 
 .med-wrap-rev img {
   width: 100%;
+  max-width: 260px;
   height: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .med-wrap-rev .med-shad-bot {
+    max-width: none;
+  }
+
+  .med-wrap-rev img {
+    width: 100%;
+    max-width: none;
+  }
 }
