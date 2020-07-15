@@ -21,6 +21,7 @@ class Home extends Component {
   componentDidMount() {
     let projectsRef = db.collection("projects");
     window.scrollTo(0, 0);
+
     projectsRef.get().then(doc => {
       let order = [];
       let projects = {};
@@ -29,17 +30,22 @@ class Home extends Component {
         if (project.id === "--STATS--") return (order = project.data().order);
         projects[project.id] = project.data();
       });
-
+      this.pathFilter();
       this.orderProjects(projects, order);
     });
   }
 
   componentDidUpdate(prevProps) {
-    const currentPath = this.props.location.pathname;
-    if (currentPath !== prevProps.location.pathname) {
-      this.setState({ TypeFilter: currentPath.replace("/projects/", "") });
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.pathFilter();
     }
   }
+
+  pathFilter() {
+    const currentPath = this.props.location.pathname;
+    this.setState({ TypeFilter: currentPath.replace("/projects/", "") });
+  }
+
   orderProjects = (prjectObj, orderArr) => {
     let projects = [];
     orderArr.forEach(id => {
