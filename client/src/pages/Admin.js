@@ -104,6 +104,27 @@ class Home extends Component {
     this.setState({ featured: array });
   };
 
+  deleteImg = id => {
+    //remove it from order
+    let order = this.state.order;
+    var index = order.indexOf(id);
+    if (index !== -1) {
+      order.splice(index, 1);
+      this.setState({ order });
+    }
+    //remove it form featured
+    let featured = this.state.featured;
+    var index = featured.indexOf(id);
+    if (index !== -1) {
+      featured.splice(index, 1);
+      this.setState({ featured });
+    }
+    //remove it from firebase
+    db.collection("projects")
+      .doc(id)
+      .delete();
+  };
+
   submitChanges = () => {
     console.log("saving changes");
     db.collection("projects")
@@ -121,8 +142,8 @@ class Home extends Component {
   render() {
     let landTxt = (
       <div style={{ margin: 0 }}>
-        These are pictures that display in the landing page slideshow. There
-        should be one project for each category.
+        These are pictures that display in the landing page slideshow. You can
+        change the image and order of each category.
       </div>
     );
     let fetTxt = (

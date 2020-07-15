@@ -7,6 +7,7 @@ const Gallery = props => {
   const history = useHistory();
   const [list, setList] = useState(props.data);
   const [dragging, setDragging] = useState(false);
+  const [toDelete, setToDelete] = useState("");
 
   const dragItem = useRef();
   const dragNode = useRef();
@@ -103,12 +104,36 @@ const Gallery = props => {
 
                 <button
                   className="svg-button-sml"
-                  onClick={e => console.log("clicked")}
+                  onClick={e => {
+                    e.stopPropagation();
+                    setToDelete(id);
+                  }}
                 >
                   <div>Delete</div>
                   <svg fill="#fff" viewBox="0 0 24 24">
                     <path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" />
                   </svg>
+                  <div
+                    className="final-del-tile flex-out"
+                    style={{ display: toDelete !== id ? "none" : "flex" }}
+                  >
+                    <button
+                      onClick={e => {
+                        e.stopPropagation();
+                        props.deleteImg(id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={e => {
+                        e.stopPropagation();
+                        setToDelete("");
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </button>
               </div>
             </div>

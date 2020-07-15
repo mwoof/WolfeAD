@@ -19,6 +19,15 @@
   padding: 4px;
   box-sizing: border-box;
 }
+.final-del-tile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 4px;
+  background: #ee1c25;
+}
 
 .tile-footer svg {
   margin-left: 8px;
