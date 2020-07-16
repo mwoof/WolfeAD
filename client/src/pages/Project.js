@@ -41,13 +41,18 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.props.authed);
+    const { description, images, location, name, type, id } = this.state;
+
     return (
       <div>
         <Project
-          images={this.state.images}
+          images={images}
           authed={this.state.authed}
           id={this.state.id}
+          name={name}
+          type={type}
+          description={description}
+          location={location}
         />
         <div className="grid-wrapper flex-cent">
           <div className="spacing" style={{ height: "100%" }}>

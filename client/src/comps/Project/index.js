@@ -65,7 +65,23 @@ class Project extends Component {
               </svg>
               Back
             </button>
-            <button className="txt-hlght">Share</button>
+            {!this.props.name ? (
+              ""
+            ) : (
+              <a
+                href={`mailto:?cc=&bcc=&subject=${this.props.name.replace(
+                  " ",
+                  "%20"
+                )}&body=Take%20a%20look%20at%20the%20${this.props.name.replace(
+                  " ",
+                  "%20"
+                )}%20by%20Wolfe%20AD:%20http://wolfead.net/projects/project/${
+                  this.props.id
+                }`}
+              >
+                <button className="txt-hlght">Share</button>
+              </a>
+            )}
             {this.props.authed ? (
               <button
                 className="txt-hlght"
@@ -88,7 +104,7 @@ class Project extends Component {
                 className=""
                 onClick={() => this.setState({ info: !info })}
               >
-                Project Name
+                {this.props.name}
                 <svg
                   width="24px"
                   height="24px"
@@ -99,7 +115,7 @@ class Project extends Component {
                 </svg>
               </button>
               <div className={`info-cont ${!info ? "" : "info-cont-ext"}`}>
-                This is a bunch of text
+                {this.props.description}
               </div>
             </div>
 
