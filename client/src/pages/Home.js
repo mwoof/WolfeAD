@@ -88,6 +88,7 @@ class Home extends Component {
             text={<SecRevMdia image={ProfileImg} />}
           />
           <Section
+            id="contact"
             lable="Contact"
             text={<ContactTxt />}
             media={<ServiceMdia image={MapImg} />}

@@ -63,25 +63,10 @@ class Filter extends Component {
         <div className="filt-wrap filt-wrap-desk  desktop-only">{tabComps}</div>
         <div className="filt-but-wrap flex-cent">
           <SearchBar
-            placeholder="Enter Project..."
+            placeholder="Search projects..."
             className="filt-srch-bar"
             setSearch={this.props.setSearch}
           />
-          <DropDown
-            className="desktop-only "
-            items={sort}
-            placeholder="Filter"
-            setSelected={this.setSelected}
-          />
-          <DropDown
-            className="desktop-only "
-            items={sort}
-            selected={sortSElect}
-            placeholder="Sort"
-            setSelected={this.setSelected}
-          />
-
-          <button className="but-line txt desktop-only ">Awarded</button>
           <button
             className="but-line svg-button-sml "
             onClick={e => {

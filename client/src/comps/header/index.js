@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./indexStyle.css";
 import firebase from "../../firebase";
@@ -8,7 +9,7 @@ import Logo from "../../media/svgs/LogoRed";
 
 import SideNav from "./SideNav";
 
-const Header = (props) => {
+const Header = props => {
   return (
     <div
       className={`header-cont flex-cent nav-txt flex-out ${
@@ -48,7 +49,7 @@ const Header = (props) => {
               firebase
                 .auth()
                 .signOut()
-                .catch(function (error) {
+                .catch(function(error) {
                   console.log(error);
                 })
             }
@@ -57,13 +58,13 @@ const Header = (props) => {
             Log out
           </NavLink>
         )}
-        <NavLink
+        <Link
           className="nav-txt-hlght"
-          to="/"
+          to="/#contact"
           activeClassName="nav-txt-hlght"
         >
           Contact
-        </NavLink>
+        </Link>
       </nav>
       <div className="moile-only menu-butn" onClick={() => props.openSideNav()}>
         <svg

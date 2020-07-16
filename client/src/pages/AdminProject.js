@@ -35,7 +35,7 @@ class Home extends Component {
     if (prevState !== this.state && prevState.loaded) {
       this.syncDelay();
     }
-    if (this.state.images.length > 1 && !this.state.cover) {
+    if (this.state.images[0] && !this.state.cover) {
       this.setState({ cover: this.state.images[0] });
     }
   }
@@ -150,7 +150,14 @@ class Home extends Component {
     } = this.state;
 
     console.log();
-    if (!description || !name || !location || !category || images.length < 1) {
+    if (
+      !description ||
+      !name ||
+      !location ||
+      !category ||
+      !cover ||
+      images.length < 1
+    ) {
       console.log("You cannot have empty fields!");
       return;
     }

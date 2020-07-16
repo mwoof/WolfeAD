@@ -29,6 +29,6 @@
 }
 @media only screen and (min-width: 768px) {
   .srch-cont {
-    width: 228px;
+    /* width: 228px; */
   }
 }

@@ -7,16 +7,16 @@ function App() {
   return (
     <div className="footer-cont nav-txt ">
       <nav className="flex-cent foot-links">
-        <NavLink to="/projects" activeClassName="nav-txt">
+        <NavLink to="/projects/commercial" activeClassName="nav-txt">
           Commercial
         </NavLink>
-        <NavLink to="/projects" activeClassName="nav-txt">
+        <NavLink to="/projects/institutional" activeClassName="nav-txt">
           Institutional
         </NavLink>
-        <NavLink to="/projects" activeClassName="nav-txt">
+        <NavLink to="/projects/residential" activeClassName="nav-txt">
           Residential
         </NavLink>
-        <NavLink to="/projects" activeClassName="nav-txt">
+        <NavLink to="/projects/ontheboards" activeClassName="nav-txt">
           On The Boards
         </NavLink>
       </nav>

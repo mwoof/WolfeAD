@@ -37,12 +37,12 @@ class Section extends Component {
 
     if (container.bottom < height && !animate) {
       return this.setState({
-        animate: true,
+        animate: true
       });
     }
     if (container.bottom > height && animate) {
       return this.setState({
-        animate: false,
+        animate: false
       });
     }
   };
@@ -58,6 +58,7 @@ class Section extends Component {
       <section
         className={`sect-cont ${animate ? "act-anim" : ""}`}
         ref={this.contentbox}
+        id={this.props.id ? this.props.id : Math.random()}
       >
         <div className="sect-lbl">
           <div style={{ position: "relative" }}>

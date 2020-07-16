@@ -87,7 +87,8 @@
   }
 
   .filt-but-wrap {
-    width: auto;
+    /* width: auto; */
+    width: 648px;
     padding: 0;
   }
   .filt-wrap a {
