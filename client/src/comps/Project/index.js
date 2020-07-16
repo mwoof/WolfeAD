@@ -137,8 +137,55 @@ class Project extends Component {
               height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`
             }}
           >
+            <div
+              className="land-nav-arr flex-cent"
+              style={{ left: 0 }}
+              onClick={() => {
+                let newIndex = actImg - 1;
+                let last = this.props.images.length - 1;
+                this.setState({
+                  actImg: newIndex < 0 ? last : newIndex
+                });
+              }}
+            >
+              <svg
+                style={{ width: "24px", height: "24px" }}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+                />
+              </svg>
+            </div>
+            <div
+              className="land-nav-arr flex-cent"
+              style={{ right: 0 }}
+              onClick={() => {
+                let newIndex = actImg + 1;
+                let last = this.props.images.length - 1;
+                this.setState({
+                  actImg: newIndex > last ? 0 : newIndex
+                });
+              }}
+            >
+              <svg
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  transform: `rotate(180deg)`
+                }}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+                />
+              </svg>
+            </div>
+
             <img
-              className="img-shadow"
+              className=""
               src={this.props.images[actImg]}
               style={{
                 objectFit: "contain"
