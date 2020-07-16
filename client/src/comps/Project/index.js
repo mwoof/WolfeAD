@@ -12,25 +12,27 @@ class Project extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: false,
+      view: true,
       info: false,
       fit: false,
-      actImg: 0,
+      actImg: 0
     };
     this.contentbox = React.createRef();
   }
   render() {
     const { view, info, fit, actImg } = this.state;
 
-    const projectArr = [Image1, Image2, Image3];
-    const imgCar = projectArr.map((img, i) => (
-      <img
-        key={Math.random()}
-        src={img}
-        className={`${actImg !== i ? "" : "act-img-tile"}`}
-        onClick={() => this.setState({ actImg: i })}
-      ></img>
-    ));
+    const imgCar =
+      this.props && this.props.images
+        ? this.props.images.map((img, i) => (
+            <img
+              key={Math.random()}
+              src={img}
+              className={`${actImg !== i ? "" : "act-img-tile"}`}
+              onClick={() => this.setState({ actImg: i })}
+            ></img>
+          ))
+        : "";
 
     return (
       <div className="project-cont flex-cent">
@@ -54,6 +56,18 @@ class Project extends Component {
               Back
             </button>
             <button className="txt-hlght">Share</button>
+            {this.props.authed ? (
+              <button
+                className="txt-hlght"
+                onClick={() =>
+                  this.props.history.push(`/admin/project/${this.props.id}`)
+                }
+              >
+                Edit
+              </button>
+            ) : (
+              ""
+            )}
           </div>
           <div
             className="proj-but flex-cent"
@@ -78,19 +92,7 @@ class Project extends Component {
                 This is a bunch of text
               </div>
             </div>
-            <button onClick={() => this.setState({ fit: !fit })}>
-              <svg
-                style={{ opacity: !fit ? 0.5 : 1 }}
-                width="24px"
-                height="24px"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="currentColor"
-                  d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z"
-                />
-              </svg>
-            </button>
+
             <button className="" onClick={() => this.setState({ view: !view })}>
               <svg
                 width="24px"
@@ -113,18 +115,37 @@ class Project extends Component {
           </div>
         </div>
 
-        <img
-          className="project-act-img"
-          src={projectArr[actImg]}
-          style={{
-            height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`,
-            objectFit: `${!fit ? "cover" : "contain"}`,
-          }}
-          alt="WolfeAD Landing Page"
-        />
+        {this.props && this.props.images ? (
+          <img
+            className="project-act-img"
+            src={this.props.images[actImg]}
+            style={{
+              height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`,
+              objectFit: "contain"
+            }}
+            alt="WolfeAD Landing Page"
+          />
+        ) : (
+          "loading..."
+        )}
       </div>
     );
   }
 }
 
 export default withRouter(Project);
+
+// <button onClick={() => this.setState({ fit: !fit })}>
+//   <svg
+//     style={{ opacity: !fit ? 0.5 : 1 }}
+//     width="24px"
+//     height="24px"
+//     viewBox="0 0 24 24"
+//   >
+//     <path
+//       fill="currentColor"
+//       d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z"
+//     />
+//   </svg>
+// </button>
+//
