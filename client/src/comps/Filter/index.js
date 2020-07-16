@@ -37,12 +37,12 @@ class Filter extends Component {
       dots: false,
       speed: 500,
       arrows: false,
-      slidesToShow: 5,
+      slidesToShow: 1,
       infinite: false,
-      slidesToScroll: 1.5,
+      slidesToScroll: 1,
       focusOnSelect: true,
       centerMode: true,
-      infinite: true,
+      // infinite: true,
       responsive: [
         {
           breakpoint: 650,

@@ -52,7 +52,7 @@ class Home extends Component {
           name={name}
           type={type}
           description={description}
-          location={location}
+          spot={location}
         />
         <div className="grid-wrapper flex-cent">
           <div className="spacing" style={{ height: "100%" }}>

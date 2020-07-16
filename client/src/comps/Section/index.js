@@ -30,17 +30,15 @@ class Section extends Component {
     this.setState({ height: trigger });
   };
   animCheck = () => {
-    console.log("running check");
     const { height, animate } = this.state;
     var container = this.contentbox.current.getBoundingClientRect();
-    console.log(container.bottom, height, animate);
 
-    if (container.bottom < height && !animate) {
+    if (container.top < height - 400 && !animate) {
       return this.setState({
         animate: true
       });
     }
-    if (container.bottom > height && animate) {
+    if (container.top > height - 400 && animate) {
       return this.setState({
         animate: false
       });

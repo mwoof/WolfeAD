@@ -47,7 +47,7 @@ class Project extends Component {
     return (
       <div className="project-cont flex-cent">
         <div className="button-overlay spacing">
-          <div className="proj-but-top flex-cent">
+          <div className="proj-but-top proj-but-foot flex-cent">
             <button
               className="txt-hlght"
               onClick={() => this.props.history.go(-1)}
@@ -99,39 +99,57 @@ class Project extends Component {
             className="proj-but flex-cent"
             style={{ bottom: `${!view ? 0 : "160px"}` }}
           >
-            <div>
+            <div className="proj-but-foot">
               <button
                 className=""
                 onClick={() => this.setState({ info: !info })}
               >
-                {this.props.name}
+                <div className={"txt-hlght"}> {this.props.name}</div>
+
                 <svg
                   width="24px"
                   height="24px"
-                  style={{ marginLeft: "8px" }}
+                  style={{
+                    marginLeft: "8px",
+                    transform: !info ? "" : "rotate(180deg)"
+                  }}
                   viewBox="0 0 24 24"
                 >
                   <path fill="currentColor" d="M7,15L12,10L17,15H7Z" />
                 </svg>
               </button>
               <div className={`info-cont ${!info ? "" : "info-cont-ext"}`}>
-                {this.props.description}
+                <div className="flex-rit">
+                  <div
+                    className={"txt"}
+                    style={{ textTransform: "capitalize", marginRight: "8px" }}
+                  >
+                    {this.props.type}
+                  </div>
+                  <div className={"txt"}>{`| ${this.props.spot}`}</div>
+                </div>
+
+                <div className={"nav-txt"}> {this.props.description}</div>
               </div>
             </div>
-
-            <button className="" onClick={() => this.setState({ view: !view })}>
-              <svg
-                width="24px"
-                height="24px"
-                style={{ opacity: !view ? 0.5 : 1 }}
-                viewBox="0 0 24 24"
+            <div className="proj-but-foot">
+              <button
+                className=""
+                onClick={() => this.setState({ view: !view })}
               >
-                <path
-                  fill="#fff"
-                  d="M3 11H11V3H3M5 5H9V9H5M13 21H21V13H13M15 15H19V19H15M3 21H11V13H3M5 15H9V19H5M13 3V11H21V3M19 9H15V5H19Z"
-                />
-              </svg>
-            </button>
+                <svg
+                  width="24px"
+                  height="24px"
+                  style={{ opacity: !view ? 0.5 : 1 }}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#fff"
+                    d="M3 11H11V3H3M5 5H9V9H5M13 21H21V13H13M15 15H19V19H15M3 21H11V13H3M5 15H9V19H5M13 3V11H21V3M19 9H15V5H19Z"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
           <div
             className="project-img-gal flex-rit"

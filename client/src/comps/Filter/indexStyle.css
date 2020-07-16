@@ -60,18 +60,18 @@
 
 .filt-wrap .slick-list {
   overflow: visible;
-}
-
-.filt-wrap .slick-current {
-  border-bottom: 3px solid #fff;
-}
-.filt-wrap .slick-current a {
   font-family: "Gilroy-SemiBold";
   font-size: 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: 24px;
   color: #fff;
+}
+
+.filt-wrap .slick-current {
+  border-bottom: 3px solid #fff;
+}
+.filt-wrap .slick-current a {
 }
 
 @media only screen and (min-width: 768px) {
