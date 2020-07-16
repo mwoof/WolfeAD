@@ -27,6 +27,7 @@ const Section = props => {
             key={Math.random()}
             href={link.link}
             className="button txt-hlght flex-cent"
+            target="_blank"
             style={{
               margin: "16px 0 0 ",
               padding: " 2px 8px"
