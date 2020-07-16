@@ -7,10 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slide from "./ProjectMediaSlide";
 
-import Img1 from "../../../media/images/Img1.png";
-import Img2 from "../../../media/images/Img2.png";
-import Img3 from "../../../media/images/Img3.png";
-
 const Section = props => {
   const settings = {
     dots: false,

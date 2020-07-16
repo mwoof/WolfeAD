@@ -10,7 +10,7 @@ const Section = props => {
           name && name.includes(" ") ? name.replace(/\s+/g, "-") : name
         }`}
       >
-        <img src={props.data.cover} className="" />
+        <img src={props.data.cover} className="img-shadow" />
         <div className="txt-hlght carousel-lbl">{name}</div>
       </Link>
     </div>

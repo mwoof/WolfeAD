@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
 import "./indexStyle.css";
-
-import Image1 from "../../media/images/Img1.png";
-import Image2 from "../../media/images/Img2.png";
-import Image3 from "../../media/images/Img3.png";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class Project extends Component {
   constructor(props) {
@@ -21,16 +20,27 @@ class Project extends Component {
   }
   render() {
     const { view, info, fit, actImg } = this.state;
+    const settings = {
+      dots: false,
+      speed: 500,
+      arrows: false,
+      slidesToShow: 1,
+      infinite: false,
+      slidesToScroll: 1,
+      variableWidth: true
+    };
 
     const imgCar =
       this.props && this.props.images
         ? this.props.images.map((img, i) => (
-            <img
-              key={Math.random()}
-              src={img}
-              className={`${actImg !== i ? "" : "act-img-tile"}`}
-              onClick={() => this.setState({ actImg: i })}
-            ></img>
+            <div>
+              <img
+                key={Math.random()}
+                src={img}
+                className={`${actImg !== i ? "" : "act-img-tile"}`}
+                onClick={() => this.setState({ actImg: i })}
+              ></img>
+            </div>
           ))
         : "";
 
@@ -109,22 +119,33 @@ class Project extends Component {
           </div>
           <div
             className="project-img-gal flex-rit"
-            style={{ height: `${!view ? "0" : "160px"}` }}
+            style={{
+              height: `${!view ? "0" : "160px"}`,
+              display: `${!view ? "none" : "flex"}`
+            }}
           >
-            {imgCar}
+            <Slider {...settings} className="">
+              {imgCar}
+            </Slider>
           </div>
         </div>
 
         {this.props && this.props.images ? (
-          <img
-            className="project-act-img"
-            src={this.props.images[actImg]}
+          <div
+            className="project-act-img flex-cent flex-col"
             style={{
-              height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`,
-              objectFit: "contain"
+              height: `${!view ? "100vh" : "Calc(100vh - 160px)"}`
             }}
-            alt="WolfeAD Landing Page"
-          />
+          >
+            <img
+              className="img-shadow"
+              src={this.props.images[actImg]}
+              style={{
+                objectFit: "contain"
+              }}
+              alt="WolfeAD Landing Page"
+            />
+          </div>
         ) : (
           "loading..."
         )}
@@ -134,18 +155,3 @@ class Project extends Component {
 }
 
 export default withRouter(Project);
-
-// <button onClick={() => this.setState({ fit: !fit })}>
-//   <svg
-//     style={{ opacity: !fit ? 0.5 : 1 }}
-//     width="24px"
-//     height="24px"
-//     viewBox="0 0 24 24"
-//   >
-//     <path
-//       fill="currentColor"
-//       d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z"
-//     />
-//   </svg>
-// </button>
-//
