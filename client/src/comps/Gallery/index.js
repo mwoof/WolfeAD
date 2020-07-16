@@ -23,7 +23,13 @@ const Gallery = props => {
       return; //filter type
 
     return (
-      <Tile view={props.view} delay={i * 0.08} key={tile.id} data={tile} />
+      <Tile
+        view={props.view}
+        noLink={props.noLink}
+        delay={i * 0.08}
+        key={tile.id}
+        data={tile}
+      />
     );
   });
 

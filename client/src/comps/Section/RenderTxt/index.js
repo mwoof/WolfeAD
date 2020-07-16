@@ -4,8 +4,9 @@ import Line from "../../Line";
 import Dropdown from "../../Dropdown";
 
 const Section = props => {
-  let sort = ["commercial", "institutional", "residential", "on the boards"];
-
+  let information = ["Product", "Interior", "Exterior", "Multiple"];
+  let timeline = ["1-3 Weeks", "1 Week", "Expedited"];
+  let numbers = [0, 1, 2, 3, 4, 5];
   const setSelected = selcted => {
     console.log(selcted);
   };
@@ -19,19 +20,27 @@ const Section = props => {
       </p>
       <div className="rendr-txt-cont">
         <Dropdown
-          items={sort}
+          items={information}
           placeholder="Information"
           setSelected={setSelected}
         />
         <Dropdown
-          items={sort}
+          items={timeline}
           placeholder="Timeline"
-          setSelected={setSelected}
+          setSelected={timeline}
         />
       </div>
       <div className="rendr-txt-cont">
-        <Dropdown items={sort} placeholder="00" setSelected={setSelected} />
-        <Dropdown items={sort} placeholder="00" setSelected={setSelected} />
+        <Dropdown
+          items={numbers}
+          placeholder="Scenes"
+          setSelected={setSelected}
+        />
+        <Dropdown
+          items={numbers}
+          placeholder="Shots"
+          setSelected={setSelected}
+        />
       </div>
       <input
         className="input-input but-line input-cont"

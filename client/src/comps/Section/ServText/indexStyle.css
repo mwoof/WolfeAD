@@ -1,6 +1,9 @@
 .serv-txt-cont {
   cursor: pointer;
 }
+.serv-txt-cont h1 {
+  transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .serv-itm-txt {
   margin: 0;
   height: 0;

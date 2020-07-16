@@ -50,7 +50,11 @@ class Home extends Component {
             text={<RendrTxt />}
             media={<ServiceMdia image={RendrImg} />}
           ></Section>
-          <SectionGall lable="Archive" items={this.state.projects} />
+          <SectionGall
+            lable="Archive"
+            noLink={true}
+            items={this.state.projects}
+          />
           <div className="grid-wrapper flex-cent">
             <div className="spacing" style={{ height: "100%" }}>
               <DotGrid top="12%" left="-66px" />

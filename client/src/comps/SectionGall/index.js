@@ -48,8 +48,9 @@ class Section extends Component {
     this.animCheck();
   };
   render() {
-    const { lable, media, text, gallType } = this.props;
+    const { lable, media, text, gallType, noLink } = this.props;
     const { animate } = this.state;
+
     return (
       <section
         ref={this.contentbox}
@@ -65,6 +66,7 @@ class Section extends Component {
         <div className="sect-act">{this.props.action}</div>
         {!gallType ? (
           <Gallery
+            noLink={noLink}
             className="sect-gal"
             noMargin={true}
             array={this.props.items}

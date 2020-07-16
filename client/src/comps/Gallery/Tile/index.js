@@ -72,7 +72,36 @@ const Drop = props => {
     </div>
   );
 
-  return props.view || typeof props.view === "undefined" ? tile : list;
+  const noLink = (
+    <div
+      className="tile-wrap"
+      style={{
+        animationDelay: `${props.delay}s`
+      }}
+    >
+      <div
+        key={Math.random()}
+        className="tile-cont flex-cent"
+        style={{
+          backgroundImage: `url(${image})`
+        }}
+      >
+        <div className="tile-overlay flex-cent flex-col">
+          <h1>
+            {name.length < strLngth
+              ? name
+              : name.substring(0, strLngth) + "..."}
+          </h1>
+          <p className="nav-txt ">{location}</p>
+        </div>
+      </div>
+    </div>
+  );
+  return props.noLink
+    ? noLink
+    : props.view || typeof props.view === "undefined"
+    ? tile
+    : list;
 };
 
 export default Drop;
