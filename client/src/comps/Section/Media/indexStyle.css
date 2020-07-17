@@ -1,3 +1,9 @@
 .med-wrap {
   position: relative;
 }
+
+.med-wrap img {
+  max-height: 400px;
+  /* max-width: 600px; */
+  object-fit: cover;
+}

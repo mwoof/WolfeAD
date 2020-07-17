@@ -17,7 +17,10 @@ import ServiceMdia from "../comps/Section/Media";
 import SecRevMdia from "../comps/SectionRev/Media";
 import ProjectMida from "../comps/SectionCarousel/ProjectMedia";
 
+import RendrImg from "../media/images/RenderImg.png";
 import ServicesImg from "../media/images/Placeholder.png";
+import ServBey from "../media/images/servBey.jpg";
+import ServRendrImg from "../media/images/serviceRend.jpg";
 import AboutImg from "../media/images/Office.png";
 import ProfileImg from "../media/images/Profile.png";
 import MapImg from "../media/images/Map.png";
@@ -27,34 +30,43 @@ const db = firebase.firestore();
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      servMedia: ServicesImg,
+    };
   }
 
   componentWillMount() {
     db.collection("projects")
       .doc("--STATS--")
       .get()
-      .then(doc => {
+      .then((doc) => {
         this.setState({
           slides: doc.data().landing,
-          featured: doc.data().featured
+          featured: doc.data().featured,
         });
       });
   }
-
   componentDidMount() {
     window.scrollTo(0, 0);
     let projects = {};
     db.collection("projects")
       .get()
-      .then(doc => {
-        doc.forEach(project => {
+      .then((doc) => {
+        doc.forEach((project) => {
           if (project.id === "--STATS--") return;
           projects[project.id] = project.data();
         });
         this.setState({ projects });
       });
+    this.setServMed(0);
   }
+
+  setServMed = (index) => {
+    let servMediaArry = [RendrImg, ServicesImg, ServRendrImg, ServBey];
+
+    this.setState({ servMedia: servMediaArry[index] });
+  };
+
   render() {
     return (
       <div>
@@ -62,8 +74,8 @@ class Home extends Component {
         <div className="sec-wrap">
           <Section
             lable="Services"
-            text={<ServiceTxt />}
-            media={<ServiceMdia image={ServicesImg} />}
+            text={<ServiceTxt setMedia={this.setServMed} />}
+            media={<ServiceMdia image={this.state.servMedia} />}
           ></Section>
           <SectionCarousel
             lable="Projects"
