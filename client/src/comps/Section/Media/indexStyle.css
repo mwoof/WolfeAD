@@ -1,9 +1,33 @@
 .med-wrap {
   position: relative;
+  min-height: Calc((100vw - 32px) * 9 / 16);
 }
 
 .med-wrap img {
   max-height: 400px;
   /* max-width: 600px; */
   object-fit: cover;
+  /* opacity: 0; */
+  /* animation: reveal-rit 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards; */
+}
+
+.act-anim .transServImg {
+  opacity: 0;
+  animation: reveal-rit 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes reveal-rit {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .med-wrap {
+    min-height: auto;
+  }
 }

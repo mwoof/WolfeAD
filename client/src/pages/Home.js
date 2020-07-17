@@ -75,7 +75,12 @@ class Home extends Component {
           <Section
             lable="Services"
             text={<ServiceTxt setMedia={this.setServMed} />}
-            media={<ServiceMdia image={this.state.servMedia} />}
+            media={
+              <ServiceMdia
+                image={this.state.servMedia}
+                specClass="transServImg"
+              />
+            }
           ></Section>
           <SectionCarousel
             lable="Projects"

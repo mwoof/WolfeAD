@@ -8,7 +8,11 @@ const Section = (props) => {
   return (
     <div className="med-wrap">
       <div className="med-shad-top "></div>
-      <img src={props.image} className="img-shadow" />
+      <img
+        key={props.image.toString()}
+        src={props.image}
+        className={`img-shadow ${props.specClass}`}
+      />
     </div>
   );
 };
