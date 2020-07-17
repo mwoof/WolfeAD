@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
 
 import "./indexStyle.css";
@@ -17,41 +17,79 @@ import Boards from "../../../media/images/Landing/LandingTestBor.jpg";
 // class Landing extends Component {
 // render() {
 
-const Landing = props => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true
-  };
+class Landing extends Component {
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      pauseOnHover: true,
+    };
 
-  return (
-    <div className="Landing-cont test-g-wrap flex-cent ">
-      <Slider {...settings}>
-        {!props.slides ? (
-          <div>
-            <div className="slide-wrap flex-cent flex-col txt-hlght">
-              loading...
-            </div>
-          </div>
-        ) : (
-          props.slides.map(slide => (
-            <Slide
-              key={Math.random()}
-              type={slide.type}
-              image={slide.image}
-              location="Private Res. St. Louis, MO"
-              link={slide.value}
+    return (
+      <div className="Landing-cont test-g-wrap flex-cent ">
+        <div
+          className="land-nav-arr flex-cent"
+          style={{ left: 0 }}
+          onClick={(e) => this.previous()}
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              fill="#fff"
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
             />
-          ))
-        )}
-      </Slider>
-    </div>
-  );
-};
+          </svg>
+        </div>
+        <div
+          className="land-nav-arr flex-cent"
+          style={{ right: 0, transform: "rotate(180deg)" }}
+          onClick={(e) => this.next()}
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              fill="#fff"
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            />
+          </svg>
+        </div>
+
+        <Slider ref={(c) => (this.slider = c)} {...settings}>
+          {!this.props.slides ? (
+            <div>
+              <div className="slide-wrap flex-cent flex-col txt-hlght">
+                loading...
+              </div>
+            </div>
+          ) : (
+            this.props.slides.map((slide) => (
+              <Slide
+                key={Math.random()}
+                type={slide.type}
+                image={slide.image}
+                location="Private Res. St. Louis, MO"
+                link={slide.value}
+              />
+            ))
+          )}
+        </Slider>
+      </div>
+    );
+  }
+}
 
 export default Landing;
