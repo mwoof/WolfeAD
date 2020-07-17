@@ -1,8 +1,14 @@
 .serv-txt-cont {
   cursor: pointer;
 }
-.serv-txt-cont h1 {
+.h1-sec-txt {
   transition: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.6;
+}
+
+.h1-active-sec-txt,
+.h1-sec-txt:hover {
+  opacity: 1;
 }
 .serv-itm-txt {
   margin: 0;

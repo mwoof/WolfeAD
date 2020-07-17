@@ -47,7 +47,11 @@ class Section extends Component {
         className="serv-txt-cont"
         key={Math.random()}
       >
-        <h1 style={{ opacity: actItm !== i ? 0.6 : 1 }}>{item.title}</h1>
+        <h1
+          className={`h1-sec-txt ${actItm !== i ? "" : "h1-active-sec-txt "}`}
+        >
+          {item.title}
+        </h1>
         <h2
           className={`serv-itm-txt ${actItm !== i ? "" : "serv-itm-txt-act"}`}
         >
