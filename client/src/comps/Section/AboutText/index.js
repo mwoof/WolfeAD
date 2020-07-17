@@ -3,18 +3,19 @@ import React from "react";
 import Line from "../../Line";
 // import Highlight from "./Highlight";
 
-const Section = props => {
+const Section = (props) => {
   return (
     <div>
       <h1>Architecture & Design</h1>
       <p style={{ marginBottom: "36px" }}>
         Wolfe A&D is an architecture and design firmed based in St. Louis
         Missouri. Founded in 2012, the practice operates worldwide with projects
-        in Beijing, Normandy, Yunnan, and major cities across the United States.
+        in Qingdao, Hangzhou and Lisuang China; Normandy, France and across the
+        United States.
         <br />
         <br />
-        As an international practice Wolfe, A&D covers architecture, planning
-        and industrial design across all major sectors.
+        As an international practice Wolfe A&D created a collaborative studio
+        with a collection of talented designers from diverse backgrounds.
       </p>
     </div>
   );

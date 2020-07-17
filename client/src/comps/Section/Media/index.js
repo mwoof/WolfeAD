@@ -6,7 +6,7 @@ import Placeholder from "../../../media/images/Placeholder.png";
 
 const Section = (props) => {
   return (
-    <div className="med-wrap">
+    <div className={`med-wrap ${props.noMinHit ? "" : "med-wrap-hit"}`}>
       <div className="med-shad-top "></div>
       <img
         key={props.image.toString()}

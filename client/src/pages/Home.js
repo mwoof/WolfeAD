@@ -108,7 +108,7 @@ class Home extends Component {
             id="contact"
             lable="Contact"
             text={<ContactTxt />}
-            media={<ServiceMdia image={MapImg} />}
+            media={<ServiceMdia noMinHit={true} image={MapImg} />}
           />
           <div className="grid-wrapper flex-cent">
             <div className="spacing" style={{ height: "100%" }}>

@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import { HashLink as Link } from "react-router-hash-link";
+
 import "./indexStyle.css";
 import Line from "../../Line";
 
 import DotGrid from "../../grid";
 
-const SideNav = props => {
+const SideNav = (props) => {
   return (
     <div
       className={`sidNav-wrap flex-col-out ${
@@ -17,21 +19,21 @@ const SideNav = props => {
         <NavLink
           exact
           to="/"
-          onClick={e => props.openSideNav()}
+          onClick={(e) => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Home
         </NavLink>
         <NavLink
           to="/projects"
-          onClick={e => props.openSideNav()}
+          onClick={(e) => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Projects
         </NavLink>
         <NavLink
           to="/rendering"
-          onClick={e => props.openSideNav()}
+          onClick={(e) => props.openSideNav()}
           activeClassName="nav-txt-hlght"
         >
           Rendering
@@ -41,7 +43,7 @@ const SideNav = props => {
         ) : (
           <NavLink
             to="/admin"
-            onClick={e => props.openSideNav()}
+            onClick={(e) => props.openSideNav()}
             activeClassName="nav-txt-hlght"
           >
             Admin
@@ -51,7 +53,7 @@ const SideNav = props => {
         {!props.authed ? (
           <NavLink
             to="/login"
-            onClick={e => props.openSideNav()}
+            onClick={(e) => props.openSideNav()}
             activeClassName="nav-txt-hlght"
           >
             Log in
@@ -64,7 +66,7 @@ const SideNav = props => {
               props.firebase
                 .auth()
                 .signOut()
-                .catch(function(error) {
+                .catch(function (error) {
                   console.log(error);
                 });
             }}
@@ -73,9 +75,13 @@ const SideNav = props => {
             Log out
           </NavLink>
         )}
-        <NavLink to="/" className="nav-txt-hlght">
+        <Link
+          className="nav-txt-hlght"
+          to="/#contact"
+          onClick={(e) => props.openSideNav()}
+        >
           Contact
-        </NavLink>
+        </Link>
       </nav>
 
       <div className="siNav-foot flex-col-rit" style={{ marginRight: "16px" }}>

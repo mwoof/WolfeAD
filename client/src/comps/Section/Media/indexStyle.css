@@ -1,5 +1,7 @@
 .med-wrap {
   position: relative;
+}
+.med-wrap-hit {
   min-height: Calc((100vw - 32px) * 9 / 16);
 }
 

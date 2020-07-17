@@ -19,22 +19,22 @@ class Section extends Component {
       {
         title: "Architectural Services",
         content:
-          "Wolfe A&D provides full architectural services from feasibility studies, concept generation through move in.",
+          "Wolfe A&D provides a full architectural service: pre-design, programming, feasibility studies, concept generation, construction documentation through move in.",
       },
       {
-        title: "Programming & Pre-Design",
+        title: "Industrial Design",
         content:
-          "Wolfe A&D helps clients set the parameters for the design process; defining budgets, schedules, special programing and goals",
+          "Wolfe A&D works with clients to develop products with aesthetics, ease of manufacturing and sourcing in mind",
       },
       {
-        title: "Progect Rendering",
+        title: "Project Renderings",
         content:
           "Wolfe A&D provides rendering services to both clients and other architects looking to spruce up presentations and other project media.",
       },
       {
         title: "Beyond Design Services",
         content:
-          "In addition to the traditional Architectural Services, Wolfe A&D can assist clients with project promotions and fundraising.",
+          "In addition to architectural and design services, Wolfe A&D can assist clients with project promotions and fundraising.",
       },
     ];
 
