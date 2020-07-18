@@ -108,7 +108,13 @@ class Home extends Component {
             id="contact"
             lable="Contact"
             text={<ContactTxt />}
-            media={<ServiceMdia noMinHit={true} image={MapImg} />}
+            media={
+              <ServiceMdia
+                noMinHit={true}
+                image={MapImg}
+                link="https://www.google.com/maps/place/Wolfe+Architecture+%26+Design,+7412+Manchester+Rd,+St.+Louis,+MO+63143/@38.6122807,-90.3223777,17z/data=!4m2!3m1!1s0x87d8cbf1a12ddb3f:0xf072dcaedc44e5e8"
+              />
+            }
           />
           <div className="grid-wrapper flex-cent">
             <div className="spacing" style={{ height: "100%" }}>

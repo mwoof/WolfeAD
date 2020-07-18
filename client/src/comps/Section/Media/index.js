@@ -9,6 +9,7 @@ const Section = (props) => {
     <div className={`med-wrap ${props.noMinHit ? "" : "med-wrap-hit"}`}>
       <div className="med-shad-top "></div>
       <img
+        onClick={(e) => (!props.link ? "" : (window.location = props.link))}
         key={props.image.toString()}
         src={props.image}
         className={`img-shadow ${props.specClass}`}

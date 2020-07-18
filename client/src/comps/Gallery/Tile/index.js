@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./indexStyle.css";
 
-import Image from "../../../media/images/Img1.png";
-
-const Drop = props => {
+const Drop = (props) => {
   const id = props.data.id;
   const name = props.data.data.name ? props.data.data.name : "";
   const location = props.data.data.location;
@@ -20,7 +18,7 @@ const Drop = props => {
     <div
       className="tile-wrap"
       style={{
-        animationDelay: `${props.delay}s`
+        animationDelay: `${props.delay}s`,
       }}
     >
       <Link
@@ -47,7 +45,7 @@ const Drop = props => {
     <div
       className="tile-wrap"
       style={{
-        animationDelay: `${props.delay}s`
+        animationDelay: `${props.delay}s`,
       }}
     >
       <Link
@@ -57,7 +55,7 @@ const Drop = props => {
         }`}
         className="tile-cont flex-cent"
         style={{
-          backgroundImage: `url(${image})`
+          backgroundImage: `url(${image})`,
         }}
       >
         <div className="tile-overlay flex-cent flex-col">
@@ -76,14 +74,14 @@ const Drop = props => {
     <div
       className="tile-wrap"
       style={{
-        animationDelay: `${props.delay}s`
+        animationDelay: `${props.delay}s`,
       }}
     >
       <div
         key={Math.random()}
         className="tile-cont flex-cent"
         style={{
-          backgroundImage: `url(${image})`
+          backgroundImage: `url(${image})`,
         }}
       >
         <div className="tile-overlay flex-cent flex-col">

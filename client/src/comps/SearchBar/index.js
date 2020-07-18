@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./indexStyle.css";
 
-const Drop = props => {
+const Drop = (props) => {
   const [srch, setSrch] = useState("");
   return (
     <button className={`but-line srch-cont ${props.className}`}>
@@ -15,7 +15,7 @@ const Drop = props => {
           className="srch-icon"
           style={{ marginRight: "-8px", opacity: 0.5, minWidth: "24px" }}
           viewBox="0 0 24 24"
-          onClick={e => {
+          onClick={(e) => {
             props.setSearch("");
             setSrch("");
           }}
@@ -27,11 +27,10 @@ const Drop = props => {
         </svg>
       )}
       <input
-        id
         className="srch-input"
         placeholder={props.placeholder}
         value={srch}
-        onChange={e => {
+        onChange={(e) => {
           props.setSearch(e.target.value);
           setSrch(e.target.value);
         }}

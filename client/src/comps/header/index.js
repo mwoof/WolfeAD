@@ -9,7 +9,7 @@ import Logo from "../../media/svgs/LogoRed";
 
 import SideNav from "./SideNav";
 
-const Header = props => {
+const Header = (props) => {
   return (
     <div
       className={`header-cont flex-cent nav-txt flex-out ${
@@ -49,7 +49,7 @@ const Header = props => {
               firebase
                 .auth()
                 .signOut()
-                .catch(function(error) {
+                .catch(function (error) {
                   console.log(error);
                 })
             }
@@ -58,11 +58,7 @@ const Header = props => {
             Log out
           </NavLink>
         )}
-        <Link
-          className="nav-txt-hlght"
-          to="/#contact"
-          activeClassName="nav-txt-hlght"
-        >
+        <Link className="nav-txt-hlght" to="/#contact">
           Contact
         </Link>
       </nav>
