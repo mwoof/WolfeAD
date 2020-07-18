@@ -4,19 +4,19 @@ import "./indexStyle.css";
 
 // const Drop = (props) => {
 // class Drop extends Component {
-const Drop = props => {
+const Drop = (props) => {
   const [open, setOpen] = useState(props.data);
 
   const { items, placeholder, style, selected } = props;
   const options = !items
     ? []
-    : items.map(item => (
-        <div key={Math.random()} onClick={e => select(item)}>
+    : items.map((item) => (
+        <div key={Math.random()} onClick={(e) => select(item)}>
           {item}
         </div>
       ));
 
-  const select = selction => {
+  const select = (selction) => {
     console.log(selction);
     setOpen(!open);
     props.setSelected(selction);
@@ -26,6 +26,7 @@ const Drop = props => {
     <div style={style} className={props.className}>
       <div style={{ position: "relative" }}>
         <button
+          type="button"
           className="but-line drop-dwn-cont"
           style={{ width: "100%" }}
           onClick={() => {
@@ -43,7 +44,7 @@ const Drop = props => {
               marginLeft: "8px",
               transform: `rotate(${!open ? 0 : "180deg"})`,
               width: "24px",
-              height: "24px"
+              height: "24px",
             }}
             viewBox="0 0 24 24"
           >
@@ -54,7 +55,7 @@ const Drop = props => {
           className="drop-pop-wrap"
           style={{
             display: !open ? "none" : "block",
-            width: "100%"
+            width: "100%",
           }}
         >
           {options}

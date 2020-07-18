@@ -50,6 +50,7 @@ const SideNav = (props) => {
           </NavLink>
         )}
         <Line width="32px" className="sidNav-div" />
+
         {!props.authed ? (
           <NavLink
             to="/login"
